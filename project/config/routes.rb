@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :sellers
   devise_for :managers
-  resources :articles
-
+  
   get 'home/index'
 
   resources :bikes
@@ -25,8 +25,9 @@ Rails.application.routes.draw do
 
   resources :managers
 
-
   resources :articles
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

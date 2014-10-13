@@ -1,2 +1,0 @@
-module BicicletaHelper
-end

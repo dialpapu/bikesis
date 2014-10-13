@@ -1,26 +1,4 @@
 Rails.application.routes.draw do
-  resources :equipaciones
-
-  resources :bicicleta
-
-  resources :repuesto_accesorios
-
-  resources :inventarios
-
-  resources :venta
-
-  resources :items
-
-  resources :clientes
-
-  resources :historial_contratos
-
-  resources :vendedores
-
-  resources :gerentes
-
-  resources :noticia
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

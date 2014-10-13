@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
 
   def index
     @articles = Article.all

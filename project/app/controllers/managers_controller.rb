@@ -4,16 +4,16 @@ class ManagersController < ApplicationController
   
   def index
     @managers = Manager.all
-    respond_with(@managers)
+    
   end
 
   def show
-    respond_with(@manager)
+    
   end
 
   def new
     @manager = Manager.new
-    respond_with(@manager)
+    
   end
 
   def edit

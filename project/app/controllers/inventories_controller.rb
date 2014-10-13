@@ -3,16 +3,16 @@ class InventoriesController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @inventories = Inventory.all
-    respond_with(@inventories)
+    
   end
 
   def show
-    respond_with(@inventory)
+    
   end
 
   def new
     @inventory = Inventory.new
-    respond_with(@inventory)
+    
   end
 
   def edit
@@ -33,7 +33,7 @@ class InventoriesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @inventory.update(manager_params)
+      if @inventory.update(inventory_params)
         format.html { redirect_to @inventory, notice: 'Inventario modificado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @inventory }
       else

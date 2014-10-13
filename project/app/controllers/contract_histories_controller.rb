@@ -3,16 +3,16 @@ class ContractHistoriesController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @contract_histories = ContractHistory.all
-    respond_with(@contract_histories)
+    
   end
 
   def show
-    respond_with(@contract_history)
+    
   end
 
   def new
     @contract_history = ContractHistory.new
-    respond_with(@contract_history)
+    
   end
 
   def edit
@@ -48,7 +48,7 @@ class ContractHistoriesController < ApplicationController
   def destroy
     @contract_history.destroy
     respond_to do |format|
-      format.html { redirect_to contract_url, notice: 'El historial se ha deshabilitado.' }
+      format.html { redirect_to contract_url, notice: 'El contrato se ha deshabilitado.' }
       format.json { head :no_content }
     end
   end

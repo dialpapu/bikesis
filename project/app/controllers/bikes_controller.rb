@@ -4,16 +4,16 @@ class BikesController < ApplicationController
 
   def index
     @bikes = Bike.all
-    respond_with(@bikes)
+    
   end
 
   def show
-    respond_with(@bike)
+    
   end
 
   def new
     @bike = Bike.new
-    respond_with(@bike)
+    
   end
 
   def edit

@@ -4,16 +4,16 @@ class EquipmentController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @equipment = Equipment.all
-    respond_with(@equipment)
+    
   end
 
   def show
-    respond_with(@equipment)
+    
   end
 
   def new
     @equipment = Equipment.new
-    respond_with(@equipment)
+    
   end
 
   def edit

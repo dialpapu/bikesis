@@ -3,16 +3,16 @@ class SellersController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @sellers = Seller.all
-    respond_with(@sellers)
+    
   end
 
   def show
-    respond_with(@seller)
+    
   end
 
   def new
     @seller = Seller.new
-    respond_with(@seller)
+    
   end
 
   def edit

@@ -4,16 +4,16 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
-    respond_with(@clients)
+    
   end
 
   def show
-    respond_with(@client)
+    
   end
 
   def new
     @client = Client.new
-    respond_with(@client)
+    
   end
 
   def edit
@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
     @client.save
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'El cliente fue creado correctamente.' }
+        format.html { redirect_to @client, notice: 'Cliente creado correctamente.' }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new }

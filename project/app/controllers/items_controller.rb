@@ -3,16 +3,16 @@ class ItemsController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @items = Item.all
-    respond_with(@items)
+    
   end
 
   def show
-    respond_with(@item)
+    
   end
 
   def new
     @item = Item.new
-    respond_with(@item)
+    
   end
 
   def edit

@@ -47,7 +47,10 @@ class SalesController < ApplicationController
 
   def destroy
     @sale.destroy
-    respond_with(@sale)
+    respond_to do |format|
+      format.html { redirect_to sale_url, notice: 'La venta se ha deshabilitado.' }
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -45,7 +45,10 @@ class AccesoryPartsController < ApplicationController
 
   def destroy
     @accesory_part.destroy
-    respond_with(@accesory_part)
+    respond_to do |format|
+      format.html { redirect_to accesory_part_url, notice: 'Accesorio repuesto se ha deshabilitado.' }
+      format.json { head :no_content }
+    end
   end
 
   private

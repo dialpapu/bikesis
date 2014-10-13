@@ -45,7 +45,10 @@ class InventoriesController < ApplicationController
 
   def destroy
     @inventory.destroy
-    respond_with(@inventory)
+    respond_to do |format|
+      format.html { redirect_to inventory_url, notice: 'Inventario se ha deshabilitado.' }
+      format.json { head :no_content }
+    end
   end
 
   private

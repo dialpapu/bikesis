@@ -47,7 +47,10 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    respond_with(@item)
+    respond_to do |format|
+      format.html { redirect_to item_url, notice: 'El item se ha deshabilitado.' }
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -48,7 +48,10 @@ class BikesController < ApplicationController
 
   def destroy
     @bike.destroy
-    respond_with(@bike)
+    respond_to do |format|
+      format.html { redirect_to bike_url, notice: 'Bicileta ha sido deshabilitada.' }
+      format.json { head :no_content }
+    end
   end
 
   private

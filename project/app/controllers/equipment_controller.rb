@@ -47,7 +47,10 @@ class EquipmentController < ApplicationController
 
   def destroy
     @equipment.destroy
-    respond_with(@equipment)
+    respond_to do |format|
+      format.html { redirect_to equipment_url, notice: 'Equipamento deshabilitado.' }
+      format.json { head :no_content }
+    end
   end
 
   private

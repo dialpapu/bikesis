@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
     @article.save
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'El artículo fue creado correctamente' }
+        format.html { redirect_to @article, notice: 'El articulo fue creado correctamente' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'El artículo se ha actualizado satisfactoriamente.' }
+        format.html { redirect_to @article, notice: 'El articulo se ha actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }

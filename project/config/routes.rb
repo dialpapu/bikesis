@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :bikes
 
   resources :equipment
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
   resources :sales
 
   resources :items
-=======
+
   resources :clients
 
   resources :contract_histories
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
   resources :sellers
 
   resources :managers
->>>>>>> origin/master
+
 
   resources :articles
 

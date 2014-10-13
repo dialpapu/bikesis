@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :xml, :json
   def index
     @items = Item.all
     respond_with(@items)
@@ -21,12 +21,28 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    respond_with(@item)
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to @item, notice: 'Item fue creado correctamente.' }
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { render :new }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
     @item.update(item_params)
-    respond_with(@item)
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html { redirect_to @item, notice: 'Item modificado satisfactoriamente.' }
+        format.json { render :show, status: :ok, location: @item }
+      else
+        format.html { render :edit }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

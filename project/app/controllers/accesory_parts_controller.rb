@@ -1,6 +1,6 @@
 class AccesoryPartsController < ApplicationController
   before_action :set_accesory_part, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :xml, :json
   def index
     @accesory_parts = AccesoryPart.all
     respond_with(@accesory_parts)
@@ -20,13 +20,27 @@ class AccesoryPartsController < ApplicationController
 
   def create
     @accesory_part = AccesoryPart.new(accesory_part_params)
-    @accesory_part.save
-    respond_with(@accesory_part)
+    respond_to do |format|
+      if @accesory_part.save
+        format.html { redirect_to @accesory_part, notice: 'Accesorio - Repuesto fue creado correctamente.' }
+        format.json { render :show, status: :created, location: @accesory_part }
+      else
+        format.html { render :new }
+        format.json { render json: @accesory_part.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @accesory_part.update(accesory_part_params)
-    respond_with(@accesory_part)
+    respond_to do |format|
+      if @accesory_part.update(accesory_part_params)
+        format.html { redirect_to @accesory_part, notice: 'Accesorio - Repuesto modificado satisfactoriamente.' }
+        format.json { render :show, status: :ok, location: @accesory_part }
+      else
+        format.html { render :edit }
+        format.json { render json: @accesory_part.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -35,11 +49,11 @@ class AccesoryPartsController < ApplicationController
   end
 
   private
-    def set_accesory_part
-      @accesory_part = AccesoryPart.find(params[:id])
-    end
+  def set_accesory_part
+    @accesory_part = AccesoryPart.find(params[:id])
+  end
 
-    def accesory_part_params
-      params.require(:accesory_part).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :typeElement)
-    end
+  def accesory_part_params
+    params.require(:accesory_part).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :typeElement)
+  end
 end

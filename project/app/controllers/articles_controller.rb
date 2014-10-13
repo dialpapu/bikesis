@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @articles = Article.all
-    respond_with(@articles)
+    
   end
 
   def show

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :sellers
+  devise_for :managers
   resources :articles
 
   get 'home/index'

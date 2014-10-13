@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Productid:</strong>
+  <%= @equipment.productId %>
+</p>
+
+<p>
+  <strong>Productreference:</strong>
+  <%= @equipment.productReference %>
+</p>
+
+<p>
+  <strong>Productname:</strong>
+  <%= @equipment.productName %>
+</p>
+
+<p>
+  <strong>Producttrademark:</strong>
+  <%= @equipment.productTradeMark %>
+</p>
+
+<p>
+  <strong>Productimage:</strong>
+  <%= @equipment.productImage %>
+</p>
+
+<p>
+  <strong>Productprice:</strong>
+  <%= @equipment.productPrice %>
+</p>
+
+<p>
+  <strong>Productstatus:</strong>
+  <%= @equipment.productStatus %>
+</p>
+
+<p>
+  <strong>Productdescription:</strong>
+  <%= @equipment.productDescription %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @equipment.size %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @equipment.gender %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+<%= link_to 'Back', equipment_index_path %>

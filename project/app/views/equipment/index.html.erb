@@ -1,0 +1,43 @@
+<h1>Listing equipment</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Productid</th>
+      <th>Productreference</th>
+      <th>Productname</th>
+      <th>Producttrademark</th>
+      <th>Productimage</th>
+      <th>Productprice</th>
+      <th>Productstatus</th>
+      <th>Productdescription</th>
+      <th>Size</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.productId %></td>
+        <td><%= equipment.productReference %></td>
+        <td><%= equipment.productName %></td>
+        <td><%= equipment.productTradeMark %></td>
+        <td><%= equipment.productImage %></td>
+        <td><%= equipment.productPrice %></td>
+        <td><%= equipment.productStatus %></td>
+        <td><%= equipment.productDescription %></td>
+        <td><%= equipment.size %></td>
+        <td><%= equipment.gender %></td>
+        <td><%= link_to 'Show', equipment %></td>
+        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
+        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipment', new_equipment_path %>

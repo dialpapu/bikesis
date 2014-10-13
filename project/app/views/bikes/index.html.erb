@@ -1,0 +1,43 @@
+<h1>Listing bikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Productid</th>
+      <th>Productreference</th>
+      <th>Productname</th>
+      <th>Producttrademark</th>
+      <th>Productimage</th>
+      <th>Productprice</th>
+      <th>Productstatus</th>
+      <th>Productdescription</th>
+      <th>Measures</th>
+      <th>Biketype</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bikes.each do |bike| %>
+      <tr>
+        <td><%= bike.productId %></td>
+        <td><%= bike.productReference %></td>
+        <td><%= bike.productName %></td>
+        <td><%= bike.productTradeMark %></td>
+        <td><%= bike.productImage %></td>
+        <td><%= bike.productPrice %></td>
+        <td><%= bike.productStatus %></td>
+        <td><%= bike.productDescription %></td>
+        <td><%= bike.measures %></td>
+        <td><%= bike.bikeType %></td>
+        <td><%= link_to 'Show', bike %></td>
+        <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
+        <td><%= link_to 'Destroy', bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bike', new_bike_path %>

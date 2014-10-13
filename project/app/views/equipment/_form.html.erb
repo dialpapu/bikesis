@@ -1,0 +1,57 @@
+<%= form_for(@equipment) do |f| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :productId %><br>
+    <%= f.number_field :productId %>
+  </div>
+  <div class="field">
+    <%= f.label :productReference %><br>
+    <%= f.text_field :productReference %>
+  </div>
+  <div class="field">
+    <%= f.label :productName %><br>
+    <%= f.text_field :productName %>
+  </div>
+  <div class="field">
+    <%= f.label :productTradeMark %><br>
+    <%= f.text_field :productTradeMark %>
+  </div>
+  <div class="field">
+    <%= f.label :productImage %><br>
+    <%= f.text_field :productImage %>
+  </div>
+  <div class="field">
+    <%= f.label :productPrice %><br>
+    <%= f.number_field :productPrice %>
+  </div>
+  <div class="field">
+    <%= f.label :productStatus %><br>
+    <%= f.check_box :productStatus %>
+  </div>
+  <div class="field">
+    <%= f.label :productDescription %><br>
+    <%= f.text_field :productDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

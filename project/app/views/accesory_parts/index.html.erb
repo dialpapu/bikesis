@@ -1,0 +1,41 @@
+<h1>Listing accesory_parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Productid</th>
+      <th>Productreference</th>
+      <th>Productname</th>
+      <th>Producttrademark</th>
+      <th>Productimage</th>
+      <th>Productprice</th>
+      <th>Productstatus</th>
+      <th>Productdescription</th>
+      <th>Typeelement</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accesory_parts.each do |accesory_part| %>
+      <tr>
+        <td><%= accesory_part.productId %></td>
+        <td><%= accesory_part.productReference %></td>
+        <td><%= accesory_part.productName %></td>
+        <td><%= accesory_part.productTradeMark %></td>
+        <td><%= accesory_part.productImage %></td>
+        <td><%= accesory_part.productPrice %></td>
+        <td><%= accesory_part.productStatus %></td>
+        <td><%= accesory_part.productDescription %></td>
+        <td><%= accesory_part.typeElement %></td>
+        <td><%= link_to 'Show', accesory_part %></td>
+        <td><%= link_to 'Edit', edit_accesory_part_path(accesory_part) %></td>
+        <td><%= link_to 'Destroy', accesory_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accesory part', new_accesory_part_path %>

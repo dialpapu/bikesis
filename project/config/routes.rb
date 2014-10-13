@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :bikes
+
+  resources :equipment
+
+  resources :accesory_parts
+
+  resources :inventories
+
+  resources :sales
+
+  resources :items
+
   resources :articles
 
   # The priority is based upon order of creation: first created -> highest priority.

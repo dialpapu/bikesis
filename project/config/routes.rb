@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :clients
+
+  resources :contract_histories
+
+  resources :sellers
+
+  resources :managers
+
   resources :articles
 
   # The priority is based upon order of creation: first created -> highest priority.

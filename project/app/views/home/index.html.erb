@@ -1,6 +1,11 @@
-<h1>Home#index</h1>
+<%if @managers.empty?  %>
+<div> <a href="/managers/new">Crear el gerente</a></div>
+
+<% end %>
+
 
 <%if current_manager.present? || current_seller.present?%>
+
 <a href="/articles/new">Crear un artículo</a>
 <% else %>      
 <a href="/managers/sign_in">Acceder como Administrador</a>

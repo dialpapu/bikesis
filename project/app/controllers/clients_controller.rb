@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.save
     respond_to do |format|
-      if @index.save
+      if @client.save
         format.html { redirect_to @client, notice: 'El cliente fue creado correctamente.' }
         format.json { render :show, status: :created, location: @client }
       else

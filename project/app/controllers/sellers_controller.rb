@@ -22,7 +22,7 @@ class SellersController < ApplicationController
     @seller = Seller.new(seller_params)
     @seller.save
     respond_to do |format|
-      if @index.save
+      if @seller.save
         format.html { redirect_to @seller, notice: 'Vendedor fue creado correctamente.' }
         format.json { render :show, status: :created, location: @seller }
       else

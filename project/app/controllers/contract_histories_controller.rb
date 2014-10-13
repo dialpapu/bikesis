@@ -22,7 +22,7 @@ class ContractHistoriesController < ApplicationController
     @contract_history = ContractHistory.new(contract_history_params)
     @contract_history.save
     respond_to do |format|
-      if @index.save
+      if @contract_history.save
         format.html { redirect_to @contract_history, notice: 'El contrato fue realizado correctamente.' }
         format.json { render :show, status: :created, location: @contract_history }
       else
@@ -35,12 +35,12 @@ class ContractHistoriesController < ApplicationController
   def update
     @contract_history.update(contract_history_params)
     respond_to do |format|
-      if @pagina.update(contract_history_params)
-        format.html { redirect_to @contract, notice: 'El contrato se ha actualizado satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @contract }
+      if @contract_history.update(contract_history_params)
+        format.html { redirect_to @contract_history, notice: 'El contrato se ha actualizado satisfactoriamente.' }
+        format.json { render :show, status: :ok, location: @contract_history }
       else
         format.html { render :edit }
-        format.json { render json: @contract.errors, status: :unprocessable_entity }
+        format.json { render json: @contract_history.errors, status: :unprocessable_entity }
       end
     end
   end

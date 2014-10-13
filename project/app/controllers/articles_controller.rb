@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.save
     respond_to do |format|
-      if @index.save
+      if @article.save
         format.html { redirect_to @article, notice: 'El artículo fue creado correctamente' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
     respond_to do |format|
-      if @pagina.update(article_params)
+      if @article.update(article_params)
         format.html { redirect_to @article, notice: 'El artículo se ha actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @article }
       else

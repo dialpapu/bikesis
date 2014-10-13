@@ -22,7 +22,7 @@ class ManagersController < ApplicationController
     @manager = Manager.new(manager_params)
     @manager.save
     respond_to do |format|
-      if @index.save
+      if @manager.save
         format.html { redirect_to @manager, notice: 'Gerente fue creado correctamente.' }
         format.json { render :show, status: :created, location: @manager }
       else
@@ -35,7 +35,7 @@ class ManagersController < ApplicationController
   def update
     @manager.update(manager_params)
     respond_to do |format|
-      if @pagina.update(manager_params)
+      if @manager.update(manager_params)
         format.html { redirect_to @manager, notice: 'El gerente se ha modificado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @manager }
       else

@@ -3,7 +3,12 @@ class AccesoryPartsController < ApplicationController
   respond_to :html, :xml, :json
   def index
     @accesory_parts = AccesoryPart.all
-    respond_with(@accesory_parts)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        send_data ElementDrawner.draw(@accesory_parts), :filename => 'elements.pdf', :type=> 'application/pdf', :disposition => 'inline'
+      end 
+    end
   end
 
   def show

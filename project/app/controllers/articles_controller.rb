@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.save
-     respond_to do |format|
+    respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Articulo creado correctamente.' }
         format.json { render :show, status: :created, location: @article }
@@ -55,11 +55,11 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def article_params
-      params.require(:article).permit(:articleId, :articleTitle, :managerId, :publicationDate, :body, :summary, :articleState)
-    end
+  def article_params
+    params.require(:article).permit(:articleId, :articleTitle, :managerId, :publicationDate, :body, :summary, :articleState)
+  end
 end

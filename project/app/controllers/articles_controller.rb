@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :xml, :json
+
   def index
     @articles = Article.all
     respond_with(@articles)
@@ -21,36 +21,17 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.save
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'El articulo fue creado correctamente' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with(@article)
   end
 
   def update
     @article.update(article_params)
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'El articulo se ha actualizado satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with(@article)
   end
 
   def destroy
     @article.destroy
-    respond_to do |format|
-      format.html { redirect_to article_url, notice: 'El articulo se ha ha deshabilitado.' }
-      format.json { head :no_content }
-    end
+    respond_with(@article)
   end
 
   private
@@ -59,6 +40,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:articleId, :managerId, :publicationDate, :body, :summary, :articleState)
+      params.require(:article).permit(:articleId, :articleTitle, :managerId, :publicationDate, :body, :summary, :articleState)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013161751) do
+ActiveRecord::Schema.define(version: 20141013171521) do
 
   create_table "accesory_parts", force: true do |t|
     t.integer  "productId"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141013161751) do
 
   create_table "articles", force: true do |t|
     t.integer  "articleId"
+    t.string   "articleTitle"
     t.integer  "managerId"
     t.date     "publicationDate"
     t.string   "body"

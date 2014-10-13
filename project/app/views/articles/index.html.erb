@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Articleid</th>
+      <th>Articletitle</th>
       <th>Managerid</th>
       <th>Publicationdate</th>
       <th>Body</th>
@@ -17,6 +18,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.articleId %></td>
+        <td><%= article.articleTitle %></td>
         <td><%= article.managerId %></td>
         <td><%= article.publicationDate %></td>
         <td><%= article.body %></td>

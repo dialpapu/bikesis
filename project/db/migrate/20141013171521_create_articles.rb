@@ -2,6 +2,7 @@ class CreateArticles < ActiveRecord::Migration
   def change
     create_table :articles do |t|
       t.integer :articleId
+      t.string :articleTitle
       t.integer :managerId
       t.date :publicationDate
       t.string :body

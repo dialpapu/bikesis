@@ -1,45 +1,45 @@
 class HistorialContratosController < ApplicationController
-  before_action :set_historial_contratos, only: [:show, :edit, :update, :destroy]
+  before_action :set_historial_contrato, only: [:show, :edit, :update, :destroy]
 
   def index
-    @historial_contratos = HistorialContratos.all
+    @historial_contratos = HistorialContrato.all
     respond_with(@historial_contratos)
   end
 
   def show
-    respond_with(@historial_contratos)
+    respond_with(@historial_contrato)
   end
 
   def new
-    @historial_contratos = HistorialContratos.new
-    respond_with(@historial_contratos)
+    @historial_contrato = HistorialContrato.new
+    respond_with(@historial_contrato)
   end
 
   def edit
   end
 
   def create
-    @historial_contratos = HistorialContratos.new(historial_contratos_params)
+    @historial_contrato = HistorialContrato.new(historial_contrato_params)
     @historial_contrato.save
-    respond_with(@historial_contratos)
+    respond_with(@historial_contrato)
   end
 
   def update
-    @historial_contrato.update(historial_contratos_params)
-    respond_with(@historial_contratos)
+    @historial_contrato.update(historial_contrato_params)
+    respond_with(@historial_contrato)
   end
 
   def destroy
     @historial_contrato.destroy
-    respond_with(@historial_contratos)
+    respond_with(@historial_contrato)
   end
 
   private
-    def set_historial_contratos
-      @historial_contratos = HistorialContratos.find(params[:id])
+    def set_historial_contrato
+      @historial_contrato = HistorialContrato.find(params[:id])
     end
 
-    def historial_contratos_params
-      params.require(:historial_contratos).permit(:idPersona, :fechaContrato, :fechaFinContrato)
+    def historial_contrato_params
+      params.require(:historial_contrato).permit(:idPersona, :fechaContrato, :fechaFinContrato)
     end
 end

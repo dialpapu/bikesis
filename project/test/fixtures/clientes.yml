@@ -7,7 +7,7 @@ one:
   apellido: MyString
   telefono: MyString
   estadoPersona: false
-  fechaNacimiento: 2014-10-12
+  fechaNacimiento: 2014-10-13
   permisoPublicidad: false
 
 two:
@@ -17,5 +17,5 @@ two:
   apellido: MyString
   telefono: MyString
   estadoPersona: false
-  fechaNacimiento: 2014-10-12
+  fechaNacimiento: 2014-10-13
   permisoPublicidad: false

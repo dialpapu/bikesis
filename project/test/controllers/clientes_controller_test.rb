@@ -17,7 +17,7 @@ class ClientesControllerTest < ActionController::TestCase
   end
 
   test "should create cliente" do
-    assert_difference('Clientes.count') do
+    assert_difference('Cliente.count') do
       post :create, cliente: { apellido: @cliente.apellido, documento: @cliente.documento, estadoPersona: @cliente.estadoPersona, fechaNacimiento: @cliente.fechaNacimiento, idPersona: @cliente.idPersona, nombrePersona: @cliente.nombrePersona, permisoPublicidad: @cliente.permisoPublicidad, telefono: @cliente.telefono }
     end
 
@@ -40,10 +40,10 @@ class ClientesControllerTest < ActionController::TestCase
   end
 
   test "should destroy cliente" do
-    assert_difference('Clientes.count', -1) do
+    assert_difference('Cliente.count', -1) do
       delete :destroy, id: @cliente
     end
 
-    assert_redirected_to clientes_index_path
+    assert_redirected_to clientes_path
   end
 end

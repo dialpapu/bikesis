@@ -17,7 +17,7 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "should create item" do
-    assert_difference('Items.count') do
+    assert_difference('Item.count') do
       post :create, item: { cantidadItem: @item.cantidadItem, idProducto: @item.idProducto, idVenta: @item.idVenta }
     end
 
@@ -40,10 +40,10 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "should destroy item" do
-    assert_difference('Items.count', -1) do
+    assert_difference('Item.count', -1) do
       delete :destroy, id: @item
     end
 
-    assert_redirected_to items_index_path
+    assert_redirected_to items_path
   end
 end

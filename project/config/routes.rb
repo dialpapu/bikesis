@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :equipaciones
 
-  resources :bicicletas
+  resources :bicicleta
 
   resources :repuesto_accesorios
 
@@ -19,15 +19,13 @@ Rails.application.routes.draw do
 
   resources :gerentes
 
-  resources :noticias
-
-  get 'home/index'
+  resources :noticia
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

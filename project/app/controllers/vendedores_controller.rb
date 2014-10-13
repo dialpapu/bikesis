@@ -1,45 +1,45 @@
 class VendedoresController < ApplicationController
-  before_action :set_vendedores, only: [:show, :edit, :update, :destroy]
+  before_action :set_vendedore, only: [:show, :edit, :update, :destroy]
 
   def index
-    @vendedores = Vendedores.all
+    @vendedores = Vendedore.all
     respond_with(@vendedores)
   end
 
   def show
-    respond_with(@vendedores)
+    respond_with(@vendedore)
   end
 
   def new
-    @vendedores = Vendedores.new
-    respond_with(@vendedores)
+    @vendedore = Vendedore.new
+    respond_with(@vendedore)
   end
 
   def edit
   end
 
   def create
-    @vendedores = Vendedores.new(vendedores_params)
+    @vendedore = Vendedore.new(vendedore_params)
     @vendedore.save
-    respond_with(@vendedores)
+    respond_with(@vendedore)
   end
 
   def update
-    @vendedore.update(vendedores_params)
-    respond_with(@vendedores)
+    @vendedore.update(vendedore_params)
+    respond_with(@vendedore)
   end
 
   def destroy
     @vendedore.destroy
-    respond_with(@vendedores)
+    respond_with(@vendedore)
   end
 
   private
-    def set_vendedores
-      @vendedores = Vendedores.find(params[:id])
+    def set_vendedore
+      @vendedore = Vendedore.find(params[:id])
     end
 
-    def vendedores_params
-      params.require(:vendedores).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona)
+    def vendedore_params
+      params.require(:vendedore).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona)
     end
 end

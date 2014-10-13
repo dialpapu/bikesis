@@ -1,45 +1,45 @@
 class ClientesController < ApplicationController
-  before_action :set_clientes, only: [:show, :edit, :update, :destroy]
+  before_action :set_cliente, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clientes = Clientes.all
+    @clientes = Cliente.all
     respond_with(@clientes)
   end
 
   def show
-    respond_with(@clientes)
+    respond_with(@cliente)
   end
 
   def new
-    @clientes = Clientes.new
-    respond_with(@clientes)
+    @cliente = Cliente.new
+    respond_with(@cliente)
   end
 
   def edit
   end
 
   def create
-    @clientes = Clientes.new(clientes_params)
+    @cliente = Cliente.new(cliente_params)
     @cliente.save
-    respond_with(@clientes)
+    respond_with(@cliente)
   end
 
   def update
-    @cliente.update(clientes_params)
-    respond_with(@clientes)
+    @cliente.update(cliente_params)
+    respond_with(@cliente)
   end
 
   def destroy
     @cliente.destroy
-    respond_with(@clientes)
+    respond_with(@cliente)
   end
 
   private
-    def set_clientes
-      @clientes = Clientes.find(params[:id])
+    def set_cliente
+      @cliente = Cliente.find(params[:id])
     end
 
-    def clientes_params
-      params.require(:clientes).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona, :fechaNacimiento, :permisoPublicidad)
+    def cliente_params
+      params.require(:cliente).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona, :fechaNacimiento, :permisoPublicidad)
     end
 end

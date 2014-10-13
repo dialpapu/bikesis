@@ -1,45 +1,45 @@
 class GerentesController < ApplicationController
-  before_action :set_gerentes, only: [:show, :edit, :update, :destroy]
+  before_action :set_gerente, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gerentes = Gerentes.all
+    @gerentes = Gerente.all
     respond_with(@gerentes)
   end
 
   def show
-    respond_with(@gerentes)
+    respond_with(@gerente)
   end
 
   def new
-    @gerentes = Gerentes.new
-    respond_with(@gerentes)
+    @gerente = Gerente.new
+    respond_with(@gerente)
   end
 
   def edit
   end
 
   def create
-    @gerentes = Gerentes.new(gerentes_params)
+    @gerente = Gerente.new(gerente_params)
     @gerente.save
-    respond_with(@gerentes)
+    respond_with(@gerente)
   end
 
   def update
-    @gerente.update(gerentes_params)
-    respond_with(@gerentes)
+    @gerente.update(gerente_params)
+    respond_with(@gerente)
   end
 
   def destroy
     @gerente.destroy
-    respond_with(@gerentes)
+    respond_with(@gerente)
   end
 
   private
-    def set_gerentes
-      @gerentes = Gerentes.find(params[:id])
+    def set_gerente
+      @gerente = Gerente.find(params[:id])
     end
 
-    def gerentes_params
-      params.require(:gerentes).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona)
+    def gerente_params
+      params.require(:gerente).permit(:idPersona, :documento, :nombrePersona, :apellido, :telefono, :estadoPersona)
     end
 end

@@ -17,7 +17,7 @@ class EquipacionesControllerTest < ActionController::TestCase
   end
 
   test "should create equipacione" do
-    assert_difference('Equipaciones.count') do
+    assert_difference('Equipacione.count') do
       post :create, equipacione: { descripcion: @equipacione.descripcion, estadoProducto: @equipacione.estadoProducto, genero: @equipacione.genero, idProducto: @equipacione.idProducto, imagenProducto: @equipacione.imagenProducto, marcaProducto: @equipacione.marcaProducto, nombreProducto: @equipacione.nombreProducto, referenciaProducto: @equipacione.referenciaProducto, talla: @equipacione.talla, valorProducto: @equipacione.valorProducto }
     end
 
@@ -40,10 +40,10 @@ class EquipacionesControllerTest < ActionController::TestCase
   end
 
   test "should destroy equipacione" do
-    assert_difference('Equipaciones.count', -1) do
+    assert_difference('Equipacione.count', -1) do
       delete :destroy, id: @equipacione
     end
 
-    assert_redirected_to equipaciones_index_path
+    assert_redirected_to equipaciones_path
   end
 end

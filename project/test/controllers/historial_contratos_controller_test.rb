@@ -17,7 +17,7 @@ class HistorialContratosControllerTest < ActionController::TestCase
   end
 
   test "should create historial_contrato" do
-    assert_difference('HistorialContratos.count') do
+    assert_difference('HistorialContrato.count') do
       post :create, historial_contrato: { fechaContrato: @historial_contrato.fechaContrato, fechaFinContrato: @historial_contrato.fechaFinContrato, idPersona: @historial_contrato.idPersona }
     end
 
@@ -40,10 +40,10 @@ class HistorialContratosControllerTest < ActionController::TestCase
   end
 
   test "should destroy historial_contrato" do
-    assert_difference('HistorialContratos.count', -1) do
+    assert_difference('HistorialContrato.count', -1) do
       delete :destroy, id: @historial_contrato
     end
 
-    assert_redirected_to historial_contratos_index_path
+    assert_redirected_to historial_contratos_path
   end
 end

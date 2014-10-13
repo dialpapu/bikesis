@@ -1,45 +1,45 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Items.all
+    @items = Item.all
     respond_with(@items)
   end
 
   def show
-    respond_with(@items)
+    respond_with(@item)
   end
 
   def new
-    @items = Items.new
-    respond_with(@items)
+    @item = Item.new
+    respond_with(@item)
   end
 
   def edit
   end
 
   def create
-    @items = Items.new(items_params)
+    @item = Item.new(item_params)
     @item.save
-    respond_with(@items)
+    respond_with(@item)
   end
 
   def update
-    @item.update(items_params)
-    respond_with(@items)
+    @item.update(item_params)
+    respond_with(@item)
   end
 
   def destroy
     @item.destroy
-    respond_with(@items)
+    respond_with(@item)
   end
 
   private
-    def set_items
-      @items = Items.find(params[:id])
+    def set_item
+      @item = Item.find(params[:id])
     end
 
-    def items_params
-      params.require(:items).permit(:idVenta, :idProducto, :cantidadItem)
+    def item_params
+      params.require(:item).permit(:idVenta, :idProducto, :cantidadItem)
     end
 end

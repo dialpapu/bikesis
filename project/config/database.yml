@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: diegopp
+  password:diegopp
   host: localhost
 
 development:
@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: bikesis_production
-  username: root
-  password: diegopp
+

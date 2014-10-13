@@ -17,7 +17,7 @@ class GerentesControllerTest < ActionController::TestCase
   end
 
   test "should create gerente" do
-    assert_difference('Gerentes.count') do
+    assert_difference('Gerente.count') do
       post :create, gerente: { apellido: @gerente.apellido, documento: @gerente.documento, estadoPersona: @gerente.estadoPersona, idPersona: @gerente.idPersona, nombrePersona: @gerente.nombrePersona, telefono: @gerente.telefono }
     end
 
@@ -40,10 +40,10 @@ class GerentesControllerTest < ActionController::TestCase
   end
 
   test "should destroy gerente" do
-    assert_difference('Gerentes.count', -1) do
+    assert_difference('Gerente.count', -1) do
       delete :destroy, id: @gerente
     end
 
-    assert_redirected_to gerentes_index_path
+    assert_redirected_to gerentes_path
   end
 end

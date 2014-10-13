@@ -1,16 +1,16 @@
 class CreateBikes < ActiveRecord::Migration
   def change
     create_table :bikes do |t|
-      t.integer :productId
-      t.string :productReference, :limit=>10
-      t.string :productName, :limit=>50
-      t.string :productTradeMark, :limit=>50
-      t.string :productImage, :limit=>100
-      t.integer :productPrice
-      t.boolean :productStatus
-      t.string :productDescription, :limit=>300
-      t.string :measures, :limit=>50
-      t.string :bikeType, :limit=>50
+      t.integer :productId, null: false
+      t.string :productReference, null: false, :limit=>10
+      t.string :productName, null: false, :limit=>50
+      t.string :productTradeMark, null: false, :limit=>50
+      t.string :productImage, null: false, :limit=>100
+      t.integer :productPrice, null: false
+      t.boolean :productStatus, null: false
+      t.string :productDescription, null: false, :limit=>300
+      t.string :measures, null: false, :limit=>50
+      t.string :bikeType, null: false, :limit=>50
       #t.timestamps
     end
   end

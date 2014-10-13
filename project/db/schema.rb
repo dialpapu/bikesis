@@ -14,112 +14,94 @@
 ActiveRecord::Schema.define(version: 20141013173216) do
 
   create_table "accesory_parts", force: true do |t|
-    t.integer  "productId"
-    t.string   "productReference"
-    t.string   "productName"
-    t.string   "productTradeMark"
-    t.string   "productImage"
-    t.integer  "productPrice"
-    t.boolean  "productStatus"
-    t.string   "productDescription"
-    t.string   "typeElement"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "productId",                      null: false
+    t.string  "productReference",   limit: 10,  null: false
+    t.string  "productName",        limit: 50,  null: false
+    t.string  "productTradeMark",   limit: 50,  null: false
+    t.string  "productImage",       limit: 100, null: false
+    t.integer "productPrice",                   null: false
+    t.boolean "productStatus",                  null: false
+    t.string  "productDescription", limit: 300, null: false
+    t.string  "typeElement",        limit: 10,  null: false
   end
 
   create_table "articles", force: true do |t|
-    t.integer  "articleId"
-    t.string   "articleTitle"
-    t.integer  "managerId"
-    t.date     "publicationDate"
-    t.string   "body"
-    t.string   "summary"
-    t.boolean  "articleState"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "articleId",                  null: false
+    t.string  "articleTitle",    limit: 50, null: false
+    t.integer "managerId",                  null: false
+    t.date    "publicationDate",            null: false
+    t.text    "body",                       null: false
+    t.text    "summary",                    null: false
+    t.boolean "articleState",               null: false
   end
 
   create_table "bikes", force: true do |t|
-    t.integer  "productId"
-    t.string   "productReference"
-    t.string   "productName"
-    t.string   "productTradeMark"
-    t.string   "productImage"
-    t.integer  "productPrice"
-    t.boolean  "productStatus"
-    t.string   "productDescription"
-    t.string   "measures"
-    t.string   "bikeType"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "productId",                      null: false
+    t.string  "productReference",   limit: 10,  null: false
+    t.string  "productName",        limit: 50,  null: false
+    t.string  "productTradeMark",   limit: 50,  null: false
+    t.string  "productImage",       limit: 100, null: false
+    t.integer "productPrice",                   null: false
+    t.boolean "productStatus",                  null: false
+    t.string  "productDescription", limit: 300, null: false
+    t.string  "measures",           limit: 50,  null: false
+    t.string  "bikeType",           limit: 50,  null: false
   end
 
   create_table "clients", force: true do |t|
-    t.integer  "personId"
-    t.integer  "document"
-    t.string   "personName"
-    t.string   "lastName"
-    t.string   "telephone"
-    t.boolean  "personStatus"
-    t.date     "birthDay"
-    t.boolean  "publicity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "personId",                                null: false
+    t.integer "document",                                null: false
+    t.string  "personName",   limit: 50,                 null: false
+    t.string  "lastName",     limit: 50,                 null: false
+    t.string  "telephone",    limit: 20,                 null: false
+    t.boolean "personStatus",                            null: false
+    t.date    "birthDay",                                null: false
+    t.boolean "publicity",               default: false
   end
 
   create_table "contract_histories", force: true do |t|
-    t.integer  "personId"
-    t.date     "contractDate"
-    t.date     "finalContractDate"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "personId",          null: false
+    t.date    "contractDate",      null: false
+    t.date    "finalContractDate"
   end
 
   create_table "equipment", force: true do |t|
-    t.integer  "productId"
-    t.string   "productReference"
-    t.string   "productName"
-    t.string   "productTradeMark"
-    t.string   "productImage"
-    t.integer  "productPrice"
-    t.boolean  "productStatus"
-    t.string   "productDescription"
-    t.string   "size"
-    t.string   "gender"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "productId",                      null: false
+    t.string  "productReference",   limit: 10,  null: false
+    t.string  "productName",        limit: 50,  null: false
+    t.string  "productTradeMark",   limit: 50,  null: false
+    t.string  "productImage",       limit: 100, null: false
+    t.integer "productPrice",                   null: false
+    t.boolean "productStatus",                  null: false
+    t.string  "productDescription", limit: 300, null: false
+    t.string  "size",               limit: 2,   null: false
+    t.string  "gender",             limit: 1,   null: false
   end
 
   create_table "inventories", force: true do |t|
-    t.integer  "productAmount"
-    t.integer  "productId"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "productAmount", null: false
+    t.integer "productId",     null: false
   end
 
   create_table "items", force: true do |t|
-    t.integer  "saleId"
-    t.integer  "productId"
-    t.integer  "itemAmount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "saleId",     null: false
+    t.integer "productId",  null: false
+    t.integer "itemAmount", null: false
   end
 
   create_table "managers", force: true do |t|
-    t.integer  "personId"
-    t.integer  "document"
-    t.string   "personName"
-    t.string   "lastName"
-    t.string   "telephone"
-    t.boolean  "personStatus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.integer  "personId",                                       null: false
+    t.integer  "document",                                       null: false
+    t.string   "personName",             limit: 50,              null: false
+    t.string   "lastName",               limit: 50,              null: false
+    t.string   "telephone",              limit: 20,              null: false
+    t.boolean  "personStatus",                                   null: false
+    t.string   "email",                  limit: 50, default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -130,31 +112,27 @@ ActiveRecord::Schema.define(version: 20141013173216) do
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
 
   create_table "sales", force: true do |t|
-    t.integer  "saleId"
-    t.integer  "sellerId"
-    t.integer  "clientId"
-    t.date     "saleDate"
-    t.boolean  "saleStatus"
-    t.string   "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "saleId",                 null: false
+    t.integer "sellerId",               null: false
+    t.integer "clientId",               null: false
+    t.date    "saleDate",               null: false
+    t.boolean "saleStatus",             null: false
+    t.string  "note",       limit: 300, null: false
   end
 
   create_table "sellers", force: true do |t|
-    t.integer  "personId"
-    t.integer  "document"
-    t.string   "personName"
-    t.string   "lastName"
-    t.string   "telephone"
-    t.boolean  "personStatus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.integer  "personId",                                       null: false
+    t.integer  "document",                                       null: false
+    t.string   "personName",             limit: 50,              null: false
+    t.string   "lastName",               limit: 50,              null: false
+    t.string   "telephone",              limit: 20,              null: false
+    t.boolean  "personStatus",                                   null: false
+    t.string   "email",                  limit: 10, default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

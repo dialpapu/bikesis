@@ -1,0 +1,1 @@
+json.extract! @equipacione, :id, :idProducto, :referenciaProducto, :nombreProducto, :marcaProducto, :imagenProducto, :valorProducto, :estadoProducto, :descripcion, :talla, :genero, :created_at, :updated_at

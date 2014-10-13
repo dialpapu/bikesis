@@ -1,0 +1,53 @@
+<%= form_for(@repuesto_accesorio) do |f| %>
+  <% if @repuesto_accesorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@repuesto_accesorio.errors.count, "error") %> prohibited this repuesto_accesorio from being saved:</h2>
+
+      <ul>
+      <% @repuesto_accesorio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :idProducto %><br>
+    <%= f.number_field :idProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :referenciaProducto %><br>
+    <%= f.text_field :referenciaProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :nombreProducto %><br>
+    <%= f.text_field :nombreProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :marcaProducto %><br>
+    <%= f.text_field :marcaProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :imagenProducto %><br>
+    <%= f.text_field :imagenProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :valorProducto %><br>
+    <%= f.number_field :valorProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :estadoProducto %><br>
+    <%= f.check_box :estadoProducto %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :tipoElemento %><br>
+    <%= f.text_field :tipoElemento %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

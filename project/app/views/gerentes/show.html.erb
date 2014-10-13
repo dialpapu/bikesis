@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idpersona:</strong>
+  <%= @gerente.idPersona %>
+</p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @gerente.documento %>
+</p>
+
+<p>
+  <strong>Nombrepersona:</strong>
+  <%= @gerente.nombrePersona %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @gerente.apellido %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @gerente.telefono %>
+</p>
+
+<p>
+  <strong>Estadopersona:</strong>
+  <%= @gerente.estadoPersona %>
+</p>
+
+<%= link_to 'Edit', edit_gerente_path(@gerente) %> |
+<%= link_to 'Back', gerentes_index_path %>

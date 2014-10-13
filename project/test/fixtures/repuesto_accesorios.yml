@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idProducto: 1
+  referenciaProducto: MyString
+  nombreProducto: MyString
+  marcaProducto: MyString
+  imagenProducto: MyString
+  valorProducto: 1
+  estadoProducto: false
+  descripcion: MyString
+  tipoElemento: MyString
+
+two:
+  idProducto: 1
+  referenciaProducto: MyString
+  nombreProducto: MyString
+  marcaProducto: MyString
+  imagenProducto: MyString
+  valorProducto: 1
+  estadoProducto: false
+  descripcion: MyString
+  tipoElemento: MyString

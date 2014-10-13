@@ -1,0 +1,1 @@
+json.extract! @repuesto_accesorio, :id, :idProducto, :referenciaProducto, :nombreProducto, :marcaProducto, :imagenProducto, :valorProducto, :estadoProducto, :descripcion, :tipoElemento, :created_at, :updated_at

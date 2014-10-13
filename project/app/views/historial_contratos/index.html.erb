@@ -1,0 +1,29 @@
+<h1>Listing historial_contratos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idpersona</th>
+      <th>Fechacontrato</th>
+      <th>Fechafincontrato</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @historial_contratos.each do |historial_contrato| %>
+      <tr>
+        <td><%= historial_contrato.idPersona %></td>
+        <td><%= historial_contrato.fechaContrato %></td>
+        <td><%= historial_contrato.fechaFinContrato %></td>
+        <td><%= link_to 'Show', historial_contrato %></td>
+        <td><%= link_to 'Edit', edit_historial_contrato_path(historial_contrato) %></td>
+        <td><%= link_to 'Destroy', historial_contrato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Historial contratos', new_historial_contrato_path %>

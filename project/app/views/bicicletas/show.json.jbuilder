@@ -1,0 +1,1 @@
+json.extract! @bicicleta, :id, :idProducto, :referenciaProducto, :nombreProducto, :marcaProducto, :imagenProducto, :valorProducto, :estadoProducto, :descripcion, :medidas, :tipoBicicleta, :created_at, :updated_at

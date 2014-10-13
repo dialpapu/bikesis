@@ -1,0 +1,41 @@
+<h1>Listing repuesto_accesorios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idproducto</th>
+      <th>Referenciaproducto</th>
+      <th>Nombreproducto</th>
+      <th>Marcaproducto</th>
+      <th>Imagenproducto</th>
+      <th>Valorproducto</th>
+      <th>Estadoproducto</th>
+      <th>Descripcion</th>
+      <th>Tipoelemento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repuesto_accesorios.each do |repuesto_accesorio| %>
+      <tr>
+        <td><%= repuesto_accesorio.idProducto %></td>
+        <td><%= repuesto_accesorio.referenciaProducto %></td>
+        <td><%= repuesto_accesorio.nombreProducto %></td>
+        <td><%= repuesto_accesorio.marcaProducto %></td>
+        <td><%= repuesto_accesorio.imagenProducto %></td>
+        <td><%= repuesto_accesorio.valorProducto %></td>
+        <td><%= repuesto_accesorio.estadoProducto %></td>
+        <td><%= repuesto_accesorio.descripcion %></td>
+        <td><%= repuesto_accesorio.tipoElemento %></td>
+        <td><%= link_to 'Show', repuesto_accesorio %></td>
+        <td><%= link_to 'Edit', edit_repuesto_accesorio_path(repuesto_accesorio) %></td>
+        <td><%= link_to 'Destroy', repuesto_accesorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Repuesto accesorio', new_repuesto_accesorio_path %>

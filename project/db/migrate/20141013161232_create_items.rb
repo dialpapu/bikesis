@@ -4,8 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :saleId
       t.integer :productId
       t.integer :itemAmount
-
-      t.timestamps
+      #t.timestamps
     end
   end
 end

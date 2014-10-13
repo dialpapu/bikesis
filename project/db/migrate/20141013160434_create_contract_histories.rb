@@ -4,8 +4,7 @@ class CreateContractHistories < ActiveRecord::Migration
       t.integer :personId
       t.date :contractDate
       t.date :finalContractDate
-
-      t.timestamps
+      #t.timestamps
     end
   end
 end

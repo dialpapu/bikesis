@@ -5,11 +5,10 @@ class CreateArticles < ActiveRecord::Migration
       t.string :articleTitle
       t.integer :managerId
       t.date :publicationDate
-      t.string :body
-      t.string :summary
+      t.text :body, :limit => 1000
+      t.text :summary, :limit => 300
       t.boolean :articleState
-
-      t.timestamps
+      #t.timestamps
     end
   end
 end

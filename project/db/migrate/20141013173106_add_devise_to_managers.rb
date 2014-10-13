@@ -2,7 +2,7 @@ class AddDeviseToManagers < ActiveRecord::Migration
   def self.up
     change_table(:managers) do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", :limit=>50
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable

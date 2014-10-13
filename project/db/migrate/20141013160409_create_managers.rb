@@ -3,12 +3,11 @@ class CreateManagers < ActiveRecord::Migration
     create_table :managers do |t|
       t.integer :personId
       t.integer :document
-      t.string :personName
-      t.string :lastName
-      t.string :telephone
+      t.string :personName, :limit => 50
+      t.string :lastName, :limit => 50
+      t.string :telephone, :limit => 20
       t.boolean :personStatus
-
-      t.timestamps
+      #t.timestamps
     end
   end
 end

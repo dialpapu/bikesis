@@ -3,8 +3,7 @@ class CreateInventories < ActiveRecord::Migration
     create_table :inventories do |t|
       t.integer :productAmount
       t.integer :productId
-
-      t.timestamps
+      #t.timestamps
     end
   end
 end

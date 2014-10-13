@@ -6,9 +6,8 @@ class CreateSales < ActiveRecord::Migration
       t.integer :clientId
       t.date :saleDate
       t.boolean :saleStatus
-      t.string :note
-
-      t.timestamps
+      t.string :note, :limit=>300
+      #t.timestamps
     end
   end
 end

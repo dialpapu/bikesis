@@ -1,2 +1,8 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<%if current_manager.present? || current_seller.present?%>
+<a href="/articles/new">Crear un artículo</a>
+<% else %>      
+<a href="/managers/sign_in">Acceder como Administrador</a>
+<a href="/managers/sign_in">Acceder como Vendedor</a>
+<% end %>      

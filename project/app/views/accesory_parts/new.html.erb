@@ -1,5 +1,10 @@
-<h1>New accesory_part</h1>
+<%if user_signed_in?%>
+<h1>Nuevo Accesorio - Repuesto</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', accesory_parts_path %>
+<% else %>
+<h1>Debes logearte</h1>
+<%end%>
+

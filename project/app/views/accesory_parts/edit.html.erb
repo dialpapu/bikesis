@@ -1,6 +1,13 @@
-<h1>Editing accesory_part</h1>
+<%if user_signed_in?%>
+<h1>Editando Accesorio - Parte</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @accesory_part %> |
 <%= link_to 'Back', accesory_parts_path %>
+
+<% else %>
+<h1>Debes logearte</h1>
+<%end%>
+
+

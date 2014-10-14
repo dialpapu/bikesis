@@ -1,6 +1,11 @@
-<h1>Editing bike</h1>
+<%if user_signed_in?%>
+<h1>Editando bicicleta</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @bike %> |
 <%= link_to 'Back', bikes_path %>
+
+<% else %>
+<h1>Debes logearte</h1>
+<%end%>

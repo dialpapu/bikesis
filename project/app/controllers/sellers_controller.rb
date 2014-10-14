@@ -1,6 +1,6 @@
 class SellersController < ApplicationController
 	def index
-		@sellers = User.find(:all, :conditions => { :userType => 'SELLERS' })
+		@sellers = User.all
 		respond_to do |format|
 			format.html
 			format.pdf do

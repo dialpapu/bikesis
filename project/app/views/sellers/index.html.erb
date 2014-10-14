@@ -17,14 +17,13 @@
     <% @sellers.each do |seller| %>
       <tr>
         <td><%= seller.id %></td>
-        <td><%= seller.userName %></td>
+        <td><%= seller.username %></td>
         <td><%= seller.userLastName %></td>
         <td><%= seller.document %></td>
         <td><%= seller.telephone %></td>
-        <td><%= seller.personStatus %></td>
-        <td><%= link_to 'Show', seller %></td>
-        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
-        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= seller.status %></td>
+      
+
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Seller', new_seller_path %>
+

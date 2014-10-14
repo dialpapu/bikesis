@@ -9,7 +9,7 @@ class AccesoryPartsController < ApplicationController
         pdf = PDF::Writer.new(:orientation => :landscape) 
         pdf.select_font 'Times-Roman'
         pdf.text "Reporte de Accesorios y repuestos generado en " + (Time.now()).strftime("%a %b %d, %Y") , :size => 30, :style => :bold  
-        items = @accesory_partsline_items.map do |item|  
+        items = @accesory_parts.line_items.map do |item|  
           [item.productId,  
             item.productReference,  
             item.productName,

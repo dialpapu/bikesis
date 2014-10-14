@@ -1,5 +1,11 @@
-<h1>New article</h1>
+<%if user_signed_in?%>
+<h1>Noticia Nueva</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Volver', articles_path %>
+<% else %>
+<h1>Debes logearte</h1>
+<%end%>
+
+

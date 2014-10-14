@@ -21,6 +21,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    if Article.all.nil?
+      @article.articleId=1
+    else
+    @article.articleId = Article.all.count+1
+  end
     @article.save
     respond_to do |format|
       if @article.save

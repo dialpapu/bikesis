@@ -1,5 +1,5 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
+<%= form_for(@article) do |f| %> 
+<% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
@@ -12,21 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :articleId %><br>
-    <%= f.number_field :articleId %>
-  </div>
-  <div class="field">
     <%= f.label :articleTitle %><br>
     <%= f.text_field :articleTitle %>
   </div>
-  <div class="field">
-    <%= f.label :managerId %><br>
-    <%= f.number_field :managerId %>
-  </div>
-  <div class="field">
-    <%= f.label :publicationDate %><br>
-    <%= f.date_select :publicationDate %>
-  </div>
+
+  <%=  f.hidden_field :managerId, :value => current_user.id %>
+
+  <%=  f.hidden_field :publicationDate, :value => Time.now %>
+
   <div class="field">
     <%= f.label :body %><br>
     <%= f.text_field :body %>
@@ -43,3 +36,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+

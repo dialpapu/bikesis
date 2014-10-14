@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'catalog/index'
-
   devise_for :sellers
   devise_for :managers
 
   get 'home/index'
+
+  get 'catalog/index'
 
   resources :bikes
 

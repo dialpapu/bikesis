@@ -1,5 +1,7 @@
 <%if @managers.empty?  %>
-	<div> <h1><a href="/managers/sign_up">Crear el gerente</a></h1></div>
+	<div><h1><%= link_to "Crear Gerente", new_manager_registration_path %></h1></div>
+<%else%>
+	<div><h1><%= link_to "Iniciar sesion", manager_session_path %></h1></div>
 <% end %>
 
 
@@ -7,7 +9,6 @@
 	<p>Bienvenido <% current_manager.email%></p>
 	<p><%= link_to "Cerrar Sesión", destroy_manager_session_path, method: :delete %></p>
 <%else%>
-	<a href="/managers/sign_in">Acceder</a>
 <%end%>
 
 

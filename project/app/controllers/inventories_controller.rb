@@ -1,6 +1,7 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+  before_filter :authenticate_user!
   def index
     @inventories = Inventory.all
     

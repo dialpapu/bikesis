@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
-
+  
+  before_filter :authenticate_user!
   def index
     @clients = Client.all
     respond_to do |format|

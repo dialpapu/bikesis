@@ -1,4 +1,3 @@
-<%if user_signed_in?%>
 <h1>Editando Noticia</h1>
 
 <%= render 'form' %>
@@ -6,6 +5,4 @@
 <%= link_to 'Show', @article %> |
 <%= link_to 'Back', articles_path %>
 
-<% else %>
-<h1>Debes logearte</h1>
-<%end%>
+

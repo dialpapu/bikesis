@@ -1,7 +1,8 @@
-
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+
+  before_filter :authenticate_user!
   def index
     @equipment = Equipment.all
     respond_to do |format|

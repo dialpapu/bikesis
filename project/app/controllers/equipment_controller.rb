@@ -5,13 +5,15 @@ class EquipmentController < ApplicationController
   def index
     @equipment = Equipment.all
     respond_to do |format|
-      generateReports(@equipment)
+      format.html
+      format.pdf do
+        generateReports(@equipment)
+      end
     end
-    
   end
 
   def show
-    
+
   end
 
   def new
@@ -65,34 +67,32 @@ class EquipmentController < ApplicationController
     params.require(:equipment).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :size, :gender)
   end
   def generateReports(elements)
-    format.html
-      format.pdf do
-        pdf = PDF::Writer.new
-        pdf.select_font "Times-Roman"
-        pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
-        pdf.text "Reporte de Equipaciones", :font_size => 40, :justification => :center
-        pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
-        elements.each do |item|  
-          pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
-          pdf.text " "
-          pdf.text "ID PRODUCTO: "+ item.productId.to_s, :font_size =>15
-          pdf.text "REFERENCIA: "+item.productReference.to_s, :font_size => 15
-          pdf.text "NOMBRE: " +item.productName.to_s, :font_size => 15
-          pdf.text "MARCA: "+ item.productTradeMark.to_s, :font_size => 15
-          pdf.text "PRECIO: "+ item.productPrice.to_s, :font_size => 15
-          pdf.text "TIPO BICICLETA: "+ item.bikeType.to_s, :font_size => 15
-          pdf.text "MEDIDAS: "+ item.measures.to_s, :font_size => 15
-          pdf.text "DESCRIPCION: "+item.productDescription, :font_size => 15, :justification => :justify
-          pdf.text "TAMANO: "+item.size.to_s, :font_size => 15
-          pdf.text "GENDER : "+item.gender.to_s, :font_size => 15
-          if item.productStatus==true 
-            pdf.text "ESTADO: Habilitada", :font_size => 15, :justification => :rigth
-          else
-            pdf.text "ESTADO: Deshabilitada", :font_size => 15, :justification => :rigth
-          end
-        end
-        pdf.render
-        send_data pdf.render, :filename => 'equipaciones.pdf', :type => 'application/pdf', :disposition => 'inline'
+    pdf = PDF::Writer.new
+    pdf.select_font "Times-Roman"
+    pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
+    pdf.text "Reporte de Equipaciones", :font_size => 40, :justification => :center
+    pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
+    elements.each do |item|  
+      pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
+      pdf.text " "
+      pdf.text "ID PRODUCTO: "+ item.productId.to_s, :font_size =>15
+      pdf.text "REFERENCIA: "+item.productReference.to_s, :font_size => 15
+      pdf.text "NOMBRE: " +item.productName.to_s, :font_size => 15
+      pdf.text "MARCA: "+ item.productTradeMark.to_s, :font_size => 15
+      pdf.text "PRECIO: "+ item.productPrice.to_s, :font_size => 15
+      pdf.text "TIPO BICICLETA: "+ item.bikeType.to_s, :font_size => 15
+      pdf.text "MEDIDAS: "+ item.measures.to_s, :font_size => 15
+      pdf.text "DESCRIPCION: "+item.productDescription, :font_size => 15, :justification => :justify
+      pdf.text "TAMANO: "+item.size.to_s, :font_size => 15
+      pdf.text "GENDER : "+item.gender.to_s, :font_size => 15
+      if item.productStatus==true 
+        pdf.text "ESTADO: Habilitada", :font_size => 15, :justification => :rigth
+      else
+        pdf.text "ESTADO: Deshabilitada", :font_size => 15, :justification => :rigth
       end
+    end
+    pdf.render
+    send_data pdf.render, :filename => 'equipaciones.pdf', :type => 'application/pdf', :disposition => 'inline'
+    
   end
 end

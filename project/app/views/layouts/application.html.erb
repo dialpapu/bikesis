@@ -54,6 +54,7 @@
               <li><a href="/clients/new/">Crear cliente</a></li>
               <li><a href="/clients/index/">Lista de clientes</a></li>
             </ul>
+<<<<<<< HEAD
           </li>
           <li><a href="#">Dropdown Option</a></li>
           <li><a href="#">Dropdown Option</a></li>
@@ -139,4 +140,163 @@
 
 <%= javascript_include_tag "application" %>
 </body>
+=======
+         
+            <section class="top-bar-section">
+               
+              <ul class="right">
+                <li><a href="/managers/sign_in">Usuario</a></li>
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Noticias</a>
+                  <ul class="dropdown">
+                    <li><label>Administración de noticias</label></li>
+                    <li><a href="/articles/new/">Crear Noticia</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/articles/">Listar noticias</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/">Generar reporte de noticas</a></li>
+                    <li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Clientes</a>
+                  <ul class="dropdown">
+                    <li><label>Administración de clientes</label></li>
+                    <li><a href="/clients/new/">Crear cliente</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/clients/">Listar clientes</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/">Generar reporte de clientes</a></li>
+                    <li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Vendedores</a>
+                  <ul class="dropdown">
+                    <li><label>Administración de vendedores</label></li>
+                    <li><a href="/sellers/new/">Crear Vendedor</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/sellers/">Listar vendedores</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/">Generar reporte de vendedores</a></li>
+                    <li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                  <a href="#">Ventas</a>
+                  <ul class="dropdown">
+                    <li><label>Administrar ventas</label></li>
+                    <li><a href="/sales/new/">Realizar venta</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/sales/">Consultar ventas</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/">Generar reporte de ventas</a></li>
+                    <li class="divider"></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Productos</a>
+                    <ul class="dropdown">
+                      <li><label>Productos destacados</label></li>
+                      <li class="divider"></li>
+                    <li><a href="/catalog/index">Catalogo</a></li>
+                    <li class="divider"></li>
+                    <li><label>Administración de productos</label></li>
+                    <li class="divider"></li>
+                    <li class="has-dropdown">
+                      <a href="#" class="">Bicicletas</a>
+                      <ul class="dropdown">
+                        <li><a href="/bikes/new/">Crear Bicicleta</a></li>
+                        <li><a href="/bikes/">Listar bicicletas</a></li>
+                        <li><a href="/">Generar reporte de bicicletas</a></li>
+                      </ul>
+                      </li>
+                      <li class="divider"></li>
+                    <li class="has-dropdown">
+                      <a href="#" class="">Equipaciones</a>
+                      <ul class="dropdown">
+                        <li><a href="/equipment/new/">Crear Equipacion</a></li>
+                        <li><a href="/equipment/">Listar equipaciones</a></li>
+                        <li><a href="/">Generar reporte de equipaciones</a></li>
+                      </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="has-dropdown">
+                      <a href="#" class="">Articulos y accesorios</a>
+                      <ul class="dropdown">
+                        <li><a href="/accesory_parts/new/">Crear articulo o accesorio</a></li>
+                        <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
+                        <li><a href="/clients/index/">Generar reporte de articulos y accesorios</a></li>
+                      </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li><label> Información de cantidades</label></li>
+                      <li><a href="/inventories/">Inventario de productos</a></li>
+                    </ul>
+                    <li class="divider"></li>
+                  <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">FAQ</a>
+                  <ul class="dropdown">
+                    <li class="divider"></li>
+                    <li><a href="#">Ayuda</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Acerca de </a></li>
+                    <li class="divider"></li>
+                    
+                  </ul>
+                </li>
+                 <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Cuenta</a>
+                  <ul class="dropdown">
+                    <li class="divider"></li>
+                    <li><a href="#">Ver informacion</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Modificar datos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Cambiar contraseña</a></li>
+                    <li class="divider"></li>
+                    <li><label> Salir</label></li>
+                    <li><a href="#">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+                </li>
+              </ul>
+            </section>
+          </nav>
+           
+        
+       <%= yield %>
+       <footer class="row">
+        <div class="large-12 columns"><hr/>
+          <div class="row">
+ 
+            <div class="large-6 columns">
+              <p>© Copyright no one at all. Go to town.</p>
+            </div>
+ 
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+              </ul>
+            </div>
+ 
+          </div>
+        </div>
+      </footer>
+ 
+
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+>>>>>>> origin/master
 </html>

@@ -41,7 +41,6 @@
 
         <ul class="right">
 
-
           <section class="top-bar-section">
 
             <ul class="right">
@@ -161,6 +160,10 @@
             </ul>
           </section>
 
+
+
+
+
           <%else if current_user.userType == "Seller" %>
           <li class="has-dropdown">
                 <a href="#">Clientes</a>
@@ -187,13 +190,8 @@
               <section class="top-bar-section">
 
                 <ul class="right">
-                  <li class="has-dropdown">
-                    <a href="#">Noticias</a>
-                    <ul class="dropdown">
-                      <li><a href="/articles/">Ver noticias</a></li>
-                    </ul>
-                  </li>
-
+                  <li><a href="#">Noticias</a></li>
+                  
                   <li class="divider"></li>
 
                   <li class="has-dropdown">
@@ -208,32 +206,23 @@
                       <li class="has-dropdown">
                         <a href="#" class="">Bicicletas</a>
                         <ul class="dropdown">
-                          <li><a href="/bikes/new/">Crear Bicicleta</a></li>
                           <li><a href="/bikes/">Listar bicicletas</a></li>
-                          <li><a href="/">Generar reporte de bicicletas</a></li>
                         </ul>
                       </li>
                       <li class="divider"></li>
                       <li class="has-dropdown">
                         <a href="#" class="">Equipaciones</a>
                         <ul class="dropdown">
-                          <li><a href="/equipment/new/">Crear Equipacion</a></li>
                           <li><a href="/equipment/">Listar equipaciones</a></li>
-                          <li><a href="/">Generar reporte de equipaciones</a></li>
                         </ul>
                       </li>
                       <li class="divider"></li>
                       <li class="has-dropdown">
                         <a href="#" class="">Articulos y accesorios</a>
                         <ul class="dropdown">
-                          <li><a href="/accesory_parts/new/">Crear articulo o accesorio</a></li>
                           <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
-                          <li><a href="/clients/index/">Generar reporte de articulos y accesorios</a></li>
                         </ul>
                       </li>
-                      <li class="divider"></li>
-                      <li><label> Información de cantidades</label></li>
-                      <li><a href="/inventories/">Inventario de productos</a></li>
                     </ul>
                     
                     <li class="divider"></li>

@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 
 require 'pdf/writer'
-Mime::Type.register 'application.pdf', :pdf
+Mime::Type.register 'application/pdf', :pdf

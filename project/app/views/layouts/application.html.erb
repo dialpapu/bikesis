@@ -52,9 +52,7 @@
               <li class="divider"></li>
               <li><a href="/articles/">Listar noticias</a></li>
               <li class="divider"></li>
-              <li><a href="/">Generar reporte de noticas</a></li>
-              <li class="divider"></li>
-            </ul>
+              </ul>
           </li>
           <li class="has-dropdown">
             <a href="#">Clientes</a>
@@ -108,7 +106,7 @@
                 <ul class="dropdown">
                   <li><a href="/bikes/new/">Crear Bicicleta</a></li>
                   <li><a href="/bikes/">Listar bicicletas</a></li>
-                  <li><a href="/">Generar reporte de bicicletas</a></li>
+                  <li><%= link_to 'Generar reporte de bicicletas', bikes_path(:pdf) %></li>
                 </ul>
               </li>
               <li class="divider"></li>
@@ -117,7 +115,7 @@
                 <ul class="dropdown">
                   <li><a href="/equipment/new/">Crear Equipacion</a></li>
                   <li><a href="/equipment/">Listar equipaciones</a></li>
-                  <li><a href="/">Generar reporte de equipaciones</a></li>
+                  <li><%= link_to 'Generar reporte de equipaciones', equipment_index_path(:pdf) %></li>
                 </ul>
               </li>
               <li class="divider"></li>
@@ -126,7 +124,7 @@
                 <ul class="dropdown">
                   <li><a href="/accesory_parts/new/">Crear articulo o accesorio</a></li>
                   <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
-                  <li><a href="/clients/index/">Generar reporte de articulos y accesorios</a></li>
+                  <li><%= link_to 'Generar reporte de articulos y accesorios', accesory_parts_path(:pdf) %></li>
                 </ul>
               </li>
               <li class="divider"></li>

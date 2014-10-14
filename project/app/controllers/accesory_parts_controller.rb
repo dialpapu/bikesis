@@ -18,7 +18,8 @@ class AccesoryPartsController < ApplicationController
           pdf.text "REFERENCIA: "+item.productReference.to_s, :font_size => 15
           pdf.text "NOMBRE: " +item.productName.to_s, :font_size => 15
           pdf.text "MARCA: "+ item.productTradeMark.to_s, :font_size => 15
-          pdf.text "DESCRIPCION: "+item.productDescription, :font_size => 15, :justification => :rigth
+          pdf.text "PRECIO: "+ item.productPrice.to_s, :font_size => 15
+          pdf.text "DESCRIPCION: "+item.productDescription, :font_size => 15, :justification => :justify
           pdf.text "TIPO ELEMENTO: "+item.typeElement.to_s, :font_size => 15, :justification => :justify
           if item.productStatus==true 
             pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth

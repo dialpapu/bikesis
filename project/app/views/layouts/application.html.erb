@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<div class="fixed sticky">
+  <div class="fixed sticky">
     <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
       <ul class="title-area">
 
@@ -54,16 +54,6 @@
                   <li class="divider"></li>
                   <li><a href="/articles/">Listar noticias</a></li>
                   <li class="divider"></li>                 
-                </ul>
-              </li>
-              <li class="has-dropdown">
-                <a href="#">Clientes</a>
-                <ul class="dropdown">
-                  <li><label>Administración de clientes</label></li>
-                  <li><a href="/clients/">Listar clientes</a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %></li>
-                  <li class="divider"></li>
                 </ul>
               </li>
               <li class="divider"></li>
@@ -127,6 +117,16 @@
                   <li><a href="/inventories/">Inventario de productos</a></li>
                 </ul>
                 <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Clientes</a>
+                  <ul class="dropdown">
+                    <li><label>Administración de clientes</label></li>
+                    <li><a href="/clients/">Listar clientes</a></li>
+                    <li class="divider"></li>
+                    <li><%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %></li>
+                    <li class="divider"></li>
+                  </ul>
+                </li>
                 <li class="divider"></li>
                 <li class="has-dropdown">
                   <a href="#">FAQ</a>
@@ -166,15 +166,15 @@
 
           <%else if current_user.userType == "Seller" %>
           <li class="has-dropdown">
-                <a href="#">Clientes</a>
-                <ul class="dropdown">
-                  <li><label>Administración de clientes</label></li>
-                  <li><a href="/clients/">Listar clientes</a></li>
-                  <li class="divider"></li>
-                  <li><a href="/">Generar reporte de clientes</a></li>
-                  <li class="divider"></li>
-                </ul>
-              </li>
+            <a href="#">Clientes</a>
+            <ul class="dropdown">
+              <li><label>Administración de clientes</label></li>
+              <li><a href="/clients/">Listar clientes</a></li>
+              <li class="divider"></li>
+              <li><a href="/">Generar reporte de clientes</a></li>
+              <li class="divider"></li>
+            </ul>
+          </li>
 
 
           <%end%>
@@ -226,70 +226,70 @@
                     </ul>
                     
                     <li class="divider"></li>
-                      <li><a href="#"><%= link_to "Iniciar sesion", user_session_path %></a></li>
-                    </li>
+                    <li><a href="#"><%= link_to "Iniciar sesion", user_session_path %></a></li>
                   </li>
+                </li>
+              </ul>
+            </section>
+
+
+            <%end%>
+
+          </nav>
+        </div>
+
+
+        <%- flash.each do |name, msg| -%>
+        <div data-alert class="alert-box info radius">
+          <%= msg if msg.is_a?(String) %>
+          <a href="" class="close">&times;</a>
+        </div>
+        <%- end -%>
+        
+        
+
+        <%= yield %>
+        <footer class="row">
+          <div class="large-12 columns"><hr/>
+            <div class="row">
+
+              <div class="large-6 columns">
+                <p>Somos distribuidores autorizados de </p>
+              </div>
+
+              <div class="large-6 columns">
+                <ul class="inline-list right">
+                  <li><a href="#">KTM</a></li>
+                  <li><a href="#">Specialized</a></li>
+                  <li><a href="#">Felt</a></li>
+                  <li><a href="#">GW</a></li>
                 </ul>
-              </section>
+              </div>
 
-
-              <%end%>
-
-            </nav>
+            </div>
           </div>
+          <div class="large-12 columns">
+            <div class="row">
+
+              <div class="large-6 columns">
+                <p>© Trabajo de Campo</p>
+              </div>
+
+              <div class="large-6 columns">
+                <ul class="inline-list right">
+                  <li><a href="#">Contato</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </footer>
 
 
-<%- flash.each do |name, msg| -%>
-  <div data-alert class="alert-box info radius">
-    <%= msg if msg.is_a?(String) %>
-    <a href="" class="close">&times;</a>
-  </div>
-  <%- end -%>
-  
-  
+        <%= javascript_include_tag "application" %>
+      </body>
 
-<%= yield %>
-<footer class="row">
-  <div class="large-12 columns"><hr/>
-    <div class="row">
-
-      <div class="large-6 columns">
-        <p>Somos distribuidores autorizados de </p>
-      </div>
-
-      <div class="large-6 columns">
-        <ul class="inline-list right">
-          <li><a href="#">KTM</a></li>
-          <li><a href="#">Specialized</a></li>
-          <li><a href="#">Felt</a></li>
-          <li><a href="#">GW</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-  <div class="large-12 columns">
-    <div class="row">
-
-      <div class="large-6 columns">
-        <p>© Trabajo de Campo</p>
-      </div>
-
-      <div class="large-6 columns">
-        <ul class="inline-list right">
-          <li><a href="#">Contato</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-          <li><a href="#">Link 4</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</footer>
-
-
-<%= javascript_include_tag "application" %>
-  </body>
-
-  </html>
+      </html>

@@ -62,7 +62,7 @@
                   <li><label>Administración de clientes</label></li>
                   <li><a href="/clients/">Listar clientes</a></li>
                   <li class="divider"></li>
-                  <li><a href="/">Generar reporte de clientes</a></li>
+                  <li><%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %></li>
                   <li class="divider"></li>
                 </ul>
               </li>
@@ -75,7 +75,7 @@
                   <li class="divider"></li>
                   <li><a href="/sellers/">Listar vendedores</a></li>
                   <li class="divider"></li>
-                  <li><a href="/">Generar reporte de vendedores</a></li>
+                  <li><%= link_to 'Generar reporte de vendedores', clients_path(:pdf) %></li>
                   <li class="divider"></li>
                 </ul>
               </li>

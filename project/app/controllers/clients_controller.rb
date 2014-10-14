@@ -4,11 +4,17 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        generateReport(@clients)
+      end
+    end
     
   end
 
   def show
-    
+
   end
 
   def new
@@ -55,11 +61,40 @@ class ClientsController < ApplicationController
   end
 
   private
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    def client_params
-      params.require(:client).permit(:personId, :document, :personName, :lastName, :telephone, :personStatus, :birthDay, :publicity)
+  def client_params
+    params.require(:client).permit(:personId, :document, :personName, :lastName, :telephone, :personStatus, :birthDay, :publicity)
+  end
+  def generateReport(elements)
+    pdf = PDF::Writer.new
+    pdf.select_font "Times-Roman"
+    pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
+    pdf.text "Reporte de Clientes", :font_size => 40, :justification => :center
+    pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
+    elements.each do |item|  
+      pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
+      pdf.text " "
+      pdf.text "ID PERSONA: "+ item.personId.to_s, :font_size =>15
+      pdf.text "DOCUMENTO: "+item.document.to_s, :font_size => 15
+      pdf.text "NOMBRE: " +item.personName.to_s, :font_size => 15
+      pdf.text "APELLIDO: "+ item.lastName.to_s, :font_size => 15
+      pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
+      pdf.text "FECHA DE NACIMIENTO: "+item.birthDay, :font_size => 15, :justification => :justify
+       if item.publicity==true 
+        pdf.text "PUBLICIDAD PERMITIDA: Si"+item.typeElement.to_s, :font_size => 15, :justification => :justify
+      else
+        pdf.text "PUBLICIDAD PERMITIDA: No"+item.typeElement.to_s, :font_size => 15, :justification => :justify
+      end
+      if item.productStatus==true 
+        pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth
+      else
+        pdf.text "ESTADO: Deshabilitado", :font_size => 15, :justification => :rigth
+      end
     end
+    pdf.render
+    send_data pdf.render, :filename => 'articulos_y_accesorios.pdf', :type => 'application/pdf', :disposition => 'inline'
+  end
 end

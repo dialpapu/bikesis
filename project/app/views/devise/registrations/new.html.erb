@@ -1,140 +1,43 @@
-<h2>Registro de datos del Gerente</h2>
+  <%if User.all.empty?  %>
+  <h2>Registrar Gerente</h2>    
+  <%else%>
+    <h2>Registrar Vendedor</h2>    
+  <% end %>
 
-<%= form_for(resource, as: resource_name, url: new_registration_path(resource_name)) do |f| %>
-<%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Identificador del gerente *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.number_field :personId %>
-			</div>
-		</div>
-	</div>
-</div>
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username , autofocus: true %></div>
 
+  <div><%= f.label :userLastName %><br />
+  <%= f.text_field :userLastName%></div>
 
+  <div><%= f.label :document %><br />
+  <%= f.text_field :document %></div>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Documento Gerente *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.number_field :document %>
-			</div>
-		</div>
-	</div>
-</div>
+  <%if User.all.empty?  %>
+    <%=  f.hidden_field :userType, :value => "Manager" %>
+    <h1>Crear como gerente</h1>
+  <%else%>
+    <%=  f.hidden_field :userType, :value => "Seller" %>
+  <% end %>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Nombre completo *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.text_field :personName %>
-			</div>
-		</div>
-	</div>
-</div>  
+  <%=  f.hidden_field :status, :value => "Enable" %>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Apellidos *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.text_field :lastName %>
-			</div>
-		</div>
-	</div>
-</div>  
+  <div><%= f.label :telephone %><br />
+  <%= f.text_field :telephone%></div>
 
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email%></div>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Numero telefonico *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.text_field :telephone %>
-			</div>
-		</div>
-	</div>
-</div>
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
 
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Estado *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.check_box :personStatus %>
-			</div>
-		</div>
-	</div>
-</div>
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Correo Electronico *</label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.email_field :email, autofocus: true %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Contraseña * <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %></label>
-			</div>
-			<div class="small-9 columns">
-				<%= f.password_field :password, autocomplete: "off" %></div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<label for="right-label" class="right inline">Confirma la contraseña</label>
-			</div>
-			<div class="small-9 columns">
-					<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="small-8">
-		<div class="row">
-			<div class="small-3 columns">
-				<div><%= f.submit "Sign up" %></div>			
-			</div>
-		</div>
-	</div>
-</div>
+  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

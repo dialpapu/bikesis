@@ -1,14 +1,12 @@
-<%if @managers.empty?  %>
-	<div><h1><%= link_to "Crear Gerente", new_manager_registration_path %></h1></div>
+<%if user_signed_in? %>
+	<p>Bienvenido <%= current_user.username%></p>
+	<a> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
 <%else%>
-	<div><h1><%= link_to "Iniciar sesion", manager_session_path %></h1></div>
+<%if @users.empty?  %>
+	<div><h1><%= link_to "Crear Gerente", new_user_registration_path %></h1></div>
+<%else%>
+	<div><h1><%= link_to "Iniciar sesion", user_session_path %></h1></div>
 <% end %>
-
-
-<%if manager_signed_in? %>
-	<p>Bienvenido <% current_manager.email%></p>
-	<p><%= link_to "Cerrar Sesión", destroy_manager_session_path, method: :delete %></p>
-<%else%>
 <%end%>
 
 

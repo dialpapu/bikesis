@@ -21,150 +21,245 @@
 </head>
 
 <body>
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
+<div class="fixed sticky">
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+      <ul class="title-area">
 
-      <li class="name">
-        <h1>
-          <a href="#">
-           CICLERIA CAFE TALLER
-         </a>
-       </h1>
-     </li>
-     <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-   </ul>
+        <li class="name">
+          <h1>
+            <a href="#">
+              CICLERIA CAFE TALLER
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+      </ul>
 
-   <section class="top-bar-section">
-
-    <ul class="right">
-
-     
+      <%if user_signed_in? %>
+      <%if current_user.userType == "Manager" %>
       <section class="top-bar-section">
-       
+
         <ul class="right">
-          <li><a href="/managers/sign_in">Usuario</a></li>
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Noticias</a>
-            <ul class="dropdown">
-              <li><label>Administración de noticias</label></li>
-              <li><a href="/articles/new/">Crear Noticia</a></li>
-              <li class="divider"></li>
-              <li><a href="/articles/">Listar noticias</a></li>
-              <li class="divider"></li>
-              </ul>
-          </li>
-          <li class="has-dropdown">
-            <a href="#">Clientes</a>
-            <ul class="dropdown">
-              <li><label>Administración de clientes</label></li>
-              <li><a href="/clients/new/">Crear cliente</a></li>
-              <li class="divider"></li>
-              <li><a href="/clients/">Listar clientes</a></li>
-              <li class="divider"></li>
-              <li><a href="/">Generar reporte de clientes</a></li>
-              <li class="divider"></li>
-            </ul>
-          </li>
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Vendedores</a>
-            <ul class="dropdown">
-              <li><label>Administración de vendedores</label></li>
-              <li><a href="/sellers/new/">Crear Vendedor</a></li>
-              <li class="divider"></li>
-              <li><a href="/sellers/">Listar vendedores</a></li>
-              <li class="divider"></li>
-              <li><a href="/">Generar reporte de vendedores</a></li>
-              <li class="divider"></li>
-            </ul>
-          </li>
-          <li class="has-dropdown">
-            <a href="#">Ventas</a>
-            <ul class="dropdown">
-              <li><label>Administrar ventas</label></li>
-              <li><a href="/sales/new/">Realizar venta</a></li>
-              <li class="divider"></li>
-              <li><a href="/sales/">Consultar ventas</a></li>
-              <li class="divider"></li>
-              <li><a href="/">Generar reporte de ventas</a></li>
-              <li class="divider"></li>
-            </ul>
-          </li>
-          <li class="divider"></li>
-          <li class="has-dropdown">
-            <a href="#">Productos</a>
-            <ul class="dropdown">
-              <li><label>Productos destacados</label></li>
-              <li class="divider"></li>
-              <li><a href="/catalog/index">Catalogo</a></li>
-              <li class="divider"></li>
-              <li><label>Administración de productos</label></li>
+
+
+          <section class="top-bar-section">
+
+            <ul class="right">
+              <li><a><%= current_user.userName%></a></li>
               <li class="divider"></li>
               <li class="has-dropdown">
-                <a href="#" class="">Bicicletas</a>
+                <a href="#">Noticias</a>
                 <ul class="dropdown">
-                  <li><a href="/bikes/new/">Crear Bicicleta</a></li>
-                  <li><a href="/bikes/">Listar bicicletas</a></li>
-                  <li><%= link_to 'Generar reporte de bicicletas', bikes_path(:pdf) %></li>
+                  <li><label>Administración de noticias</label></li>
+                  <li><a href="/articles/new/">Crear Noticia</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/articles/">Listar noticias</a></li>
+                  <li class="divider"></li>                 
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Clientes</a>
+                <ul class="dropdown">
+                  <li><label>Administración de clientes</label></li>
+                  <li><a href="/clients/">Listar clientes</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/">Generar reporte de clientes</a></li>
+                  <li class="divider"></li>
                 </ul>
               </li>
               <li class="divider"></li>
               <li class="has-dropdown">
-                <a href="#" class="">Equipaciones</a>
+                <a href="#">Vendedores</a>
                 <ul class="dropdown">
-                  <li><a href="/equipment/new/">Crear Equipacion</a></li>
-                  <li><a href="/equipment/">Listar equipaciones</a></li>
-                  <li><%= link_to 'Generar reporte de equipaciones', equipment_index_path(:pdf) %></li>
+                  <li><label>Administración de vendedores</label></li>
+                  <li><a href="/sellers/new/">Crear Vendedor</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/sellers/">Listar vendedores</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/">Generar reporte de vendedores</a></li>
+                  <li class="divider"></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Ventas</a>
+                <ul class="dropdown">
+                  <li><label>Administrar ventas</label></li>
+                  <li><a href="/sales/">Consultar ventas</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/">Generar reporte de ventas</a></li>
+                  <li class="divider"></li>
                 </ul>
               </li>
               <li class="divider"></li>
               <li class="has-dropdown">
-                <a href="#" class="">Articulos y accesorios</a>
+                <a href="#">Productos</a>
                 <ul class="dropdown">
-                  <li><a href="/accesory_parts/new/">Crear articulo o accesorio</a></li>
-                  <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
-                  <li><%= link_to 'Generar reporte de articulos y accesorios', accesory_parts_path(:pdf) %></li>
+                  <li><label>Productos destacados</label></li>
+                  <li class="divider"></li>
+                  <li><a href="/catalog/index">Catalogo</a></li>
+                  <li class="divider"></li>
+                  <li><label>Administración de productos</label></li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Bicicletas</a>
+                    <ul class="dropdown">
+                      <li><a href="/bikes/">Listar bicicletas</a></li>
+                      <li><a href="/">Generar reporte de bicicletas</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Equipaciones</a>
+                    <ul class="dropdown">
+                      <li><a href="/equipment/">Listar equipaciones</a></li>
+                      <li><a href="/">Generar reporte de equipaciones</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Articulos y accesorios</a>
+                    <ul class="dropdown">
+                      <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
+                      <li><a href="/clients/index/">Generar reporte de articulos y accesorios</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li><label> Información de cantidades</label></li>
+                  <li><a href="/inventories/">Inventario de productos</a></li>
+                </ul>
+                <li class="divider"></li>
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">FAQ</a>
+                  <ul class="dropdown">
+                    <li class="divider"></li>
+                    <li><a href="#">Ayuda</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Acerca de </a></li>
+                    <li class="divider"></li>
+
+                  </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                  <a href="#">Cuenta</a>
+                  <ul class="dropdown">
+                    <li class="divider"></li>
+                    <li><a href="#">Ver informacion</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Modificar datos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Cambiar contraseña</a></li>
+                    <li class="divider"></li>
+                    <li><label> Salir</label></li>
+                    <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </li>
+              </li>
+            </ul>
+          </section>
+
+          <%else if current_user.userType == "Seller" %>
+          <li class="has-dropdown">
+                <a href="#">Clientes</a>
+                <ul class="dropdown">
+                  <li><label>Administración de clientes</label></li>
+                  <li><a href="/clients/">Listar clientes</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/">Generar reporte de clientes</a></li>
+                  <li class="divider"></li>
                 </ul>
               </li>
-              <li class="divider"></li>
-              <li><label> Información de cantidades</label></li>
-              <li><a href="/inventories/">Inventario de productos</a></li>
-            </ul>
-            <li class="divider"></li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">FAQ</a>
-              <ul class="dropdown">
-                <li class="divider"></li>
-                <li><a href="#">Ayuda</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Acerca de </a></li>
-                <li class="divider"></li>
-                
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Cuenta</a>
-              <ul class="dropdown">
-                <li class="divider"></li>
-                <li><a href="#">Ver informacion</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Modificar datos</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Cambiar contraseña</a></li>
-                <li class="divider"></li>
-                <li><label> Salir</label></li>
-                <li><a href="#">Cerrar sesión</a></li>
-              </ul>
-            </li>
-          </li>
-        </ul>
-      </section>
-    </nav>
+
+
+          <%end%>
+          <%end%>
+
+          
+          <%else%>
+          <section class="top-bar-section">
+
+            <ul class="right">
+
+
+              <section class="top-bar-section">
+
+                <ul class="right">
+                  <li class="has-dropdown">
+                    <a href="#">Noticias</a>
+                    <ul class="dropdown">
+                      <li><a href="/articles/">Ver noticias</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="divider"></li>
+
+                  <li class="has-dropdown">
+                    <a href="#">Productos</a>
+                    <ul class="dropdown">
+                      <li><label>Productos destacados</label></li>
+                      <li class="divider"></li>
+                      <li><a href="/catalog/index">Catalogo</a></li>
+                      <li class="divider"></li>
+                      <li><label>Administración de productos</label></li>
+                      <li class="divider"></li>
+                      <li class="has-dropdown">
+                        <a href="#" class="">Bicicletas</a>
+                        <ul class="dropdown">
+                          <li><a href="/bikes/new/">Crear Bicicleta</a></li>
+                          <li><a href="/bikes/">Listar bicicletas</a></li>
+                          <li><a href="/">Generar reporte de bicicletas</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="has-dropdown">
+                        <a href="#" class="">Equipaciones</a>
+                        <ul class="dropdown">
+                          <li><a href="/equipment/new/">Crear Equipacion</a></li>
+                          <li><a href="/equipment/">Listar equipaciones</a></li>
+                          <li><a href="/">Generar reporte de equipaciones</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class="has-dropdown">
+                        <a href="#" class="">Articulos y accesorios</a>
+                        <ul class="dropdown">
+                          <li><a href="/accesory_parts/new/">Crear articulo o accesorio</a></li>
+                          <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
+                          <li><a href="/clients/index/">Generar reporte de articulos y accesorios</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li><label> Información de cantidades</label></li>
+                      <li><a href="/inventories/">Inventario de productos</a></li>
+                    </ul>
+                    
+                    <li class="divider"></li>
+                      <li><a href="#"><%= link_to "Iniciar sesion", user_session_path %></a></li>
+                    </li>
+                  </li>
+                </ul>
+              </section>
+
+
+              <%end%>
+
+            </nav>
+          </div>
+
+
+<%- flash.each do |name, msg| -%>
+  <div data-alert class="alert-box info radius">
+    <%= msg if msg.is_a?(String) %>
+    <a href="" class="close">&times;</a>
+  </div>
+  <%- end -%>
+
+    <%if user_signed_in? %>
+    <h1>LOGGEADO</h1>
+    <%end%>
     
   
 
@@ -174,12 +269,30 @@
     <div class="row">
 
       <div class="large-6 columns">
+        <p>Somos distribuidores autorizados de </p>
+      </div>
+
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">KTM</a></li>
+          <li><a href="#">Specialized</a></li>
+          <li><a href="#">Felt</a></li>
+          <li><a href="#">GW</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="large-12 columns"><hr/>
+    <div class="row">
+
+      <div class="large-6 columns">
         <p>© Copyright no one at all. Go to town.</p>
       </div>
 
       <div class="large-6 columns">
         <ul class="inline-list right">
-          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Contato</a></li>
           <li><a href="#">Link 2</a></li>
           <li><a href="#">Link 3</a></li>
           <li><a href="#">Link 4</a></li>
@@ -190,8 +303,8 @@
   </div>
 </footer>
 
-</body>
 
+<%= javascript_include_tag "application" %>
   </body>
 
   </html>

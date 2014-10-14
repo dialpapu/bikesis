@@ -5,9 +5,11 @@
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  
+  <%if User.all.empty?  %>
+    <%=  f.hidden_field :userType, :value => "Manager" %>
+  <%else%>
+    <%=  f.hidden_field :userType, :value => "Seller" %>
   <% end %>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />

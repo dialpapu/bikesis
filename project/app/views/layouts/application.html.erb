@@ -4,137 +4,139 @@
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-  <head>
-  	<meta charset="utf-8" />
+<head>
+ <meta charset="utf-8" />
 
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+ <!-- Uncomment to make IE8 render like IE7 -->
+ <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Set the viewport width to device width for mobile -->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "BIKESIS" %></title>
+ <title><%= content_for?(:title) ? yield(:title) : "BIKESIS" %></title>
 
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+ <%= stylesheet_link_tag    "application" %>
+ <%= javascript_include_tag "vendor/custom.modernizr" %>
+ <%= csrf_meta_tags %>
+</head>
 
-  <body>
- 
-        
- 
-          <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-               
-              <li class="name">
-                <h1>
-                  <a href="#">
-                   CICLERIA CAFE TALLER
-                  </a>
-                </h1>
-              </li>
-              <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+<body>
+
+
+
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+
+      <li class="name">
+        <h1>
+          <a href="#">
+           CICLERIA CAFE TALLER
+         </a>
+       </h1>
+     </li>
+     <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+   </ul>
+
+   <section class="top-bar-section">
+
+    <ul class="right">
+
+      
+      <li><a href="/managers/sign_in">Usuario</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Clientes</a>
+        <ul class="dropdown">
+          <li><label>Section Name</label></li>
+          <li class="has-dropdown">
+            <a href="#" class="">Has Dropdown, Level 1</a>
+            <ul class="dropdown">
+              <li><a href="/clients/new/">Crear cliente</a></li>
+              <li><a href="/clients/index/">Lista de clientes</a></li>
             </ul>
-         
-            <section class="top-bar-section">
-               
-              <ul class="right">
-                <li><a href="/managers/sign_in">Usuario</a></li>
-                <li class="divider"></li>
-                <li class="has-dropdown">
-                  <a href="#">Clientes</a>
-                  <ul class="dropdown">
-                    <li><label>Section Name</label></li>
-                    <li class="has-dropdown">
-                      <a href="#" class="">Has Dropdown, Level 1</a>
-                      <ul class="dropdown">
-                        <li><a href="/clients/new/">Crear cliente</a></li>
-                        <li><a href="/clients/index/">Lista de clientes</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li class="divider"></li>
-                    <li><label>Section Name</label></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">See all →</a></li>
-                  </ul>
-                </li>
-                <li class="divider"></li>
-                <li class="has-dropdown">
-                  <a href="#">Vendedores</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">See all →</a></li>
-                  </ul>
-                </li>
-                <li class="divider"></li>
-                <li class="has-dropdown">
-                  <a href="#">Productos</a>
-                  <ul class="dropdown">
-                    <li><a href="/catalog/index">Catalogo</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li><a href="#">Dropdown Option</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">See all →</a></li>
-                  </ul>
-                  <li class="divider"></li>
-                <li class="has-dropdown">
-                  <a href="#">FAQ</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Ayuda</a></li>
-                    <li><a href="#">Preguntas Frecuentes</a></li>
-                    <li><a href="#">Acerca de </a></li>
-                    <li class="divider"></li>
-                    
-                  </ul>
-                </li>
-                 <li class="divider"></li>
-                <li class="has-dropdown">
-                  <a href="#">Cuenta</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Ver informacion</a></li>
-                    <li><a href="#">Modificar datos</a></li>
-                    <li><a href="#">Cambiar contraseña</a></li>
-                    </ul>
-                </li>
-                </li>
-              </ul>
-            </section>
-          </nav>
-           
-        
-       <%= yield %>
-       <footer class="row">
-        <div class="large-12 columns"><hr/>
-          <div class="row">
- 
-            <div class="large-6 columns">
-              <p>© Copyright no one at all. Go to town.</p>
-            </div>
- 
-            <div class="large-6 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-              </ul>
-            </div>
- 
-          </div>
-        </div>
-      </footer>
- 
+          </li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li class="divider"></li>
+          <li><label>Section Name</label></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all →</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Vendedores</a>
+        <ul class="dropdown">
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all →</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Productos</a>
+        <ul class="dropdown">
+          <li><a href="/catalog/index">Catalogo</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li><a href="#">Dropdown Option</a></li>
+          <li class="divider"></li>
+          <li><a href="#">See all →</a></li>
+        </ul>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">FAQ</a>
+          <ul class="dropdown">
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Acerca de </a></li>
+            <li class="divider"></li>
 
-    
-    <%= javascript_include_tag "application" %>
-  </body>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Cuenta</a>
+          <ul class="dropdown">
+            <li><a href="#">Ver informacion</a></li>
+            <li><a href="#">Modificar datos</a></li>
+            <li><a href="#">Cambiar contraseña</a></li>
+          </ul>
+        </li>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+
+<%= yield %>
+<footer class="row">
+  <div class="large-12 columns"><hr/>
+    <div class="row">
+
+      <div class="large-6 columns">
+        <p>© Copyright no one at all. Go to town.</p>
+      </div>
+
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+
+<%= javascript_include_tag "application" %>
+</body>
 </html>

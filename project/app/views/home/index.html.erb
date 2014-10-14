@@ -1,6 +1,4 @@
 <%if user_signed_in? %>
-	<p>Bienvenido <%= current_user.username%></p>
-	<a> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
 <%else%>
 <%if @users.empty?  %>
 	<div><h1><%= link_to "Crear Gerente", new_user_registration_path %></h1></div>

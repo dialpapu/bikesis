@@ -11,13 +11,13 @@ class SellersController < ApplicationController
 	end
 
   def new
-    @seller=User.new
+    @seller=User.new(seller_params)
+    @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
+    @seller.save  
   end
 
   def create
-    @seller=User.new(items_params)
-    @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
-    @seller.save  
+    
   end
 
 

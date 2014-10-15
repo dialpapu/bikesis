@@ -89,28 +89,6 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.integer "itemAmount", null: false
   end
 
-  create_table "managers", force: true do |t|
-    t.integer  "personId",                                       null: false
-    t.integer  "document",                                       null: false
-    t.string   "personName",             limit: 50,              null: false
-    t.string   "lastName",               limit: 50,              null: false
-    t.string   "telephone",              limit: 20,              null: false
-    t.boolean  "personStatus",                                   null: false
-    t.string   "email",                  limit: 50, default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
-  add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
-
   create_table "sales", force: true do |t|
     t.integer "saleId",                 null: false
     t.integer "sellerId",               null: false
@@ -120,14 +98,8 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.string  "note",       limit: 300, null: false
   end
 
-  create_table "sellers", force: true do |t|
-    t.integer  "personId",                                       null: false
-    t.integer  "document",                                       null: false
-    t.string   "personName",             limit: 50,              null: false
-    t.string   "lastName",               limit: 50,              null: false
-    t.string   "telephone",              limit: 20,              null: false
-    t.boolean  "personStatus",                                   null: false
-    t.string   "email",                  limit: 10, default: "", null: false
+  create_table "users", force: true do |t|
+    t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -137,30 +109,15 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-  end
-
-  add_index "sellers", ["email"], name: "index_sellers_on_email", unique: true, using: :btree
-  add_index "sellers", ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
-    t.string   "userLastName"
-    t.integer  "document"
-    t.string   "telephone"
-    t.string   "userType"
-    t.string   "status"
+    t.string   "personId",                                       null: false
+    t.string   "username",               limit: 50,              null: false
+    t.string   "userLastName",           limit: 50,              null: false
+    t.integer  "document",                                       null: false
+    t.string   "telephone",              limit: 20,              null: false
+    t.string   "userType",                                       null: false
+    t.boolean  "status",                                         null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

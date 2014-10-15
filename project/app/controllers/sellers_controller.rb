@@ -29,10 +29,10 @@ class SellersController < ApplicationController
     elements.each do |item|  
       pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
       pdf.text " "
-      pdf.text "ID PERSONA: "+ item.sellerId.to_s, :font_size =>15
+      pdf.text "ID PERSONA: "+ item.id.to_s, :font_size =>15
       pdf.text "DOCUMENTO: "+item.document.to_s, :font_size => 15
       pdf.text "NOMBRE: " +item.username.to_s, :font_size => 15
-      pdf.text "APELLIDO: "+ item.userlastName.to_s, :font_size => 15
+      pdf.text "APELLIDO: "+ item.userLastName.to_s, :font_size => 15
       pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
       if item.status==true 
         pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth

@@ -28,7 +28,7 @@
       <td><%= client.personStatus %></td>
       <td><%= link_to 'Show', client %></td>
       <td><%= link_to 'Edit', edit_client_path(client) %></td>
-      <td><%= link_to 'Destroy', client , method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      <td><%= link_to 'Habilitar/deshabilitar', client , method: :delete, data: { confirm: 'Desea confirmar esta accion?' } %></td>
       
     </tr>
     <% end %>

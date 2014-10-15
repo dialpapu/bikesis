@@ -18,4 +18,31 @@ class SellersController < ApplicationController
 		params.require(:seller).permit(:id,:username, :userLastName,:document,:telephone, :userType, :status)
 
 	end
+
+	def generateReport(elements)
+		def generateReport(elements)
+    pdf = PDF::Writer.new
+    pdf.select_font "Times-Roman"
+    pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
+    pdf.text "Reporte de Vendedores", :font_size => 40, :justification => :center
+    pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
+    elements.each do |item|  
+      pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
+      pdf.text " "
+      pdf.text "ID PERSONA: "+ item.sellerId.to_s, :font_size =>15
+      pdf.text "DOCUMENTO: "+item.document.to_s, :font_size => 15
+      pdf.text "NOMBRE: " +item.username.to_s, :font_size => 15
+      pdf.text "APELLIDO: "+ item.userlastName.to_s, :font_size => 15
+      pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
+      if item.status==true 
+        pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth
+      else
+        pdf.text "ESTADO: Deshabilitado", :font_size => 15, :justification => :rigth
+      end
+    end
+    pdf.render
+    send_data pdf.render, :filename => 'Vendedores.pdf', :type => 'application/pdf', :disposition => 'inline'
+  end
+		
+	end
 end

@@ -47,7 +47,7 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory.destroy
     respond_to do |format|
-      format.html { redirect_to inventory_url, notice: 'Inventario se ha deshabilitado.' }
+      format.html { redirect_to inventory_url, notice: 'El registro se ha deshabilitado.' }
       format.json { head :no_content }
     end
   end

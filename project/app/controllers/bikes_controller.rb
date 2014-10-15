@@ -94,7 +94,7 @@ class BikesController < ApplicationController
    
         end
         pdf.render
-        send_data pdf.render, :filename => 'bicicletas.pdf', :type => 'application/pdf', :disposition => 'inline'
+        send_data pdf.render, :filename => 'Bicicletas.pdf', :type => 'application/pdf', :disposition => 'inline'
     
   end
 end

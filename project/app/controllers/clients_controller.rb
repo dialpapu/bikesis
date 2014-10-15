@@ -96,6 +96,6 @@ class ClientsController < ApplicationController
       end
     end
     pdf.render
-    send_data pdf.render, :filename => 'articulos_y_accesorios.pdf', :type => 'application/pdf', :disposition => 'inline'
+    send_data pdf.render, :filename => 'Clientes.pdf', :type => 'application/pdf', :disposition => 'inline'
   end
 end

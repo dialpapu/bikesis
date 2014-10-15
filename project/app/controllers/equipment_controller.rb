@@ -93,7 +93,7 @@ class EquipmentController < ApplicationController
       end
     end
     pdf.render
-    send_data pdf.render, :filename => 'equipaciones.pdf', :type => 'application/pdf', :disposition => 'inline'
+    send_data pdf.render, :filename => 'Equipaciones.pdf', :type => 'application/pdf', :disposition => 'inline'
     
   end
 end

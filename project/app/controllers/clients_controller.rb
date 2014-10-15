@@ -4,14 +4,14 @@ class ClientsController < ApplicationController
   
   before_filter :authenticate_user!
   def index
-    @clients = Client.all
+    @clients=Client.all
     respond_to do |format|
       format.html
       format.pdf do
         generateReport(@clients)
       end
     end
-    
+
   end
 
   def show
@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    
+
   end
 
   def edit
@@ -28,6 +28,13 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
+    if Client.all.nil?
+      @client.personId=1
+    else
+      @client.personId = Client.all.count+1
+    end
+    @client.personStatus=true
+    @client.publicity=false
     @client.save
     respond_to do |format|
       if @client.save
@@ -54,7 +61,10 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client.destroy
+    #@client.destroy
+    @client.personStatus=false
+    @client.personName='si cambia'
+    @client.save
     respond_to do |format|
       format.html { redirect_to client_url, notice: 'El cliente se ha deshabilitado.' }
       format.json { head :no_content }
@@ -84,7 +94,7 @@ class ClientsController < ApplicationController
       pdf.text "APELLIDO: "+ item.lastName.to_s, :font_size => 15
       pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
       pdf.text "FECHA DE NACIMIENTO: "+item.birthDay, :font_size => 15, :justification => :justify
-       if item.publicity==true 
+      if item.publicity==true 
         pdf.text "PUBLICIDAD PERMITIDA: Si"+item.typeElement.to_s, :font_size => 15, :justification => :justify
       else
         pdf.text "PUBLICIDAD PERMITIDA: No"+item.typeElement.to_s, :font_size => 15, :justification => :justify

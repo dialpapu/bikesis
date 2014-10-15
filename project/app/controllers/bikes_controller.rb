@@ -33,6 +33,7 @@ class BikesController < ApplicationController
     else
       @bike.productId = Bike.all.count+1
     end
+    @bike.productStatus=true
     @bike.save
     respond_to do |format|
       if @bike.save

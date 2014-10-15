@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get 'catalog/index'
-
+  
   resources :bikes
 
   resources :equipment

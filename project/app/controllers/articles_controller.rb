@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
     end
     @article.managerId=current_user.id
     @article.publicationDate=Time.now
-    @article.articleState=true
     @article.save
     respond_to do |format|
       if @article.save
@@ -70,6 +69,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:articleId, :articleTitle, :managerId, :publicationDate, :body, :summary, :articleState)
+    params.require(:article).permit(:articleId, :articleTitle, :managerId, :publicationDate, :body, :summary)
   end
 end

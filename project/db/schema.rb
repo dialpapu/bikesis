@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.date    "publicationDate",            null: false
     t.text    "body",                       null: false
     t.text    "summary",                    null: false
-    t.boolean "articleState",               null: false
   end
 
   create_table "bikes", force: true do |t|

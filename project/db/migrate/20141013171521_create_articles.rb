@@ -7,7 +7,6 @@ class CreateArticles < ActiveRecord::Migration
       t.date :publicationDate, null: false
       t.text :body, null: false, :limit => 1000
       t.text :summary, null:false, :limit => 300
-      t.boolean :articleState, null: false
       #t.timestamps
     end
   end

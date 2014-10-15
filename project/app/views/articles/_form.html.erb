@@ -10,30 +10,38 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :articleTitle %><br>
+<div class="row">
+  <div class="large-6 columns">
+    <h4>TITULO </h4>
+    <em><tt>Definir titulo del articulo</tt></em>
     <%= f.text_field :articleTitle %>
   </div>
+</div>
+<div class="row">
+  <div class="large-9 columns">
+    <h4>RESUMEN</h4>
+    <em></em><tt>Escribir un breve resumen de la noticia</tt><em>
+    <%= f.text_area :summary %>
+  </div>
+</div> 
+<div class="row">
+  <div class="large-9 columns">
+    <h4>CONTENIDO</h4>
+    <em></em><tt>Escribir el cuerpo de la noticia</tt><em>
+    <%= f.text_area :body %>
+  </div>
+</div> 
 
+  <%=  f.hidden_field :articleState, :value => true %>
   <%=  f.hidden_field :managerId, :value => current_user.id %>
+  
+  <div class="row">
+    <div class="large-9 columns">
 
-  <%=  f.hidden_field :publicationDate, :value => Time.now %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_field :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :articleState %><br>
-    <%= f.check_box :articleState %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
 

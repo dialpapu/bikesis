@@ -5,11 +5,11 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!
   def index
     @articles = Article.all
-       
+
   end
 
   def show
-    
+
   end
 
   def new
@@ -25,8 +25,11 @@ class ArticlesController < ApplicationController
     if Article.all.nil?
       @article.articleId=1
     else
-    @article.articleId = Article.all.count+1
-  end
+      @article.articleId = Article.all.count+1
+    end
+    @article.managerId=current_user.id
+    @article.publicationDate=Time.now
+    @article.articleState=true
     @article.save
     respond_to do |format|
       if @article.save

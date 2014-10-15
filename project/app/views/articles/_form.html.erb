@@ -1,15 +1,15 @@
 <%= form_for(@article) do |f| %> 
 <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div id="error_explanation">
+  <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @article.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <div class="row">
   <div class="large-6 columns">
     <h4>TITULO </h4>
@@ -32,16 +32,13 @@
   </div>
 </div> 
 
-  <%=  f.hidden_field :articleState, :value => true %>
-  <%=  f.hidden_field :managerId, :value => current_user.id %>
-  
-  <div class="row">
-    <div class="large-9 columns">
+<div class="row">
+  <div class="large-9 columns">
 
-      <div class="actions">
-        <%= f.submit %>
-      </div>
+    <div class="actions">
+      <%= f.submit "Crear noticia"%>
     </div>
   </div>
+</div>
 <% end %>
 

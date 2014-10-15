@@ -20,9 +20,11 @@
 
   <%if User.all.empty?  %>
     <%=  f.hidden_field :userType, :value => "Manager" %>
+    <%=  f.hidden_field :personId, :value => 1 %>
     <h1>Crear como gerente</h1>
   <%else%>
     <%=  f.hidden_field :userType, :value => "Seller" %>
+    <%=  f.hidden_field :personId, :value => User.all.count+1%>
   <% end %>
 
   <%=  f.hidden_field :status, :value => "Enable" %>

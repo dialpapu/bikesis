@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "personId",                                       null: false
+    t.integer  "personId",                                       null: false
     t.string   "username",               limit: 50,              null: false
     t.string   "userLastName",           limit: 50,              null: false
     t.integer  "document",                                       null: false

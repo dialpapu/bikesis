@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
     @article.save
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Articulo creado correctamente.' }
+        format.html { redirect_to @article, notice: 'Noticia creada correctamente.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'El articulo se ha modificado satisfactoriamente.' }
+        format.html { redirect_to @article, notice: 'La noticia se ha modificado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @bike }
       else
         format.html { render :edit }
@@ -57,8 +57,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+
     respond_to do |format|
-      format.html { redirect_to article_url, notice: 'El articulo se  ha sido deshabilitado.' }
+      format.html { redirect_to articles_path, notice: 'La noticia se  ha deshabilitado.' }
       format.json { head :no_content }
     end
   end

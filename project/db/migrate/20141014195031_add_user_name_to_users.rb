@@ -1,6 +1,6 @@
 class AddUserNameToUsers < ActiveRecord::Migration
 	def change
-		add_column :users, :personId, :string, null: false
+		add_column :users, :personId, :integer, null: false
 		add_column :users, :username, :string, null: false, :limit=>50
 		add_column :users, :userLastName, :string, null: false, :limit=>50 
 		add_column :users, :document, :integer, null: false

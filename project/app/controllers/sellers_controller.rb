@@ -11,9 +11,11 @@ class SellersController < ApplicationController
 				generateReport(@sellers)
 			end
 		end
+
 	end
 
   def new
+<<<<<<< HEAD
     @seller = User.new
   end
 
@@ -21,6 +23,13 @@ class SellersController < ApplicationController
     @seller=User.new(seller_params)
     @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
     @seller.save 
+=======
+    @seller= User.new
+  end
+
+  def create
+    @seller = User.new(seller_params)
+>>>>>>> origin/master
   end
 
   def seller_params

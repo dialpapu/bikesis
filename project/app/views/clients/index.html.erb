@@ -37,4 +37,8 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %> | <%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
+<%= link_to 'New Client', new_client_path %> 
+<% if current_user.userType=='Manager' %> 
+| 
+<%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
+<%end %>

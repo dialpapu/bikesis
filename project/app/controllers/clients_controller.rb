@@ -64,11 +64,11 @@ class ClientsController < ApplicationController
     #@client.destroy
     respond_to do |format|
       if @client.personStatus==true
-        format.html { redirect_to client_url, notice: 'El cliente se ha deshabilitado.' }
+        format.html { redirect_to clients_url, notice: 'El cliente se ha deshabilitado.' }
         @client.personStatus=false
         @client.save
       else
-        format.html { redirect_to client_url, notice: 'El cliente se ha habilitado.' }
+        format.html { redirect_to clients_url, notice: 'El cliente se ha habilitado.' }
         @client.personStatus=true
         @client.save
       end

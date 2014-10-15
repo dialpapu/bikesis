@@ -8,7 +8,7 @@
 
   <% @articles.reverse_each do |article| %>
 
-  <hr/>
+  
   <article>
 
     <div class="row">
@@ -22,21 +22,28 @@
         <h6><%= article.publicationDate %>.</h6>
         <dl class="sub-nav">
           <dd><%= link_to 'Leer más', article %></dd>
+          <%if user_signed_in? && current_user.userType == "Manager" %>
           <dd><%= link_to 'Editar', edit_article_path(article) %></dd>
           <dd><%= link_to 'Borrar', article, :confirm => '¿Seguro de que deseas borrar este artículo?', :method => :delete %></dd>
+          <%end%>
         </dl>
       </div>
     </div>
   </article>
+  <div class="row">
+    <div class="large-12 columns"><hr/>
+    </div>
+  </div>
 
 
   <% end %>
+  <%if user_signed_in? && current_user.userType == "Manager" %>
   <div class="row">
-    <div class="large-8 columns">
-     <a href="/articles/new">Crear un artículo</a>   
-   </div>
- </div>
-
+    <div class="small-4 large-centered columns"><a href="/articles/new" class="button secondary radius">Nuevo artículo</a> </div>
+    </div>
+  </div>
+  
+  <%end%>
 
 </div>
 

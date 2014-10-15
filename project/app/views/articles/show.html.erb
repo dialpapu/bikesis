@@ -41,13 +41,14 @@
     <p align="justify"><h7><%= @article.body%></h7></p>
   </div>
 </div>
-
+<%if user_signed_in? %>
 <div class="row">
   <div class="large-8 columns">
-    <%= link_to 'Edit', edit_article_path(@article) %> |
-    <%= link_to 'Back', articles_path %>
+    <%= link_to 'Editar', edit_article_path(@article) %> |
+    <%= link_to 'Volver', articles_path %>
   </div>
 </div>
+<%end%>
 
 
 

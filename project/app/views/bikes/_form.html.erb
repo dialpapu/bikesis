@@ -25,7 +25,10 @@
 </div>
 <div class="field">
   <%= f.label :productImage %><br>
-  <%= f.file_field :productImage %>
+  <%= f.text_field :productImage %>
+  <%if false%>
+  <%= f.file_field :photo %>
+  <%end%>
 </div>
 <div class="field">
   <%= f.label :productPrice %><br>

@@ -7,4 +7,6 @@ validates_length_of :productImage, :within => 1..100
 validates_length_of :productDescription, :within => 1..300
 validates_length_of :measures, :within => 1..50
 validates_length_of :bikeType, :within => 1..50
+
+
 end

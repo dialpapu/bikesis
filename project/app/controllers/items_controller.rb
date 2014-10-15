@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+  before_filter :authenticate_user!
   def index
     @items = Item.all
     

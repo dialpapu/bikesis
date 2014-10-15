@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
-
+  
+  before_filter :authenticate_user!
   def index
    #@sellers = User.find(:all, :conditions => { :userType => 'Seller' })
    @sellers = User.where(:userType => 'Seller')

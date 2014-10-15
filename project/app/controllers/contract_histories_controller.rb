@@ -1,6 +1,7 @@
 class ContractHistoriesController < ApplicationController
   before_action :set_contract_history, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+  before_filter :authenticate_user!
   def index
     @contract_histories = ContractHistory.all
     

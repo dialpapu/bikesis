@@ -1,0 +1,41 @@
+<h1>Listing sellers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Personid</th>
+      <th>Document</th>
+      <th>Username</th>
+      <th>Userlastname</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Password confirmation</th>
+      <th>Telephone</th>
+      <th>Usertype</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.personId %></td>
+        <td><%= seller.document %></td>
+        <td><%= seller.username %></td>
+        <td><%= seller.userLastName %></td>
+        <td><%= seller.email %></td>
+        <td><%= seller.password %></td>
+        <td><%= seller.password_confirmation %></td>
+        <td><%= seller.telephone %></td>
+        <td><%= seller.userType %></td>
+        <td><%= seller.status %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seller', new_seller_path %>

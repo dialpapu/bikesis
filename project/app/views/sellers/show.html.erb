@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Personid:</strong>
+  <%= @seller.personId %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @seller.document %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @seller.username %>
+</p>
+
+<p>
+  <strong>Userlastname:</strong>
+  <%= @seller.userLastName %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @seller.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @seller.password %>
+</p>
+
+<p>
+  <strong>Password confirmation:</strong>
+  <%= @seller.password_confirmation %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @seller.telephone %>
+</p>
+
+<p>
+  <strong>Usertype:</strong>
+  <%= @seller.userType %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @seller.status %>
+</p>
+
+<%= link_to 'Edit', edit_seller_path(@seller) %> |
+<%= link_to 'Back', sellers_path %>

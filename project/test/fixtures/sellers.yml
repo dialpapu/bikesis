@@ -3,15 +3,23 @@
 one:
   personId: 1
   document: 1
-  personName: MyString
-  lastName: MyString
+  username: MyString
+  userLastName: MyString
+  email: MyString
+  password: MyString
+  password_confirmation: MyString
   telephone: MyString
-  personStatus: false
+  userType: MyString
+  status: false
 
 two:
   personId: 1
   document: 1
-  personName: MyString
-  lastName: MyString
+  username: MyString
+  userLastName: MyString
+  email: MyString
+  password: MyString
+  password_confirmation: MyString
   telephone: MyString
-  personStatus: false
+  userType: MyString
+  status: false

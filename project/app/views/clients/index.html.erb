@@ -8,33 +8,37 @@
       <th>Personname</th>
       <th>Lastname</th>
       <th>Telephone</th>
-      <th>Personstatus</th>
       <th>Birthday</th>
       <th>Publicity</th>
+      <th>Personstatus</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.personId %></td>
-        <td><%= client.document %></td>
-        <td><%= client.personName %></td>
-        <td><%= client.lastName %></td>
-        <td><%= client.telephone %></td>
-        <td><%= client.personStatus %></td>
-        <td><%= client.birthDay %></td>
-        <td><%= client.publicity %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-         <td><%= link_to 'Destroy', client , method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+    <tr>
+      <td><%= client.personId %></td>
+      <td><%= client.document %></td>
+      <td><%= client.personName %></td>
+      <td><%= client.lastName %></td>
+      <td><%= client.telephone %></td>
+      <td><%= client.birthDay %></td>
+      <td><%= client.publicity %></td>
+      <td><%= client.personStatus %></td>
+      <td><%= link_to 'Show', client %></td>
+      <td><%= link_to 'Edit', edit_client_path(client) %></td>
+      <td><%= link_to 'Habilitar/deshabilitar', client , method: :delete, data: { confirm: 'Desea confirmar esta accion?' } %></td>
       
-      </tr>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Client', new_client_path %> | <%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
+<%= link_to 'New Client', new_client_path %> 
+<% if current_user.userType=='Manager' %> 
+| 
+<%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
+<%end %>

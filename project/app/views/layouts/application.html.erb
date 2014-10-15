@@ -161,17 +161,8 @@
       <%else if current_user.userType == "Seller" %>
       <section class="top-bar-section">
 
-        <ul class="right">
-          <li class="has-dropdown">
-            <a href="#">Clientes</a>
-            <ul class="dropdown">
-              <li><label>Administración de clientes</label></li>
-              <li><a href="/">Nuevo cliente</a></li>
-              <li class="divider"></li>
-              <li><a href="/clients/">Listar clientes</a></li>
-              <li class="divider"></li>
-            </ul>
-          </li>
+            <ul class="right">
+
           <li class="has-dropdown">
             <a href="#">Ventas</a>
             <ul class="dropdown">
@@ -203,6 +194,7 @@
               <li class="has-dropdown">
                 <a href="#" class="">Equipaciones</a>
                 <ul class="dropdown">
+<<<<<<< HEAD
                   <li><a href="/equipment/">Nueva equipacion</a></li>
                   <li><a href="/equipment/">Listar equipaciones</a></li>
                 </ul>
@@ -213,6 +205,40 @@
                 <ul class="dropdown">
                   <li><a href="/accesory_parts/">Nuevo Articulo - Accesorio</a></li>
                   <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
+=======
+                  <li><label>Productos destacados</label></li>
+                  <li class="divider"></li>
+                  <li><a href="/catalog/index">Catalogo</a></li>
+                  <li class="divider"></li>
+                  <li><label>Administración de productos</label></li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Bicicletas</a>
+                    <ul class="dropdown">
+                      <li><a href="/bikes/new">Nueva Bicicleta</a></li>
+                      <li><a href="/bikes/">Listar bicicletas</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Equipaciones</a>
+                    <ul class="dropdown">
+                      <li><a href="/equipment/new">Nueva equipacion</a></li>
+                      <li><a href="/equipment/">Listar equipaciones</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#" class="">Articulos y accesorios</a>
+                    <ul class="dropdown">
+                      <li><a href="/accesory_parts/new">Nuevo Articulo - Accesorio</a></li>
+                      <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li><label> Información de producto</label></li>
+                  <li><a href="/inventories/">Inventario de productos</a></li>
+>>>>>>> origin/master
                 </ul>
               </li>
               <li class="divider"></li>

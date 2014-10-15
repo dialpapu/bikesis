@@ -1,0 +1,13 @@
+<% flash.each do |key, value| %>
+<%if key== "notice"%>
+<% key="success"%>
+<%else%>
+<%end%>
+  <div class="alert-box <%= key%>  radius">
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+  </div>
+<% end %>

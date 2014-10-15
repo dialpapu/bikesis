@@ -1,47 +1,122 @@
-  <%if User.all.empty?  %>
-  <h2>Registrar Gerente</h2>    
-  <%else%>
-    <h2>Registrar Vendedor</h2>    
-  <% end %>
+<div class="panel">
+  <div class="row">
+    <div class="large-12 columns">
+      <%if User.all.empty?  %>
+      <h2>Registrar Gerente</h2>    
+      <%else%>
+      <h2>Registrar Vendedor</h2>    
+      <% end %>
 
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username , autofocus: true %></div>
+      <%if User.all.empty?  %>
+      <%=  f.hidden_field :userType, :value => "Manager" %>
+      <%=  f.hidden_field :personId, :value => 1 %>
+      <%else%>
+      <%=  f.hidden_field :userType, :value => "Seller" %>
+      <%=  f.hidden_field :personId, :value => User.all.count+1%>
+      <% end %>
 
-  <div><%= f.label :userLastName %><br />
-  <%= f.text_field :userLastName%></div>
+      <%=  f.hidden_field :status, :value => "Enable" %>
 
-  <div><%= f.label :document %><br />
-  <%= f.text_field :document %></div>
-
-  <%if User.all.empty?  %>
-    <%=  f.hidden_field :userType, :value => "Manager" %>
-    <%=  f.hidden_field :personId, :value => 1 %>
-    <h1>Crear como gerente</h1>
-  <%else%>
-    <%=  f.hidden_field :userType, :value => "Seller" %>
-    <%=  f.hidden_field :personId, :value => User.all.count+1%>
-  <% end %>
-
-  <%=  f.hidden_field :status, :value => "Enable" %>
-
-  <div><%= f.label :telephone %><br />
-  <%= f.text_field :telephone%></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email%></div>
-
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Nombres</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.text_field :username , autofocus: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Apellidos</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.text_field :userLastName%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Documento de Identificacion</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.text_field :document %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Numero telefonico</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.text_field :telephone%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Correo electrónico</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.email_field :email%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Contraseña</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-8">
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="right-label" class="right inline">Confirme su contraseña</label>
+            </div>
+            <div class="small-9 columns">
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>            </p>
+      <div class="row">
+        <div class="small-4 large-centered columns"><%= f.submit "Enviar", class: "button success radius" %></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -322,13 +322,7 @@
           </nav>
         </div>
 
-
-        <%- flash.each do |name, msg| -%>
-        <div data-alert class="alert-box info radius">
-          <%= msg if msg.is_a?(String) %>
-          <a href="" class="close">&times;</a>
-        </div>
-        <%- end -%>
+        <%= render 'layouts/messages' %>
         
         
 

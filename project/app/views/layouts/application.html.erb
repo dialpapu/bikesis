@@ -165,9 +165,9 @@
             <a href="#">Clientes</a>
             <ul class="dropdown">
               <li><label>Administración de clientes</label></li>
-              <li><a href="/clients/">Listar clientes</a></li>
+              <li><a href="/">Nuevo cliente</a></li>
               <li class="divider"></li>
-              <li><a href="/">Generar reporte de clientes</a></li>
+              <li><a href="/clients/">Listar clientes</a></li>
               <li class="divider"></li>
             </ul>
           </li>
@@ -175,9 +175,9 @@
                 <a href="#">Ventas</a>
                 <ul class="dropdown">
                   <li><label>Administrar ventas</label></li>
-                  <li><a href="/sales/">Consultar ventas</a></li>
+                  <li><a href="/">Nueva Venta</a></li>
                   <li class="divider"></li>
-                  <li><a href="/">Generar reporte de ventas</a></li>
+                  <li><a href="/sales/">Consultar ventas</a></li>
                   <li class="divider"></li>
                 </ul>
               </li>
@@ -194,24 +194,24 @@
                   <li class="has-dropdown">
                     <a href="#" class="">Bicicletas</a>
                     <ul class="dropdown">
+                      <li><a href="/bikes/">Nueva Bicicleta</a></li>
                       <li><a href="/bikes/">Listar bicicletas</a></li>
-                      <li><%= link_to 'Generar reporte de bicicletas', bikes_path(:pdf) %></li>
                     </ul>
                   </li>
                   <li class="divider"></li>
                   <li class="has-dropdown">
                     <a href="#" class="">Equipaciones</a>
                     <ul class="dropdown">
+                      <li><a href="/equipment/">Nueva equipacion</a></li>
                       <li><a href="/equipment/">Listar equipaciones</a></li>
-                      <li><%= link_to 'Generar reporte de equipaciones', equipment_index_path(:pdf) %></li>
                     </ul>
                   </li>
                   <li class="divider"></li>
                   <li class="has-dropdown">
                     <a href="#" class="">Articulos y accesorios</a>
                     <ul class="dropdown">
+                      <li><a href="/accesory_parts/">Nuevo Articulo - Accesorio</a></li>
                       <li><a href="/accesory_parts/">Listar articulos y accesorios</a></li>
-                      <li><%= link_to 'Generar reporte de articulos y accesorios', accesory_parts_path(:pdf) %></li>
                     </ul>
                   </li>
                   <li class="divider"></li>
@@ -223,9 +223,9 @@
                   <a href="#">Clientes</a>
                   <ul class="dropdown">
                     <li><label>Administración de clientes</label></li>
-                    <li><a href="/clients/">Listar clientes</a></li>
+                    <li><a href="/clients/">Nuevo cliente</a></li>
                     <li class="divider"></li>
-                    <li><%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %></li>
+                    <li><a href="/clients/">Listar clientes</a></li>
                     <li class="divider"></li>
                   </ul>
                 </li>

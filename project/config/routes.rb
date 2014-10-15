@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'sellers/index'
+  #get 'sellers/index'
 
   devise_for :users
 
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :contract_histories
 
   resources :articles
+
+  resources :sellers
 
 
 

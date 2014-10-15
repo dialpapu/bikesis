@@ -9,40 +9,52 @@ class SellersController < ApplicationController
 			end
 		end
 	end
-	private
-	def set_seller
-		@seller = User.find(params[:id])
-	end
 
-	def seller_params
-		params.require(:seller).permit(:id,:username, :userLastName,:document,:telephone, :userType, :status)
-
-	end
-
-	def generateReport(elements)
-		def generateReport(elements)
-    pdf = PDF::Writer.new
-    pdf.select_font "Times-Roman"
-    pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
-    pdf.text "Reporte de Vendedores", :font_size => 40, :justification => :center
-    pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
-    elements.each do |item|  
-      pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
-      pdf.text " "
-      pdf.text "ID PERSONA: "+ item.id.to_s, :font_size =>15
-      pdf.text "DOCUMENTO: "+item.document.to_s, :font_size => 15
-      pdf.text "NOMBRE: " +item.username.to_s, :font_size => 15
-      pdf.text "APELLIDO: "+ item.userLastName.to_s, :font_size => 15
-      pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
-      if item.status==true 
-        pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth
-      else
-        pdf.text "ESTADO: Deshabilitado", :font_size => 15, :justification => :rigth
-      end
-    end
-    pdf.render
-    send_data pdf.render, :filename => 'Vendedores.pdf', :type => 'application/pdf', :disposition => 'inline'
+  def new
+    @seller=User.new
   end
-		
-	end
+
+  def create
+    @seller=User.new(items_params)
+    @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
+    @seller.save  
+  end
+
+
+  private
+  def set_seller
+    @seller = User.find(params[:id])
+  end
+
+  def seller_params
+    params.require(:seller).permit(:personId,:username, :email, :userLastName,:document,:telephone, :userType, :status, :password, :password_confirmation)
+
+  end
+
+  def generateReport(elements)
+    def generateReport(elements)
+      pdf = PDF::Writer.new
+      pdf.select_font "Times-Roman"
+      pdf.image "public/images/logo.jpg", :justification => :center, :resize => 0.4
+      pdf.text "Reporte de Vendedores", :font_size => 40, :justification => :center
+      pdf.text "Generado el "+ (Time.now()).strftime(" %b %d, %Y").to_s, :font_size => 15, :justification => :center
+      elements.each do |item|  
+        pdf.text "______________________________________________________", :font_size=>20 , :justification => :center
+        pdf.text " "
+        pdf.text "ID PERSONA: "+ item.id.to_s, :font_size =>15
+        pdf.text "DOCUMENTO: "+item.document.to_s, :font_size => 15
+        pdf.text "NOMBRE: " +item.username.to_s, :font_size => 15
+        pdf.text "APELLIDO: "+ item.userLastName.to_s, :font_size => 15
+        pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
+        if item.status==true 
+          pdf.text "ESTADO: Habilitado", :font_size => 15, :justification => :rigth
+        else
+          pdf.text "ESTADO: Deshabilitado", :font_size => 15, :justification => :rigth
+        end
+      end
+      pdf.render
+      send_data pdf.render, :filename => 'Vendedores.pdf', :type => 'application/pdf', :disposition => 'inline'
+    end
+
+  end
 end

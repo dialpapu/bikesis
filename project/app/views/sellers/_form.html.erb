@@ -1,0 +1,54 @@
+<%= form_for(@seller) do |f| %>
+  <% if @seller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seller.errors.count, "error") %> prohibited this seller from being saved:</h2>
+
+      <ul>
+      <% @seller.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   
+  <div class="field">
+    <%= f.label :personId %><br>
+    <%= f.number_field :personId %>
+  </div>
+  <div class="field">
+    <%= f.label :userName %><br>
+    <%= f.text_field :userName %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.number_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :userLastName %><br>
+    <%= f.text_field :userLastName %>
+  </div>
+  <div class="field">
+    <%= f.label :document %><br>
+    <%= f.number_field :document %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone %><br>
+    <%= f.text_field :telephone %>
+  </div>
+  <%=  f.hidden_field :userType, :value => 'Seller' %>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :password%><br>
+    <%= f.date_select :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.check_box :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Crear vendedor" %>
+  </div>
+<% end %>

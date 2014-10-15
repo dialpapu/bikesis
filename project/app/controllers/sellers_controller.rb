@@ -29,7 +29,7 @@ def create
   @seller = Seller.new(seller_params)
   @seller.userType='Seller'
   @seller.status='true'
-  
+  pass = "#{@seller.username}.#{@seller.userLastName}"
   @user  =  User.new(
     :personId => @seller.personId,
     :username => @seller.username,
@@ -39,8 +39,8 @@ def create
     :telephone => @seller.telephone,
     :userType => @seller.userType,
     :status => @seller.status,
-    :password =>  @seller.password, 
-    :password_confirmation =>@seller.password_confirmation) 
+    :password =>  pass, 
+    :password_confirmation => pass)
   @user.save 
   respond_to do |format|
       if @user.save
@@ -70,7 +70,7 @@ def set_seller
 end
 
 def seller_params
-  params.require(:seller).permit(:personId, :document, :username, :userLastName, :email, :password, :password_confirmation, :telephone, :userType, :status)
+  params.require(:seller).permit(:personId, :document, :username, :userLastName, :email, :password, :telephone, :userType, :status)
 end
 def generateReport(elements)
   pdf = PDF::Writer.new

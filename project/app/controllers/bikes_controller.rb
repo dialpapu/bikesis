@@ -26,7 +26,13 @@ class BikesController < ApplicationController
   end
 
   def create
+
     @bike = Bike.new(bike_params)
+    if Bike.all.nil?
+      @bike.productId=1
+    else
+      @bike.productId = Bike.all.count+1
+    end
     @bike.save
     respond_to do |format|
       if @bike.save

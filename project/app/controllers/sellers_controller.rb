@@ -1,4 +1,7 @@
 class SellersController < ApplicationController
+  before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
+
 	def index
 		#@sellers = User.find(:all, :conditions => { :userType => 'Seller' })
 		@sellers = User.where(:userType => 'Seller')
@@ -11,24 +14,22 @@ class SellersController < ApplicationController
 	end
 
   def new
-    @seller=User.new(seller_params)
-    @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
-    @seller.save  
+    @seller = User.new
   end
 
   def create
-    
-  end
-
-
-  private
-  def set_seller
-    @seller = User.find(params[:id])
+    @seller=User.new(seller_params)
+    @seller = User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
+    @seller.save 
   end
 
   def seller_params
     params.require(:seller).permit(:personId,:username, :email, :userLastName,:document,:telephone, :userType, :status, :password, :password_confirmation)
+  end
 
+  private
+  def set_seller
+    @seller = User.find(params[:id])
   end
 
   def generateReport(elements)
@@ -55,6 +56,5 @@ class SellersController < ApplicationController
       pdf.render
       send_data pdf.render, :filename => 'Vendedores.pdf', :type => 'application/pdf', :disposition => 'inline'
     end
-
   end
 end

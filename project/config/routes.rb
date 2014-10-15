@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #get 'sellers/index'
 
-  devise_for :users
+  devise_for :users, :controllers =>{:registrations =>"my_devise/registrations"}
 
   root to: 'home#index'
   get 'catalog/index'

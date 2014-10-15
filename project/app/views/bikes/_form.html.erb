@@ -1,57 +1,52 @@
 <%= form_for(@bike) do |f| %>
-  <% if @bike.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bike.errors.count, "error") %> prohibited this bike from being saved:</h2>
+<% if @bike.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@bike.errors.count, "error") %> prohibited this bike from being saved:</h2>
 
-      <ul>
-      <% @bike.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :productId %><br>
-    <%= f.number_field :productId %>
-  </div>
-  <div class="field">
-    <%= f.label :productReference %><br>
-    <%= f.text_field :productReference %>
-  </div>
-  <div class="field">
-    <%= f.label :productName %><br>
-    <%= f.text_field :productName %>
-  </div>
-  <div class="field">
-    <%= f.label :productTradeMark %><br>
-    <%= f.text_field :productTradeMark %>
-  </div>
-  <div class="field">
-    <%= f.label :productImage %><br>
-    <%= f.text_field :productImage %>
-  </div>
-  <div class="field">
-    <%= f.label :productPrice %><br>
-    <%= f.number_field :productPrice %>
-  </div>
-  <div class="field">
-    <%= f.label :productStatus %><br>
-    <%= f.check_box :productStatus %>
-  </div>
-  <div class="field">
-    <%= f.label :productDescription %><br>
-    <%= f.text_field :productDescription %>
-  </div>
-  <div class="field">
-    <%= f.label :measures %><br>
-    <%= f.text_field :measures %>
-  </div>
-  <div class="field">
-    <%= f.label :bikeType %><br>
-    <%= f.text_field :bikeType %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @bike.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="field">
+  <%= f.label :productReference %><br>
+  <%= f.text_field :productReference %>
+</div>
+<div class="field">
+  <%= f.label :productName %><br>
+  <%= f.text_field :productName %>
+</div>
+<div class="field">
+  <%= f.label :productTradeMark %><br>
+  <%= f.text_field :productTradeMark %>
+</div>
+<div class="field">
+  <%= f.label :productImage %><br>
+  <%= f.file_field :productImage %>
+</div>
+<div class="field">
+  <%= f.label :productPrice %><br>
+  <%= f.number_field :productPrice %>
+</div>
+<div class="field">
+  <%= f.label :productDescription %><br>
+  <%= f.text_field :productDescription %>
+</div>
+<div class="field">
+  <%= f.label :measures %><br>
+  <%= f.text_field :measures %>
+</div>
+<div class="field">
+  <%= f.label :bikeType %><br>
+  <%= f.text_field :bikeType %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
+

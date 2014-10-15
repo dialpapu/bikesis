@@ -78,8 +78,9 @@ ActiveRecord::Schema.define(version: 20141014195031) do
   end
 
   create_table "inventories", force: true do |t|
-    t.integer "productAmount", null: false
-    t.integer "productId",     null: false
+    t.integer "productAmount",  null: false
+    t.integer "productId",      null: false
+    t.date    "agregationDate", null: false
   end
 
   create_table "items", force: true do |t|

@@ -1,13 +1,7 @@
 <div class="panel">
   <div class="row">
     <div class="large-12 columns">
-      <%if User.all.empty?  %>
       <h2>Registrar Gerente</h2>    
-      <%else%>
-      <h2>Registrar Vendedor</h2>    
-      <% end %>
-
-
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>

@@ -1,45 +1,67 @@
-<h1>Listing equipment</h1>
+<div class="panel">
+  <%if @equipments.empty?  %>
+  <p>            </p>
+  <div class="row">
+    <div class="small-8 large-centered columns">
+      <h1>Aun no se ha registrado ropa deportiva</h1>
+    </div>
+  </div>
+  <%else%>
+  <div class="row">
+    <div class="small-12 large-centered columns">
+      <h1>Lista de Ropa deportiva - La Ciclería</h1>
+    </div>
+    <div class="small-12 large-centered columns">
 
-<table>
-  <thead>
-    <tr>
-      <th>Productid</th>
-      <th>Productreference</th>
-      <th>Productname</th>
-      <th>Producttrademark</th>
-      <th>Productimage</th>
-      <th>Productprice</th>
-      <th>Productstatus</th>
-      <th>Productdescription</th>
-      <th>Size</th>
-      <th>Gender</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Referencia</th>
+            <th>Producto</th>
+            <th>Marca</th>
+            <th>Productimage</th>
+            <th>Precio</th>
+            <th>Estado</th>
+            <th>Descripcion</th>
+            <th>Talle</th>
+            <th>Genero</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @equipment.each do |equipment| %>
-      <tr>
-        <td><%= equipment.productId %></td>
-        <td><%= equipment.productReference %></td>
-        <td><%= equipment.productName %></td>
-        <td><%= equipment.productTradeMark %></td>
-        <td><%= equipment.productImage %></td>
-        <td><%= equipment.productPrice %></td>
-        <td><%= equipment.productStatus %></td>
-        <td><%= equipment.productDescription %></td>
-        <td><%= equipment.size %></td>
-        <td><%= equipment.gender %></td>
-        <td><%= link_to 'Show', equipment %></td>
-        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @equipment.each do |equipment| %>
+          <tr>
+            <td><%= equipment.productId %></td>
+            <td><%= equipment.productReference %></td>
+            <td><%= equipment.productName %></td>
+            <td><%= equipment.productTradeMark %></td>
+            <td><%= equipment.productImage %></td>
+            <td><%= equipment.productPrice %></td>
+            <td><%= equipment.productStatus %></td>
+            <td><%= equipment.productDescription %></td>
+            <td><%= equipment.size %></td>
+            <td><%= equipment.gender %></td>
+            <td><%= link_to 'Show', equipment %></td>
+            <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
+            <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<br>
+      <br>
 
-<%= link_to 'New Equipment', new_equipment_path %>  |
-<%= link_to 'Generar reporte', equipment_index_path(:pdf) %>
+      <%= link_to 'New Equipment', new_equipment_path %>  |
+      <%= link_to 'Generar reporte', equipment_index_path(:pdf) %>
 
+      <br>
+    </div>
+    <br>
+    <%= link_to 'Nueva Bicicleta', new_bike_path %> | 
+    <%= link_to 'Generar Reporte', bikes_path(:pdf) %>
+  </div>
+</div>
+<%end%>
+</div>

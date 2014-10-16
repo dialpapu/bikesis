@@ -62,6 +62,10 @@
               <li class="divider"></li>
               <li><a href="/sellers">Listar vendedores</a></li>
               <li class="divider"></li>
+              <li><%= link_to 'Generar reporte de vendedores', equipment_index_path(:pdf) %></li>
+              <li class="divider"></li>
+
+              
 
 
 
@@ -147,8 +151,6 @@
                 <li><a href="#">Ver informacion</a></li>
                 <li class="divider"></li>
                 <li><%= link_to "Modificar datos",  edit_user_registration_path %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Modificar contraseña",  edit_user_password_path %></li>
                 <li class="divider"></li>
                 <li><label> Salir</label></li>
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
@@ -250,8 +252,6 @@
               <li><a href="#">Ver informacion</a></li>
               <li class="divider"></li>
               <li><%= link_to "Modificar datos",  edit_user_registration_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Modificar contraseña",  edit_user_password_path %></li>
               <li class="divider"></li>
               <li><label> Salir</label></li>
               <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>

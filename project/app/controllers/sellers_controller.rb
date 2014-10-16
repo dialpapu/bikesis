@@ -62,9 +62,9 @@ def create
 end
 
 def update
-  user.update(bike_params)
+  @seller.update(seller_params)
   respond_to do |format|
-    if @user.update(bike_params)
+    if @seller.update(seller_params)
       query="UPDATE users SET "+ 
       "username='"+@seller.username.to_s+
       "', email = '" +@seller.email.to_s +

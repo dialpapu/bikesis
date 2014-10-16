@@ -34,7 +34,6 @@ class ClientsController < ApplicationController
       @client.personId = Client.all.count+1
     end
     @client.personStatus=true
-    @client.publicity=false
     @client.save
     respond_to do |format|
       if @client.save
@@ -83,7 +82,7 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:personId, :document, :personName, :lastName, :telephone, :personStatus, :birthDay, :publicity)
+    params.require(:client).permit(:personId, :document, :personName, :lastName, :telephone, :personStatus, :birthDay, :publicity, :email)
   end
   def generateReport(elements)
     pdf = PDF::Writer.new
@@ -100,6 +99,7 @@ class ClientsController < ApplicationController
       pdf.text "APELLIDO: "+ item.lastName.to_s, :font_size => 15
       pdf.text "TELEFONO: "+ item.telephone.to_s, :font_size => 15
       pdf.text "FECHA DE NACIMIENTO: "+item.birthDay.to_s, :font_size => 15, :justification => :justify
+      pdf.text "CORREO ELECTRONICO: "+item.email.to_s, :font_size => 15, :justification => :justify
       if item.publicity==true 
         pdf.text "PUBLICIDAD PERMITIDA: Si", :font_size => 15, :justification => :justify
       else

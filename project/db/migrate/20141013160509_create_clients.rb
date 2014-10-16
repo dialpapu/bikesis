@@ -9,7 +9,7 @@ class CreateClients < ActiveRecord::Migration
       t.boolean :personStatus, null: false
       t.date :birthDay, null:false
       t.boolean :publicity, default:false
-      #t.timestamps
+      t.string :email, null: false,:limit => 50
     end
   end
 end

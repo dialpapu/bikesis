@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141016223008) do
     t.boolean "personStatus",                            null: false
     t.date    "birthDay",                                null: false
     t.boolean "publicity",               default: false
+    t.string  "email",        limit: 50,                 null: false
   end
 
   create_table "contract_histories", force: true do |t|

@@ -11,8 +11,8 @@
     <div class="small-12 large-centered columns">
       <h1>Lista de Bicicletas - La Ciclería</h1>
     </div>
-    <div class="small-12 large-centered columns">
-      
+    <div class="large-centered columns">
+
       <table>
         <thead>
           <tr>
@@ -20,9 +20,7 @@
             <th>Referencia</th>
             <th>Producto</th>
             <th>Marca</th>
-            <th>Productimage</th>
             <th>Precio</th>
-            <th>Estado</th>
             <th>Descripcion</th>
             <th>Medidas</th>
             <th>Tipo</th>
@@ -37,26 +35,33 @@
             <td><%= bike.productReference %></td>
             <td><%= bike.productName %></td>
             <td><%= bike.productTradeMark %></td>
-            <td><%= bike.productImage %></td>
             <td><%= bike.productPrice %></td>
-            <td><%= bike.productStatus %></td>
             <td><%= bike.productDescription %></td>
             <td><%= bike.measures %></td>
             <td><%= bike.bikeType %></td>
-            <td><%= link_to 'Show', bike %></td>
-            <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
-            <td><%= link_to 'Habilitar/Deshabilitar', bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+            <td>
+                <%= link_to 'Ver', bike , class: "small button success centered"%>
+                <%= link_to 'Editar', edit_bike_path(bike), class: "small button success" %>
+                <% if bike.productStatus == true %>
+                <%= link_to 'Deshabilitar', bike, method: :delete, class: "small button alert",data: { confirm: 'Are you sure?'} %>
+                <%else%>
+                <%= link_to 'Habilitar', bike, class: "small button success"%>
+                <%end%>
+            </td>
+            
+              
+              
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
 
+        <br>
+      </div>
       <br>
+      <%= link_to 'Nueva Bicicleta', new_bike_path , class: "button success radius"%> 
+      <%= link_to 'Generar Reporte', bikes_path(:pdf) , class: "button radius"%>
     </div>
-    <br>
-      <%= link_to 'Nueva Bicicleta', new_bike_path %> | 
-      <%= link_to 'Generar Reporte', bikes_path(:pdf) %>
   </div>
-</div>
-<%end%>
+  <%end%>
 </div>

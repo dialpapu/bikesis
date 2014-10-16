@@ -98,7 +98,6 @@ def set_seller
     :status => aux_seller.status,
     :password =>  aux_seller.password,
     :password_confirmation => aux_seller.password)
-  
   end
   
 

@@ -1,9 +1,9 @@
 <div class="panel">
-  <%if @equipments.empty?  %>
+  <%if @equipment.empty?  %>
   <p>            </p>
   <div class="row">
     <div class="small-8 large-centered columns">
-      <h1>Aun no se ha registrado ropa deportiva</h1>
+      <h1 align="center"> Aun no se ha registrado ropa deportiva</h1>
     </div>
   </div>
   <%else%>
@@ -59,8 +59,7 @@
       <br>
     </div>
     <br>
-    <%= link_to 'Nueva Bicicleta', new_bike_path %> | 
-    <%= link_to 'Generar Reporte', bikes_path(:pdf) %>
+
   </div>
 </div>
 <%end%>

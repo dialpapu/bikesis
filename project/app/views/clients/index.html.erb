@@ -1,44 +1,60 @@
-<h1>Listing clients</h1>
+<div class="panel">
+  <%if @clients.empty?  %>
+  <p>            </p>
+  <div class="row">
+    <div class="small-8 large-centered columns">
+      <h1>Aun no se ha registrado ningun cliente</h1>
+    </div>
+  <%else%>
+  <div class="row">
+    <div class="small-12 large-centered columns">
+      <h1>Lista de clientes - La Ciclería</h1>
+    </div>
+    <div class="small-12 large-centered columns">
 
-<table>
-  <thead>
-    <tr>
-      <th>Personid</th>
-      <th>Document</th>
-      <th>Personname</th>
-      <th>Lastname</th>
-      <th>Telephone</th>
-      <th>Birthday</th>
-      <th>Publicity</th>
-      <th>Personstatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Personid</th>
+            <th>Document</th>
+            <th>Personname</th>
+            <th>Lastname</th>
+            <th>Telephone</th>
+            <th>Birthday</th>
+            <th>Publicity</th>
+            <th>Personstatus</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @clients.each do |client| %>
-    <tr>
-      <td><%= client.personId %></td>
-      <td><%= client.document %></td>
-      <td><%= client.personName %></td>
-      <td><%= client.lastName %></td>
-      <td><%= client.telephone %></td>
-      <td><%= client.birthDay %></td>
-      <td><%= client.publicity %></td>
-      <td><%= client.personStatus %></td>
-      <td><%= link_to 'Show', client %></td>
-      <td><%= link_to 'Edit', edit_client_path(client) %></td>
-      <td><%= link_to 'Habilitar/deshabilitar', client , method: :delete, data: { confirm: 'Desea confirmar esta accion?' } %></td>
-      
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @clients.each do |client| %>
+          <tr>
+            <td><%= client.personId %></td>
+            <td><%= client.document %></td>
+            <td><%= client.personName %></td>
+            <td><%= client.lastName %></td>
+            <td><%= client.telephone %></td>
+            <td><%= client.birthDay %></td>
+            <td><%= client.publicity %></td>
+            <td><%= client.personStatus %></td>
+            <td><%= link_to 'Show', client %></td>
+            <td><%= link_to 'Edit', edit_client_path(client) %></td>
+            <td><%= link_to 'Habilitar/deshabilitar', client , method: :delete, data: { confirm: 'Desea confirmar esta accion?' } %></td>
 
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+
+    <%= link_to 'New Client', new_client_path %> 
+    <% if current_user.userType=='Manager' %> 
+    | 
+    <%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
+  </div>
+  <%end%>
+</div>
 <br>
-
-<%= link_to 'New Client', new_client_path %> 
-<% if current_user.userType=='Manager' %> 
-| 
-<%= link_to 'Generar reporte de Clientes', clients_path(:pdf) %>
 <%end %>

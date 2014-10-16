@@ -1,41 +1,109 @@
 <%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
-
+<% if @client.errors.any? %>
+<div class="row">
+  <div class="small-8 large-centered columns">
+    <div data-alert class="alert-box alert radius">
+      <%= pluralize(@client.errors.count, "error") %> no permite almacenar el cliente:
       <ul>
-      <% @client.errors.full_messages.each do |message| %>
+        <% @client.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
+      <a href="#" class="close">&times;</a>
     </div>
-  <% end %>
+  </div>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :document %><br>
-    <%= f.number_field :document %>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Numero de documento</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.number_field :document, autofocus: true %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :personName %><br>
-    <%= f.text_field :personName %>
+</div>
+
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Nombre</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.text_field :personName %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :lastName %><br>
-    <%= f.text_field :lastName %>
+</div>
+<p>            </p>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Apellidos</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.text_field :lastName %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :telephone %><br>
-    <%= f.text_field :telephone %>
+</div>
+<p>            </p>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Telefono</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.text_field :telephone %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :birthDay %><br>
-    <%= f.date_select :birthDay %>
+</div>
+<p>            </p>
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Fecha de nacimiento</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.date_select :birthDay %>
+      </div>
+    </div>
   </div>
-   <div class="field">
-    <%= f.label :publicity %><br>
-    <%= f.check_box :publicity %>
+</div>
+<p>            </p>
+
+<br>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Publicidad</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.check_box :publicity %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<p>            </p>
+
+
+<div class="row">
+  <div class="small-4 large-centered columns"><%= f.submit "Guardar", class: "button success radius" %>
   </div>
+</div>
 <% end %>

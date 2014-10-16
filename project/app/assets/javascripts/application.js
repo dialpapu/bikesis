@@ -15,5 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
-
 $(document).foundation();
+$(document).ready(function(){$('#myModal').foundation('reveal', 'open')});
+
+

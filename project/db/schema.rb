@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014195031) do
+ActiveRecord::Schema.define(version: 20141016223008) do
 
   create_table "accesory_parts", force: true do |t|
     t.integer "productId",                      null: false
@@ -96,6 +96,21 @@ ActiveRecord::Schema.define(version: 20141014195031) do
     t.date    "saleDate",               null: false
     t.boolean "saleStatus",             null: false
     t.string  "note",       limit: 300, null: false
+  end
+
+  create_table "sellers", force: true do |t|
+    t.integer  "personId"
+    t.integer  "document"
+    t.string   "username"
+    t.string   "userLastName"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.string   "telephone"
+    t.string   "userType"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

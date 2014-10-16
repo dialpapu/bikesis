@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :sellers
 
+  resources :sellers
+
   #get 'sellers/index'
 
   devise_for :users, :controllers =>{:registrations =>"my_devise/registrations"}

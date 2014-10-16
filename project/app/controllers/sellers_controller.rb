@@ -1,10 +1,9 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
-  
-  before_filter :authenticate_user!
+
   def index
    #@sellers = User.find(:all, :conditions => { :userType => 'Seller' })
-   @sellers = User.where(:userType => 'Seller')
+   @sellers = Seller.all
 
    respond_to do |format|
     format.html
@@ -24,37 +23,6 @@ def new
 end
 
 def edit
-#  @sellers = User.where(:userType => 'Seller')
-#  @user = User.where(:personId => @seller.personId)
-aux_seller = User.find(params[:id])
-  @seller  =  Seller.new(
-    :personId => aux_seller.personId,
-    :username => aux_seller.username,
-    :email =>  aux_seller.email , 
-    :userLastName =>aux_seller.userLastName,
-    :document => aux_seller.document,
-    :telephone => aux_seller.telephone,
-    :userType => aux_seller.userType,
-    :status => aux_seller.status,
-    :password =>  aux_seller.password,
-    :password_confirmation => aux_seller.password)
-  @user  =  User.update(2,
-    :username => @seller.username,
-    :email =>  @seller.email , 
-    :userLastName =>@seller.userLastName,
-    :document => @seller.document,
-    :telephone => @seller.telephone)
-@user.save 
-  respond_to do |format|
-    if @user.save
-      format.html { redirect_to root_path, notice: 'Vendedor actualizado correctamente.' }
-      format.json { render :show, status: :created, location: @seller }
-    else
-      format.html { render :new }
-      format.json { render json: @seller.errors, status: :unprocessable_entity }
-    end
-    
-  end
 end
 
 def create
@@ -67,6 +35,7 @@ def create
   @seller.userType='Seller'
   @seller.status='true'
   @seller.password = "#{@seller.username}.#{@seller.userLastName}"
+  @seller.save
   @user  =  User.new(
     :personId => @seller.personId,
     :username => @seller.username,
@@ -80,18 +49,26 @@ def create
     :password_confirmation => @seller.password)
   @user.save 
   respond_to do |format|
-    if @user.save
-      format.html { redirect_to @seller, notice: 'Vendedor creado correctamente.' }
+    if @seller.save
+      format.html { redirect_to @sellers, notice: 'Vendedor creado correctamente.' }
       format.json { render :show, status: :created, location: @seller }
     else
       format.html { render :new }
-      format.json { render json: @seller.errors, status: :unprocessable_entity }
+      format.json { render json: @sellers.errors, status: :unprocessable_entity }
     end
   end
 
 end
 
 def update
+  @seller.update(seller_params)
+  @user  =  User.update(@seller.personId,
+    :username => @seller.username,
+    :email =>  @seller.email , 
+    :userLastName =>@seller.userLastName,
+    :document => @seller.document,
+    :telephone => @seller.telephone)
+  @user.save 
 
 end
 
@@ -102,34 +79,28 @@ def destroy
     format.html { redirect_to sellers_url, notice: 'El Vendedor ha sido deshabilitado.' }
     query="update users set status = 0 where personId="+@seller.personId.to_s
     @users=ActiveRecord::Base.connection.execute(query)
+    @seller.status=false
   else
     format.html { redirect_to sellers_url, notice: 'El Vendedor ha sido habilitado.' }
     query="update users set status = 1 where personId="+@seller.personId.to_s
     @users=ActiveRecord::Base.connection.execute(query)
+    @seller.status=true
   end
   format.json { head :no_content }
 end
 
 end
 
+
+end
+
 private
 def set_seller
-  aux_seller = User.find(params[:id])
-  @seller  =  Seller.new(
-    :personId => aux_seller.personId,
-    :username => aux_seller.username,
-    :email =>  aux_seller.email , 
-    :userLastName =>aux_seller.userLastName,
-    :document => aux_seller.document,
-    :telephone => aux_seller.telephone,
-    :userType => aux_seller.userType,
-    :status => aux_seller.status,
-    :password =>  aux_seller.password,
-    :password_confirmation => aux_seller.password)
+  @seller = Seller.find(params[:id])
 end
 
 def seller_params
-  params.require(:seller).permit(:personId, :document, :username, :userLastName, :email, :password, :telephone, :userType, :status)
+  params.require(:seller).permit(:personId, :document, :username, :userLastName, :email, :password, :password_confirmation, :telephone, :userType, :status)
 end
 def generateReport(elements)
   pdf = PDF::Writer.new
@@ -155,4 +126,3 @@ def generateReport(elements)
   send_data pdf.render, :filename => 'Vendedores.pdf', :type => 'application/pdf', :disposition => 'inline'
 end
 
-end

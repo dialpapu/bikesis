@@ -24,7 +24,7 @@ def new
 end
 
 def edit
-
+  
 end
 
 def create
@@ -62,24 +62,8 @@ def create
 end
 
 def update
-  @seller.update(seller_params)
-  respond_to do |format|
-    if @seller.update(seller_params)
-      query="UPDATE users SET "+ 
-      "username='"+@seller.username.to_s+
-      "', email = '" +@seller.email.to_s +
-      "', userLastName ='"+@seller.userLastName.to_s+
-      "', document ="+ @seller.document.to_s+
-      ", telephone ='"+ @seller.telephone.to_s+
-      "' where personId = "+@seller.personId.to_s
-      idAux=ActiveRecord::Base.connection.execute(query)
-      format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
-      format.json { render :show, status: :created, location: @seller }
-    else
-      format.html { render :new }
-      format.json { render json: @seller.errors, status: :unprocessable_entity }
-    end
-  end
+
+  
 
 end
 

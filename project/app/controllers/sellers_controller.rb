@@ -15,7 +15,7 @@ class SellersController < ApplicationController
 end
 
 def show
-  @sales = Sale.where(:sellerId => @seller.personId)
+
 end
 
 def new
@@ -24,7 +24,7 @@ def new
 end
 
 def edit
-  
+
 end
 
 def create
@@ -63,7 +63,7 @@ end
 
 def update
 
-  
+
 
 end
 
@@ -98,6 +98,25 @@ def set_seller
     :status => aux_seller.status,
     :password =>  aux_seller.password,
     :password_confirmation => aux_seller.password)
+  respond_to do |format|
+    if !@seller.nil?
+      query="UPDATE users SET "+ 
+      "username='"+@seller.username.to_s+
+      "', email = '" +@seller.email.to_s +
+      "', userLastName ='"+@seller.userLastName.to_s+
+      "', document ="+ @seller.document.to_s+
+      ", telephone ='"+ @seller.telephone.to_s+
+      "' where personId = "+@seller.personId.to_s
+      idAux=ActiveRecord::Base.connection.execute(query)
+      format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
+    end
+  end
+  
+
 end
 
 def seller_params

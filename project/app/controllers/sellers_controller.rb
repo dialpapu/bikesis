@@ -24,7 +24,37 @@ def new
 end
 
 def edit
-
+#  @sellers = User.where(:userType => 'Seller')
+#  @user = User.where(:personId => @seller.personId)
+aux_seller = User.find(params[:id])
+  @seller  =  Seller.new(
+    :personId => aux_seller.personId,
+    :username => aux_seller.username,
+    :email =>  aux_seller.email , 
+    :userLastName =>aux_seller.userLastName,
+    :document => aux_seller.document,
+    :telephone => aux_seller.telephone,
+    :userType => aux_seller.userType,
+    :status => aux_seller.status,
+    :password =>  aux_seller.password,
+    :password_confirmation => aux_seller.password)
+  @user  =  User.update(2,
+    :username => @seller.username,
+    :email =>  @seller.email , 
+    :userLastName =>@seller.userLastName,
+    :document => @seller.document,
+    :telephone => @seller.telephone)
+@user.save 
+  respond_to do |format|
+    if @user.save
+      format.html { redirect_to root_path, notice: 'Vendedor actualizado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
+    end
+    
+  end
 end
 
 def create
@@ -62,24 +92,6 @@ def create
 end
 
 def update
-@sellers = User.where(:userType => 'Seller')
- @user = User.where(:personId => @seller.personId)
-  @seller  =  User.update(2,
-    :username => @seller.username,
-    :email =>  @seller.email , 
-    :userLastName =>@seller.userLastName,
-    :document => @seller.document,
-    :telephone => @seller.telephone)
-  @seller.save 
-  respond_to do |format|
-    if @seller.save
-      format.html { redirect_to root_path, notice: 'Vendedor actualizado correctamente.' }
-      format.json { render :show, status: :created, location: @seller }
-    else
-      format.html { render :new }
-      format.json { render json: @seller.errors, status: :unprocessable_entity }
-    end
-  end
 
 end
 
@@ -114,7 +126,6 @@ def set_seller
     :status => aux_seller.status,
     :password =>  aux_seller.password,
     :password_confirmation => aux_seller.password)
-
 end
 
 def seller_params

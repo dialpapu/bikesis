@@ -24,13 +24,19 @@ def new
 end
 
 def edit
+
 end
 
 def create
   @seller = Seller.new(seller_params)
+  if User.all.nil?
+    @seller.personId=1
+  else
+    @seller.personId= User.all.count+1
+  end
   @seller.userType='Seller'
   @seller.status='true'
-  pass = "#{@seller.username}.#{@seller.userLastName}"
+  @seller.password = "#{@seller.username}.#{@seller.userLastName}"
   @user  =  User.new(
     :personId => @seller.personId,
     :username => @seller.username,
@@ -40,34 +46,77 @@ def create
     :telephone => @seller.telephone,
     :userType => @seller.userType,
     :status => @seller.status,
-    :password =>  pass, 
-    :password_confirmation => pass)
+    :password =>  @seller.password,
+    :password_confirmation => @seller.password)
   @user.save 
   respond_to do |format|
-      if @user.save
-        format.html { redirect_to @seller, notice: 'Vendedor creado correctamente.' }
-        format.json { render :show, status: :created, location: @seller }
-      else
-        format.html { render :new }
-        format.json { render json: @seller.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      format.html { redirect_to @seller, notice: 'Vendedor creado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
     end
+  end
 
 end
 
 def update
-  @seller.update(seller_params)
+  user.update(bike_params)
+  respond_to do |format|
+    if @user.update(bike_params)
+      query="UPDATE users SET "+ 
+      "username='"+@seller.username.to_s+
+      "', email = '" +@seller.email.to_s +
+      "', userLastName ='"+@seller.userLastName.to_s+
+      "', document ="+ @seller.document.to_s+
+      ", telephone ='"+ @seller.telephone.to_s+
+      "' where personId = "+@seller.personId.to_s
+      idAux=ActiveRecord::Base.connection.execute(query)
+      format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
+    end
+  end
 
 end
 
 def destroy
-  @seller.destroy
+  #@seller.destroy
+  respond_to do |format|
+   if @seller.status==true
+    format.html { redirect_to sellers_url, notice: 'El Vendedor ha sido deshabilitado.' }
+    query="update users set status = 0 where personId="+@seller.personId.to_s
+    @users=ActiveRecord::Base.connection.execute(query)
+  else
+    format.html { redirect_to sellers_url, notice: 'El Vendedor ha sido habilitado.' }
+    query="update users set status = 1 where personId="+@seller.personId.to_s
+    @users=ActiveRecord::Base.connection.execute(query)
+  end
+  format.json { head :no_content }
+end
 
 end
 
 private
 def set_seller
-  @seller = Seller.find(params[:id])
+  aux_seller = User.find(params[:id])
+  @seller  =  Seller.new(
+    :personId => aux_seller.personId,
+    :username => aux_seller.username,
+    :email =>  aux_seller.email , 
+    :userLastName =>aux_seller.userLastName,
+    :document => aux_seller.document,
+    :telephone => aux_seller.telephone,
+    :userType => aux_seller.userType,
+    :status => aux_seller.status,
+    :password =>  aux_seller.password,
+    :password_confirmation => aux_seller.password)
+  
+  
+
 end
 
 def seller_params

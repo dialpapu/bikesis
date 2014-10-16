@@ -21,8 +21,6 @@
             <th width="400">Nombre</th>
             <th width="100">Correo electronico</th>
             <th width="50">Nro Telefonico</th>
-            <th width="50">Estado</th>
-            <th width="200"> Habilitar/Deshabilitar</th>
           </tr>
         </thead>
 
@@ -34,11 +32,15 @@
             <td><%= seller.username %>  <%= seller.userLastName %></td>
             <td><%= seller.email %></td>
             <td><%= seller.telephone %></td>
-            <td><% if seller.status == true %>
-              Habilitado
-              <%else%>
-              Deshabilitado
-              <%end%>
+            <td>
+                <%= link_to 'Ver', seller, class: "small button success centered"%>
+                <%= link_to 'Editar', seller_path(seller), method: :get, class: "small button success" %>
+                <% if seller.status == true %>
+                <%= link_to 'Deshabilitar', seller_path(seller), method: :delete, class: "small button alert",data: { confirm: 'Estas seguro de deshabilitar este vendedor?'} %>
+                <%else%>
+                <%= link_to 'Habilitar', seller_path(seller), method: :delete, class: "small button success"%>
+                <%end%>
+
             </td>
           </tr>
           <% end %>

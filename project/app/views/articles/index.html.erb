@@ -24,8 +24,10 @@
           <dd><%= link_to 'Leer más', article %></dd>
           <%if user_signed_in? && current_user.userType == "Manager" %>
           <dd><%= link_to 'Editar', edit_article_path(article) %></dd>
-          <dd><%= link_to 'Borrar', article, :confirm => '¿Seguro de que deseas borrar este artículo?', :method => :delete %></dd>
+          <dd><%= link_to 'Eliminar', article, data: { confirm: 'Estas seguro de eliminar esta noticia?'}, :method => :delete %></dd>
           <%end%>
+
+
         </dl>
       </div>
     </div>
@@ -39,11 +41,11 @@
   <% end %>
   <%if user_signed_in? && current_user.userType == "Manager" %>
   <div class="row">
-    <div class="small-4 large-centered columns"><a href="/articles/new" class="button secondary radius">Nuevo artículo</a> </div>
-    </div>
+    <div class="small-4 large-centered columns"><a href="/articles/new" class="button secondary radius">Nueva noticia</a> </div>
   </div>
-  
-  <%end%>
+</div>
+
+<%end%>
 
 </div>
 

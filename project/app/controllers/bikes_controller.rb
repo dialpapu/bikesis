@@ -64,10 +64,10 @@ class BikesController < ApplicationController
     #@bike.destroy
     respond_to do |format|
       if @bike.productStatus==true
-        format.html { redirect_to bike_url, notice: 'La bicileta ha sido deshabilitada.' }
+        format.html { redirect_to bikes_url, notice: 'La bicicleta ha sido deshabilitada.' }
         @bike.productStatus=false
       else
-        format.html { redirect_to bike_url, notice: 'La bicileta ha sido habilitada.' }
+        format.html { redirect_to bikes_url, notice: 'La bicicleta ha sido habilitada.' }
         @bike.productStatus=true
       end
       format.json { head :no_content }

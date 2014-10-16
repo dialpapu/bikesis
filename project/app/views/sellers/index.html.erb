@@ -34,7 +34,7 @@
             <td><%= seller.telephone %></td>
             <td>
                 <%= link_to 'Ver', seller_path(seller), class: "small button success centered"%>
-                <%= link_to 'Editar', edit_seller_path(seller), method: :get, class: "small button success" %>
+                <%= link_to 'Editar', seller_path(seller),method: :patch, class: "small button success" %>
                 <% if seller.status == true %>
                 <%= link_to 'Deshabilitar', seller_path(seller), method: :delete, class: "small button alert",data: { confirm: 'Estas seguro de deshabilitar este vendedor?'} %>
                 <%else%>

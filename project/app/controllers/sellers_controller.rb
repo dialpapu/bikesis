@@ -62,8 +62,24 @@ def create
 end
 
 def update
-
-
+@sellers = User.where(:userType => 'Seller')
+ @user = User.where(:personId => @seller.personId)
+  @seller  =  User.update(2,
+    :username => @seller.username,
+    :email =>  @seller.email , 
+    :userLastName =>@seller.userLastName,
+    :document => @seller.document,
+    :telephone => @seller.telephone)
+  @seller.save 
+  respond_to do |format|
+    if @seller.save
+      format.html { redirect_to root_path, notice: 'Vendedor actualizado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
+    end
+  end
 
 end
 
@@ -98,6 +114,7 @@ def set_seller
     :status => aux_seller.status,
     :password =>  aux_seller.password,
     :password_confirmation => aux_seller.password)
+
 end
 
 def seller_params

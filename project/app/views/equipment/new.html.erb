@@ -1,5 +1,15 @@
-<h1>New equipment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', equipment_index_path %>
+<div class="panel ">
+	<div class="row">
+		<div class="large-8 columns">
+			<h2>Nueva Bicicleta </h2>
+		</div>
+	</div>
+	<%= render 'form' %>
+	<div class="row">
+		<div class="large-9 columns">
+			<div class="actions">
+				<%= link_to '← Volver', equipment_index_path %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -64,10 +64,18 @@ class EquipmentController < ApplicationController
   end
 
   def destroy
-    @equipment.destroy
+    #@equipment.destroy
     respond_to do |format|
-      format.html { redirect_to equipment_url, notice: 'Equipamento deshabilitado.' }
+      if @equipment.productStatus==true
+        format.html { redirect_to equipments_url, notice: 'Equipacion deshabilitada.' }
+        @equipment.productStatus=false
+      else
+        format.html { redirect_to equipments_url, notice: 'La equipacion ha sido habilitada.' }
+        @equipment.productStatus=true
+      end
       format.json { head :no_content }
+    end
+    @equipment.save
     end
   end
 

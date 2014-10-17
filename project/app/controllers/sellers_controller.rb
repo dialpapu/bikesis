@@ -82,6 +82,7 @@ def destroy
     @users=ActiveRecord::Base.connection.execute(query)
     @seller.status=true
   end
+  @seller.save
   format.json { head :no_content }
 end
 

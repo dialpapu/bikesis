@@ -34,12 +34,12 @@ def create
     else
       @seller.personId = Seller.all.count+1
     end
-  @seller.username=seller_params[:username].capitalize
-  @seller.userLastName=seller_params[:username].capitalize
+  @seller.username=seller_params[:username].titleize
+  @seller.userLastName=seller_params[:username].titleize
   @seller.personId= User.all.count+1
   @seller.userType='Seller'
   @seller.status = 1
-  @seller.password = "#{@seller.username}.#{@seller.userLastName}".downcase
+  @seller.password = "#{@seller.username}.#{@seller.userLastName}".trim.downcase
   @seller.save
   @user  =  User.new(
     :personId => @seller.personId,
@@ -68,7 +68,7 @@ end
 def update
 
   @seller.update(seller_params)
-  passwd="#{@seller.username}.#{@seller.userLastName}".downcase
+  passwd="#{@seller.username}.#{@seller.userLastName}".trim.downcase
   if @reset==false
     @user  =  User.update(@seller.personId,
       :username => @seller.username,

@@ -34,6 +34,8 @@ class ClientsController < ApplicationController
       @client.personId = Client.all.count+1
     end
     @client.personStatus=true
+    @client.username=client_params[:username].titleize
+    @client.userLastName=client_params[:username].titleize
     @client.save
     respond_to do |format|
       if @client.save

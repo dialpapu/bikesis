@@ -29,6 +29,7 @@ def create
   end
   @article.managerId=current_user.id
   @article.publicationDate=Time.now
+  @article.articleTitle= article_params[:articleTitle].upcase
   @article.save
   respond_to do |format|
     if @article.save

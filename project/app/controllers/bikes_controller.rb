@@ -35,6 +35,10 @@ class BikesController < ApplicationController
     end
     @bike.productStatus=true
     @bike.productImage="null for now"
+    @bike.productReference= bike_params[:productReference].upcase
+    @bike.productName=bike_params[:productName].capitalize
+    @bike.productTradeMark=bike_params[:productTradeMark].upcase
+    @bike.bikeType=bike_params[:bikeType].capitalize
     @bike.save
     respond_to do |format|
       if @bike.save

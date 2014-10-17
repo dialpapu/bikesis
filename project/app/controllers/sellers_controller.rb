@@ -24,14 +24,22 @@ def new
 end
 
 def edit
+  @reset=false
 end
 
 def create
   @seller = Seller.new(seller_params)
+  if Seller.all.nil?
+      @seller.personId=1
+    else
+      @seller.personId = Seller.all.count+1
+    end
+  @seller.username=seller_params[:username].capitalize
+  @seller.userLastName=seller_params[:username].capitalize
   @seller.personId= User.all.count+1
   @seller.userType='Seller'
   @seller.status = 1
-  @seller.password = "#{@seller.username}.#{@seller.userLastName}"
+  @seller.password = "#{@seller.username}.#{@seller.userLastName}".downcase
   @seller.save
   @user  =  User.new(
     :personId => @seller.personId,
@@ -58,23 +66,36 @@ def create
 end
 
 def update
+
   @seller.update(seller_params)
-  @user  =  User.update(@seller.personId,
-    :username => @seller.username,
-    :email =>  @seller.email , 
-    :userLastName =>@seller.userLastName,
-    :document => @seller.document,
-    :telephone => @seller.telephone)
+  passwd="#{@seller.username}.#{@seller.userLastName}".downcase
+  if @reset==false
+    @user  =  User.update(@seller.personId,
+      :username => @seller.username,
+      :email =>  @seller.email , 
+      :userLastName =>@seller.userLastName,
+      :document => @seller.document,
+      :telephone => @seller.telephone)
+  else 
+    @user  =  User.update(@seller.personId,
+      :username => @seller.username,
+      :email =>  @seller.email , 
+      :userLastName =>@seller.userLastName,
+      :document => @seller.document,
+      :telephone => @seller.telephone,
+      :password => passwd,
+      :password_confirmation=>passwd)
+  end
   @user.save 
-   respond_to do |format|
-      if @user.save
-        format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
-        format.json { render :show, status: :created, location: @seller }
-      else
-        format.html { render :new }
-        format.json { render json: @seller.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @user.save
+      format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
+      format.json { render :show, status: :created, location: @seller }
+    else
+      format.html { render :new }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
     end
+  end
 
 end
 

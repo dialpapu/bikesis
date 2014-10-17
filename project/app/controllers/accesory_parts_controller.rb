@@ -25,6 +25,16 @@ class AccesoryPartsController < ApplicationController
 
   def create
     @accesory_part = AccesoryPart.new(accesory_part_params)
+     if AccesoryPart.all.nil?
+      @accesory_part.productId=1
+    else
+      @accesory_part.productId = AccesoryPart.all.count+1
+    end
+    @accesory_part.productStatus=true
+    @accesory_part.productImage="null for now"
+    @accesory_part.productReference=accesory_part_params[:productReference].upcase
+    @accesory_part.productName=accesory_part_params[:productName].capitalize
+    @accesory_part.productTradeMark=accesory_part_params[:productTradeMark].upcase
     respond_to do |format|
       if @accesory_part.save
         format.html { redirect_to @accesory_part, notice: 'Accesorio - Repuesto fue creado correctamente.' }
@@ -90,3 +100,4 @@ class AccesoryPartsController < ApplicationController
     send_data pdf.render, :filename => 'articulos_y_accesorios.pdf', :type => 'application/pdf', :disposition => 'inline'
   end
 end
+

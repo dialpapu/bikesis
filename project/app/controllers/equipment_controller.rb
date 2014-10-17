@@ -27,6 +27,18 @@ class EquipmentController < ApplicationController
 
   def create
     @equipment = Equipment.new(equipment_params)
+     if Equipment.all.nil?
+      @equipment.productId=1
+    else
+      @equipment.productId = Equipment.all.count+1
+    end
+    @equipment.productStatus=true
+    @equipment.productImage="null for now"
+    @equipment.productReference=equipment_params[:productReference].upcase
+    @equipment.productName=equipment_params[:productName].capitalize
+    @equipment.productTradeMark=equipment_params[:productTradeMark].upcase
+    @equipment.size=equipment_params[:size].upcase
+    @equipment.gender=equipment_params[:gender].upcase
     @equipment.save
     respond_to do |format|
       if @equipment.save
@@ -97,3 +109,5 @@ class EquipmentController < ApplicationController
     
   end
 end
+
+

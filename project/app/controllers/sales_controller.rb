@@ -21,6 +21,11 @@ class SalesController < ApplicationController
 
   def create
     @sale = Sale.new(sale_params)
+    if Sale.all.nil?
+      @sale.saleId=1
+    else
+      @sale.saleId = Sale.all.count+1
+    end
     @sale.save
     respond_to do |format|
       if @sale.save

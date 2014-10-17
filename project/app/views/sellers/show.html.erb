@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="row">
   <div class="large-12 columns">
     <div class="row">
@@ -14,7 +11,7 @@
             <div class="large-4 small-4 columns">
 
               <h4>
-                <%= @seller.userType %> - <%= @seller.personId %> - <%= @seller.status %>
+                Vendedor - <%= @seller.personId %> - <% if @seller.status == true%> Habilitado <% else %> Deshabilitado <% end %>
               </h4>
               <hr/>
 

@@ -15,7 +15,7 @@ class ClientsController < ApplicationController
   end
 
   def show
-
+    @sales = Sale.where(:clientId => @client.personId)
   end
 
   def new

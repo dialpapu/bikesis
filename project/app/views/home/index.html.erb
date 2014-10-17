@@ -1,9 +1,82 @@
-<%if user_signed_in? %>
-<%else%>
-<%if @users.empty?  %>
-	<div><h1><%= link_to "Crear Gerente", new_user_registration_path %></h1></div>
-<%else%>
-<% end %>
-<%end%>
+<section class="hero">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="main-wrapper">
+				<br>
+				<br>
+				<h1>LA CICLERÍA CAFÉ TALLER</h1>
+				<br>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns about-box">
+			<div class="black-box">
+				<h2>La excusa perfecta para consentir su salud y su bicicleta.</h2>
+				<p>We’re an adoption center that focuses on providing homes for rehabilitated dogs. We believe all dogs deserve a second chance at life.
+					<p>Interested in adopting?</p> 
+					<a href="#" class="secondary small button">Learn More →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<div class="row">
+		<div class="large-6 columns">
+
+			<div class="panel">
+
+				<div class="row">
+					<div class="large-6 columns">
+						<h4>Visitanos!</h4>
+						<p>Horario de atención: Lunes a Sabado 9am - 7pm.</p>
+						<p>Carrera 16 # 19-28 | Duitama, Colombia</p>
+						<div class="large-3 columns">
+							<a href="http://goo.gl/6Bx7C1" class="radius button center">Como llegar?</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="large-6 columns">
+
+			<div class="panel">
+
+				<div class="row">
+					<div class="large-6 columns">
+						<h4>Visitanos!</h4>
+						<p>Horario de atención: Lunes a Sabado 9am - 7pm.</p>
+						<p>Carrera 16 # 19-28 | Duitama, Colombia</p>
+						<div class="large-3 columns">
+							<a href="#" class="radius button center">Como llegar?</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<%if user_signed_in? %>
+	<%else%>
+	<%if @users.empty?  %>
+	<div class="row">
+		<div class="large-6 small-centered columns">
+			<div class="panel">
+				<div class="small-6 small-centered columns">
+					<%= link_to 'Crear Gerente', new_user_registration_path , class: "radius button center"%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%else%>
+	<% end %>
+	<%end%>
 
 

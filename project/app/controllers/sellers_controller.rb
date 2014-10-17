@@ -27,13 +27,9 @@ end
 
 def create
   @seller = Seller.new(seller_params)
-  if User.all.nil?
-    @seller.personId=1
-  else
-    @seller.personId= User.all.count+1
-  end
+  @seller.personId= User.all.count+1
   @seller.userType='Seller'
-  @seller.status='true'
+  @seller.status = 1
   @seller.password = "#{@seller.username}.#{@seller.userLastName}"
   @seller.save
   @user  =  User.new(
@@ -50,7 +46,7 @@ def create
   @user.save 
   respond_to do |format|
     if @seller.save
-      format.html { redirect_to @sellers, notice: 'Vendedor creado correctamente.' }
+      format.html { redirect_to @seller, notice: 'Vendedor creado correctamente.' }
       format.json { render :show, status: :created, location: @seller }
     else
       format.html { render :new }

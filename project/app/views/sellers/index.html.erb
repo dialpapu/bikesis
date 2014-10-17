@@ -5,7 +5,7 @@
     <div class="small-8 large-centered columns">
       <h1 align="center">Aun no se ha registrado ningun vendedor</h1>
     </div>
-    <div class="small-4 large-centered columns"><%= link_to "Crear Vendedor", new_seller_path, class: "button success radius"%>  </div>
+    <div class="small-2 large-centered columns"><%= link_to "Crear Vendedor", new_seller_path, class: "radius button center"%>  </div>
   </div>
   <%else%>
   <div class="row">
@@ -16,11 +16,12 @@
       <table>
         <thead>
           <tr>
-            <th width="20">Id</th>
+            <th width="50">Id</th>
             <th width="20">Numero Documento</th>
-            <th width="100">Nombre</th>
-            <th width="100">Correo electronico</th>
-            <th width="50">Nro Telefonico</th>
+            <th width="300">Nombre</th>
+            <th width="200">Correo electronico</th>
+            <th width="100">Nro Telefonico</th>
+            <th width="220">Administración de vendedores</th>
           </tr>
         </thead>
 
@@ -49,7 +50,7 @@
     </div>
     <br>
 
-    <div class="small-4 large-centered columns"><%= link_to "Crear Vendedor", new_seller_path, class: "button success radius"%>  </div>
+    <div class="small-4 large-centered columns"><%= link_to "Crear Vendedor", new_seller_path, class: "radius button center"%>  </div>
     </div>
 </div>
 <%end%>

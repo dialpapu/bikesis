@@ -12,36 +12,43 @@
   <article>
 
     <div class="row">
-      <div class="large-8 columns">
+      <div class="large-12 columns">
         <h3><%=article.articleTitle%></h3>
-        <p align="justify"><%= article.summary %></p>
+        <p><%= article.publicationDate %></p>
       </div>
     </div>
     <div class="row">
       <div class="large-8 columns">
-        <h6><%= article.publicationDate %>.</h6>
+        <p align="justify"><%= article.summary %></p>
         <dl class="sub-nav">
           <dd><%= link_to 'Leer más', article %></dd>
-          <%if user_signed_in? && current_user.userType == "Manager" %>
-          <dd><%= link_to 'Editar', edit_article_path(article) %></dd>
-          <dd><%= link_to 'Eliminar', article, data: { confirm: 'Estas seguro de eliminar esta noticia?'}, :method => :delete %></dd>
-          <%end%>
-
-
         </dl>
       </div>
     </div>
+
+    <div class="row">
+      <div class="large-8 columns">
+        <dl class="sub-nav">
+          <%if user_signed_in? && current_user.userType == "Manager" %>
+          <dd><%= link_to 'Editar', edit_article_path(article), class: "radius button center" %></dd>
+          <dd><%= link_to 'Eliminar', article, class: "radius button center",data: { confirm: 'Estas seguro de eliminar esta noticia?'}, :method => :delete %></dd>
+          <%end%>
+        </dl>
+      </div>
+    </div>
+
   </article>
+  
+  <br>
   <div class="row">
     <div class="large-12 columns"><hr/>
     </div>
   </div>
-
-
   <% end %>
+  <br>
   <%if user_signed_in? && current_user.userType == "Manager" %>
   <div class="row">
-    <div class="small-4 large-centered columns"><a href="/articles/new" class="button secondary radius">Nueva noticia</a> </div>
+    <div class="small-4 large-centered columns"><a href="/articles/new" class="radius button center">Nueva noticia</a> </div>
   </div>
 </div>
 

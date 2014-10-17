@@ -6,7 +6,7 @@ class CreateArticles < ActiveRecord::Migration
       t.integer :managerId, null: false
       t.date :publicationDate, null: false
       t.text :body, null: false, :limit => 10000
-      t.text :summary, null:false, :limit => 1000
+      t.text :summary, null:false, :limit => 5000
       #t.timestamps
     end
   end

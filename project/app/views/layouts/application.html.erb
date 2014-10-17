@@ -307,7 +307,11 @@
                   </ul>
 
                   <li class="divider"></li>
-                  <li><a href="#"><%= link_to "Iniciar sesion", user_session_path %></a></li>
+                  <%if User.all.empty?  %>
+                  <li><%= link_to 'Crear Gerente', new_user_registration_path%></li>
+                  <%else %>
+                  <li><%= link_to "Iniciar sesion", user_session_path %></li>
+                  <%end%>
                 </li>
               </li>
             </ul>

@@ -2,16 +2,21 @@
 <br>
 <hr>
 <div class="row">
-  <div class="large-9 columns" role="content">
+  <div class="large-10 columns" role="content">
     <article>
       <h2 class="subheader"><%= @article.articleTitle%></h2>
       <div class="row">
-        <div class="large-6 columns">
-          <p><%= @article.summary%></p>
+        <div class="large-8 columns">
+          <h4 class="subheader">Resumen</h4>
+          <p align='justify'><%= @article.summary%></p>
         </div>
       </div>
-      <p><%= @article.body%></p> 
-      <p>Noticia Nro <%= @article.articleId %> - <%= @article.publicationDate%></p>
+      <div class="large-8 columns">
+        <h4 class="subheader">Cuerpo</h4>
+        <p align='justify'><%= @article.body%></p> 
+        <p>Noticia Nro <%= @article.articleId %> - <%= @article.publicationDate%></p>
+      </div>
+      
     </article>
   </div>
 </div>

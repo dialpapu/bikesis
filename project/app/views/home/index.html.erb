@@ -62,21 +62,3 @@
 	</div>
 
 
-	<%if user_signed_in? %>
-	<%else%>
-	<%if @users.empty?  %>
-	<div class="row">
-		<div class="large-6 small-centered columns">
-			<div class="panel">
-				<div class="small-6 small-centered columns">
-					<%= link_to 'Crear Gerente', new_user_registration_path , class: "radius button center"%>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<%else%>
-	<% end %>
-	<%end%>
-
-

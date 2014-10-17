@@ -42,7 +42,7 @@ class EquipmentController < ApplicationController
     @equipment.save
     respond_to do |format|
       if @equipment.save
-        format.html { redirect_to @equipment, notice: 'Equipamento creado correctamente.' }
+        format.html { redirect_to @equipment, notice: 'Equipacion creada correctamente.' }
         format.json { render :show, status: :created, location: @equipment }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to @equipment, notice: 'Equipamento modificado satisfactoriamente.' }
+        format.html { redirect_to @equipment, notice: 'Equipacion  actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @equipment }
       else
         format.html { render :edit }

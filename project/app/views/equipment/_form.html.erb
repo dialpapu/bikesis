@@ -16,19 +16,6 @@
 </div>
 <% end %>
 
-<div class="row">
-  <div class="small-8">
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="right-label" class="right inline">Id</label>
-      </div>
-      <div class="small-9 columns">
-        <%= f.number_field :productId %>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
 
 <div class="row">
   <div class="small-8">
@@ -48,7 +35,7 @@
   <div class="small-8">
     <div class="row">
       <div class="small-3 columns">
-        <label for="right-label" class="right inline">Producto</label>
+        <label for="right-label" class="right inline">Nombre de equipación</label>
       </div>
       <div class="small-9 columns">
         <%= f.text_field :productName %>
@@ -105,7 +92,7 @@
   <div class="small-8">
     <div class="row">
       <div class="small-3 columns">
-        <label for="right-label" class="right inline">Talla</label>
+        <label for="right-label" class="right inline">Talla(se debe poner un checklist con talla de dos tamaños maximo)</label>
       </div>
       <div class="small-9 columns">
         <%= f.text_field :size %>
@@ -119,7 +106,7 @@
   <div class="small-8">
     <div class="row">
       <div class="small-3 columns">
-        <label for="right-label" class="right inline">Genero</label>
+        <label for="right-label" class="right inline">Genero (se debe poner un checklist)</label>
       </div>
       <div class="small-9 columns">
         <%= f.text_field :gender %>
@@ -137,30 +124,6 @@
       </div>
       <div class="small-9 columns">
         <%= f.text_field :productImage %>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-
-<div class="row">
-  <div class="small-8">
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="right-label" class="right inline">Estado</label>
-      </div>
-      <div class="small-9 columns">
-        <%= f.check_box :productStatus, class: "small-2 switch tiny round" %>
-      </div>
-      <div class="small-2 switch tiny round">
-        <input id="a" name="switch-a" type="radio" value="0" checked>
-        <label for="a" onclick="">Deshabilitaado</label>
-
-        <input id="a1" name="switch-a" type="radio" value="1">
-        <label for="a1" onclick="">Habilitado</label>
-
-
-        <span></span>
       </div>
     </div>
   </div>

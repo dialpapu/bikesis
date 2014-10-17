@@ -34,8 +34,8 @@ class ClientsController < ApplicationController
       @client.personId = Client.all.count+1
     end
     @client.personStatus=true
-    @client.username=client_params[:username].titleize
-    @client.userLastName=client_params[:username].titleize
+    @client.personName=client_params[:personName].titleize
+    @client.lastName=client_params[:lastName].titleize
     @client.save
     respond_to do |format|
       if @client.save
@@ -49,16 +49,17 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client.update(client_params)
-    respond_to do |format|
+     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to @client, notice: 'El cliente se ha actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @client }
+
       else
         format.html { render :edit }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def destroy

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="small-8 large-centered columns">
     <div data-alert class="alert-box alert radius">
-      <%= pluralize(@seller.errors.count, "error") %> no permite guardar la noticia
+      <%= pluralize(@seller.errors.count, "error") %> no permite guardar el vendedor
       <ul>
         <% @seller.errors.full_messages.each do |message| %>
         <li><%= message %></li>

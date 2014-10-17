@@ -65,6 +65,15 @@ def update
     :document => @seller.document,
     :telephone => @seller.telephone)
   @user.save 
+   respond_to do |format|
+      if @user.save
+        format.html { redirect_to @seller, notice: 'Vendedor actualizado correctamente.' }
+        format.json { render :show, status: :created, location: @seller }
+      else
+        format.html { render :new }
+        format.json { render json: @seller.errors, status: :unprocessable_entity }
+      end
+    end
 
 end
 

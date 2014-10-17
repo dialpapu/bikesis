@@ -34,7 +34,6 @@ class ContractHistoriesController < ApplicationController
   end
 
   def update
-    @contract_history.update(contract_history_params)
     respond_to do |format|
       if @contract_history.update(contract_history_params)
         format.html { redirect_to @contract_history, notice: 'El contrato se ha actualizado satisfactoriamente.' }

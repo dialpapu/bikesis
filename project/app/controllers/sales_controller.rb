@@ -39,7 +39,6 @@ class SalesController < ApplicationController
   end
 
   def update
-    @sale.update(sale_params)
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'Venta modificada satisfactoriamente.' }

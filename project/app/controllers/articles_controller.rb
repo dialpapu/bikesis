@@ -43,7 +43,6 @@ def create
 end
 
 def update
-  @article.update(article_params)
   respond_to do |format|
     if @article.update(article_params)
       format.html { redirect_to @article, notice: 'La noticia se ha modificado satisfactoriamente.' }

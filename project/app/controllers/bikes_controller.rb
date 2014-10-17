@@ -52,7 +52,6 @@ class BikesController < ApplicationController
   end
 
   def update
-    @bike.update(bike_params)
     respond_to do |format|
       if @bike.update(bike_params)
         format.html { redirect_to @bike, notice: 'La bicibleta se ha modificado satisfactoriamente.' }

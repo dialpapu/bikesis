@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item modificado satisfactoriamente.' }

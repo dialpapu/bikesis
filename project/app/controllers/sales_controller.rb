@@ -8,11 +8,13 @@ class SalesController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
     @sale = Sale.new
+    @sellers=Seller.all
+    @clients=Client.all
     
   end
 
@@ -21,6 +23,7 @@ class SalesController < ApplicationController
 
   def create
     @sale = Sale.new(sale_params)
+    @sale.saleStatus=true
     if Sale.all.nil?
       @sale.saleId=1
     else
@@ -51,19 +54,26 @@ class SalesController < ApplicationController
   end
 
   def destroy
-    @sale.destroy
+    #@sale.destroy
     respond_to do |format|
-      format.html { redirect_to sale_url, notice: 'La venta se ha deshabilitado.' }
-      format.json { head :no_content }
+      if @sale.saleStatus==true
+        format.html { redirect_to sale_url, notice: 'Venta deshabilitada.' }
+        @sale.saleStatus=false
+      else 
+        format.html { redirect_to sale_url, notice: 'La venta se ha habilitado.' }
+        @sale.saleStatus=true
+        format.json { head :no_content }
+      end
+      @sale.save
     end
   end
 
   private
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
 
-    def sale_params
-      params.require(:sale).permit(:saleId, :sellerId, :clientId, :saleDate, :saleStatus, :note)
-    end
+  def sale_params
+    params.require(:sale).permit(:saleId, :sellerId, :clientId, :saleDate, :saleStatus, :note)
+  end
 end

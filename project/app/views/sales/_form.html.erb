@@ -1,41 +1,45 @@
 <%= form_for(@sale) do |f| %>
-  <% if @sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+<% if @sale.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
 
-      <ul>
-      <% @sale.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @sale.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :saleId %><br>
-    <%= f.number_field :saleId %>
-  </div>
-  <div class="field">
-    <%= f.label :sellerId %><br>
-    <%= f.number_field :sellerId %>
-  </div>
-  <div class="field">
-    <%= f.label :clientId %><br>
-    <%= f.number_field :clientId %>
-  </div>
-  <div class="field">
-    <%= f.label :saleDate %><br>
-    <%= f.date_select :saleDate %>
-  </div>
-  <div class="field">
-    <%= f.label :saleStatus %><br>
-    <%= f.check_box :saleStatus %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br>
-    <%= f.text_field :note %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <br>Vendedor</br>
+  <%= f.select :sellerId, options_for_select([["Teacher", "t"], ["Student", "s"]]) %>
+  <select id="combobox">
+    <%@sellers.each do |seller| %>
+      <option value=<%seller.personId%>><%=seller.document%>; <%=seller.username%> <%=seller.userLastName%></option>  
+    <%end%>
+  </select>
+</div>
+
+<div class="field">
+  <br>Cliente</br>
+  <%= f.select :clientId, options_for_select([["Teacher", "t"], ["Student", "s"]]) %>
+  <select id="combobox">
+    <%@clients.each do |client| %>
+      <option value=<%client.personId%>><%=client.document%>; <%=client.personName%> <%=client.lastName%></option>  
+    <%end%>
+  </select>
+</div>
+<div class="field">
+  <%= f.label :saleDate %><br>
+  <%= f.date_select :saleDate %>
+</div>
+
+<div class="field">
+  <%= f.label :note %><br>
+  <%= f.text_field :note %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

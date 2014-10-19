@@ -13,23 +13,17 @@
 
 <div class="field">
   <br>Vendedor</br>
-  <%= f.select :sellerId, options_for_select([["Teacher", "t"], ["Student", "s"]]) %>
-  <select id="combobox">
-    <%@sellers.each do |seller| %>
-      <option value=<%seller.personId%>><%=seller.document%>; <%=seller.username%> <%=seller.userLastName%></option>  
-    <%end%>
-  </select>
+  <%= f.collection_select :sellerId, @sellers, :personId, :dataSellers, include_blank: true %>
 </div>
 
 <div class="field">
   <br>Cliente</br>
-  <%= f.select :clientId, options_for_select([["Teacher", "t"], ["Student", "s"]]) %>
-  <select id="combobox">
-    <%@clients.each do |client| %>
-      <option value=<%client.personId%>><%=client.document%>; <%=client.personName%> <%=client.lastName%></option>  
-    <%end%>
-  </select>
+  
+  <%= f.collection_select :clientId, @clients, :personId, :dataClients, include_blank: true %>
 </div>
+
+<a href="#" data-reveal-id="elegirProductos" class="radius button">Elegir productos </a>
+
 <div class="field">
   <%= f.label :saleDate %><br>
   <%= f.date_select :saleDate %>
@@ -43,3 +37,39 @@
   <%= f.submit %>
 </div>
 <% end %>
+
+<div id="elegirProductos" class="reveal-modal" data-reveal>
+  <%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :saleId %><br>
+    <%= f.number_field :saleId %>
+  </div>
+  <div class="field">
+    <%= f.label :productId %><br>
+    <%= f.number_field :productId %>
+  </div>
+  <div class="field">
+    <%= f.label :itemAmount %><br>
+    <%= f.number_field :itemAmount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+
+</div>
+
+

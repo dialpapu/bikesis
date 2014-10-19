@@ -1,5 +1,5 @@
 class Seller < ActiveRecord::Base
-<<<<<<< HEAD
+
 
   validates_presence_of :username, :message => " no puede ser un campo vacio"
   validates_presence_of :userLastName, :message => " no puede ser un campo vacio"
@@ -11,9 +11,9 @@ class Seller < ActiveRecord::Base
   validates_presence_of :email, :message => " no puede ser un campo vacio"
   validates_presence_of :password, :message => " no puede ser un campo vacio"
 
-=======
+
 	def dataSellers
 		"#{document}: #{username}  #{userLastName}"
 	end
->>>>>>> origin/master
+
 end

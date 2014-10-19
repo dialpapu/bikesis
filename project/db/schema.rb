@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.string   "productReference",   limit: 10,  null: false
     t.string   "productName",        limit: 50,  null: false
     t.string   "productTradeMark",   limit: 50,  null: false
+    t.string   "productImage",       limit: 100, null: false
     t.integer  "productPrice",                   null: false
     t.boolean  "productStatus",                  null: false
     t.string   "productDescription", limit: 300, null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.string   "productReference",   limit: 10,  null: false
     t.string   "productName",        limit: 50,  null: false
     t.string   "productTradeMark",   limit: 50,  null: false
+    t.string   "productImage",       limit: 100, null: false
     t.integer  "productPrice",                   null: false
     t.boolean  "productStatus",                  null: false
     t.string   "productDescription", limit: 300, null: false
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.string   "productReference",   limit: 10,  null: false
     t.string   "productName",        limit: 50,  null: false
     t.string   "productTradeMark",   limit: 50,  null: false
+    t.string   "productImage",       limit: 100, null: false
     t.integer  "productPrice",                   null: false
     t.boolean  "productStatus",                  null: false
     t.string   "productDescription", limit: 300, null: false

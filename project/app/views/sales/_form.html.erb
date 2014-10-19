@@ -22,7 +22,7 @@
   <%= f.collection_select :clientId, @clients, :personId, :dataClients, include_blank: true %>
 </div>
 
-<a href="#" data-reveal-id="elegirProductos" class="radius button">Elegir productos </a>
+<a href="#" data-reveal-id="elegirProductos" class="radius button center">Elegir productos </a>
 
 <div class="field">
   <%= f.label :saleDate %><br>
@@ -34,7 +34,7 @@
   <%= f.text_field :note %>
 </div>
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit class: "radius button center"%>
 </div>
 <% end %>
 

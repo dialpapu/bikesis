@@ -33,7 +33,6 @@ class EquipmentController < ApplicationController
       @equipment.productId = Equipment.all.count+1
     end
     @equipment.productStatus=true
-    @equipment.productImage="null for now"
     @equipment.productReference=equipment_params[:productReference].upcase
     @equipment.productName=equipment_params[:productName].capitalize
     @equipment.productTradeMark=equipment_params[:productTradeMark].upcase
@@ -85,7 +84,7 @@ def set_equipment
 end
 
 def equipment_params
-  params.require(:equipment).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :size, :gender)
+  params.require(:equipment).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :size, :gender, :image)
 end
 def generateReports(elements)
   pdf = PDF::Writer.new

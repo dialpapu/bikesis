@@ -1,9 +1,7 @@
 <div class="row">
 
   <div class="large-6 columns">
-
-    <img src="http://placehold.it/500x500&text=Image"><br>
-
+      <%= image_tag @bike.image.url%>
   </div>
 
   <div class="large-6 columns">
@@ -13,7 +11,7 @@
     <div class="panel">
       <h4 class="hide-for-small"><%= @bike.productTradeMark %> - <%= @bike.productName %> (<%= @bike.bikeType %>)<hr/></h4>
       <h5 class="subheader"><%= @bike.productDescription %></h5>
-      <h5 class="subheader"><strong>Medidas</strong><%= @bike.measures %></h5>
+      <h5 class="subheader"><strong>Medidas: </strong><%= @bike.measures %></h5>
       <h5 class="subheader"><strong>Precio:</strong> <%= @bike.productPrice %> COP$</h5>
     </div>
 

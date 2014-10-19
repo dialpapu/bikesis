@@ -1,49 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>Productid:</strong>
-  <%= @accesory_part.productId %>
-</p>
+  <div class="large-6 columns">
+      <%= image_tag @accesory_part.image.url%>
+  </div>
 
-<p>
-  <strong>Productreference:</strong>
-  <%= @accesory_part.productReference %>
-</p>
+  <div class="large-6 columns">
 
-<p>
-  <strong>Productname:</strong>
-  <%= @accesory_part.productName %>
-</p>
+    <h3 class="show-for-small">Header<hr/></h3>
 
-<p>
-  <strong>Producttrademark:</strong>
-  <%= @accesory_part.productTradeMark %>
-</p>
+    <div class="panel">
+      <h4 class="hide-for-small"><%= @accesory_part.typeElement %> - <%= @accesory_part.productTradeMark %> - <%= @accesory_part.productName %> <hr/></h4>
+      <h5 class="subheader"><%= @accesory_part.productDescription %></h5>
+      <h5 class="subheader"><strong>Precio:</strong> <%= @accesory_part.productPrice %> COP$</h5>
+    </div>
 
-<p>
-  <strong>Productimage:</strong>
-  <%= @accesory_part.productImage %>
-</p>
+    <div class="row">
+      <div class="large-6 small-6 columns">
+        <div class="panel">
+          <h5>Referencia</h5>
+          <h6 class="subheader"><%= @accesory_part.productReference %></h6>
+          <%= link_to 'Volver', accesory_parts_path , class: "small button radius"%>
+        </div>
+      </div>
 
-<p>
-  <strong>Productprice:</strong>
-  <%= @accesory_part.productPrice %>
-</p>
+      <%if user_signed_in? && current_user.userType == "Seller"%>
+      <div class="large-6 small-6 columns">
+        <div class="panel">
+          <h5>Id - Estado</h5>
+          <h6 class="subheader">
+            <%= @accesory_part.productId %> -
+            <%if @accesory_part.productStatus == true %>
+            Habilitado
+            <%else%>
+            Deshabilitado
+            <%end%>
+          </h6>
+          <%= link_to 'Editar', edit_accesory_part_path(@accesory_part) , class: "small button success radius"%> 
+        </div>
+      </div>
+      <%end%>
+    </div>
 
-<p>
-  <strong>Productstatus:</strong>
-  <%= @accesory_part.productStatus %>
-</p>
+  </div>
 
-<p>
-  <strong>Productdescription:</strong>
-  <%= @accesory_part.productDescription %>
-</p>
+</div>
 
-<p>
-  <strong>Typeelement:</strong>
-  <%= @accesory_part.typeElement %>
-</p>
-
-<%= link_to 'Edit', edit_accesory_part_path(@accesory_part) %> |
-<%= link_to 'Back', accesory_parts_path %>

@@ -31,7 +31,6 @@ class AccesoryPartsController < ApplicationController
       @accesory_part.productId = AccesoryPart.all.count+1
     end
     @accesory_part.productStatus=true
-    @accesory_part.productImage="null for now"
     @accesory_part.productReference=accesory_part_params[:productReference].upcase
     @accesory_part.productName=accesory_part_params[:productName].capitalize
     @accesory_part.productTradeMark=accesory_part_params[:productTradeMark].upcase
@@ -79,7 +78,7 @@ class AccesoryPartsController < ApplicationController
   end
 
   def accesory_part_params
-    params.require(:accesory_part).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :typeElement)
+    params.require(:accesory_part).permit(:productId, :productReference, :productName, :productTradeMark, :image, :productPrice, :productStatus, :productDescription, :typeElement)
   end
   def generateReport(elements)
     pdf = PDF::Writer.new

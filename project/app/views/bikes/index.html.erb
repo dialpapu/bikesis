@@ -60,8 +60,10 @@
         <br>
       </div>
       <br>
-      <%= link_to 'Nueva Bicicleta', new_bike_path , class: "button success radius"%> 
-      <%= link_to 'Generar Reporte', bikes_path(:pdf) , class: "button radius"%>
+      <%= link_to 'Nueva Bicicleta', new_bike_path , class: "radius button center"%> 
+      <%if user_signed_in? && current_user.userType == "Manager"%>
+      <%= link_to 'Generar Reporte', bikes_path(:pdf) , class: "radius button center"%>
+      <% end %>
     </div>
   </div>
   <%end%>

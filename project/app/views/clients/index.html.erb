@@ -19,6 +19,7 @@
               <th>Nombre</th>
               <th>Telefono</th>
               <th>Cumpleaños</th>
+              <th>Correo Electronico</th>
               <th>Publicidad</th>
               <th colspan="3"></th>
             </tr>
@@ -32,6 +33,7 @@
               <td><%= client.personName %> <%= client.lastName %></td>
               <td><%= client.telephone %></td>
               <td><%= client.birthDay %></td>
+              <td><%= client.email %></td>
               <td><%if client.publicity == true%>
                 Permitida
                 <% else %>

@@ -20,4 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+activerecord:
+    models: 
+      user: "Usuario"
+    attributes:
+      user:
+        email: "Correo electronico"
+        username: "Nombre"
+        userLastName: "Nombre"
+        password: "Contraseña"
+    errors:
+      models:
+        user:
+          attributes:
+            source_system_id:
+              blank: "must fill %{attribute}" 
+              taken: " Id User already provisioned"
+            entity_type:
+              inclusion: "should be Customer or User"
+            target_system:
+              inclusion: "should be LOCAL or OPENAM"

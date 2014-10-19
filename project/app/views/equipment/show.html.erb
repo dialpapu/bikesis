@@ -1,54 +1,57 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="row">
 
-<p>
-  <strong>Productid:</strong>
-  <%= @equipment.productId %>
-</p>
+  <div class="large-6 columns">
 
-<p>
-  <strong>Productreference:</strong>
-  <%= @equipment.productReference %>
-</p>
+    <%= image_tag @equipment.image.url%>
 
-<p>
-  <strong>Productname:</strong>
-  <%= @equipment.productName %>
-</p>
+  </div>
 
-<p>
-  <strong>Producttrademark:</strong>
-  <%= @equipment.productTradeMark %>
-</p>
+  <div class="large-6 columns">
 
-<p>
-  <strong>Productimage:</strong>
-  <%= @equipment.productImage %>
-</p>
+    <h3 class="show-for-small">Header<hr/></h3>
 
-<p>
-  <strong>Productprice:</strong>
-  <%= @equipment.productPrice %>
-</p>
+    <div class="panel">
+      <h4 class="hide-for-small"><%= @equipment.productTradeMark %> - <%= @equipment.productName %> <hr/></h4>
+      <h5 class="subheader"><%= @equipment.productDescription %></h5>
+      <h5 class="subheader"><strong>Talla: </strong><%= @equipment.size %></h5>
+      <h5 class="subheader"><strong>Genero: </strong><%= @equipment.gender %></h5>
+      <h5 class="subheader"><strong>Precio:</strong><%= @equipment.productPrice %> COP$</h5>
+    </div>
 
-<p>
-  <strong>Productstatus:</strong>
-  <%= @equipment.productStatus %>
-</p>
+    <div class="row">
+      <div class="large-6 small-6 columns">
+        <div class="panel">
+          <h5>Referencia</h5>
+          <h6 class="subheader"><%= @equipment.productReference %></h6>
+          <%= link_to 'Volver', equipment_index_path , class: "small button radius"%>
+        </div>
+      </div>
 
-<p>
-  <strong>Productdescription:</strong>
-  <%= @equipment.productDescription %>
-</p>
+      <%if user_signed_in? && current_user.userType == "Seller"%>
+      <div class="large-6 small-6 columns">
+        <div class="panel">
+          <h5>Id - Estado</h5>
+          <h6 class="subheader">
+            <%= @equipment.productId %>
+             -
 
-<p>
-  <strong>Size:</strong>
-  <%= @equipment.size %>
-</p>
+            <%if @equipment.productStatus == true %>
+            Habilitado
+            <%else%>
+            Deshabilitado
+            <%end%>
+          </h6>
+          <%= link_to 'Editar', edit_equipment_path(@equipment) , class: "small button success radius"%> 
+        </div>
+      </div>
+      <%end%>
+    </div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @equipment.gender %>
-</p>
+  </div>
 
-<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
-<%= link_to 'Back', equipment_index_path %>
+</div>
+
+
+
+

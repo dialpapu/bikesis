@@ -29,11 +29,7 @@ end
 
 def create
   @seller = Seller.new(seller_params)
-  if Seller.all.nil?
-      @seller.personId=1
-    else
-      @seller.personId = Seller.all.count+1
-    end
+  
   @seller.username=seller_params[:username].titleize
   @seller.userLastName=seller_params[:userLastName].titleize
   @seller.personId= User.all.count+1
@@ -59,7 +55,7 @@ def create
       format.json { render :show, status: :created, location: @seller }
     else
       format.html { render :new }
-      format.json { render json: @sellers.errors, status: :unprocessable_entity }
+      format.json { render json: @seller.errors, status: :unprocessable_entity }
     end
   end
 

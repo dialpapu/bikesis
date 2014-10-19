@@ -34,7 +34,6 @@ class BikesController < ApplicationController
       @bike.productId = Bike.all.count+1
     end
     @bike.productStatus=true
-    @bike.productImage="null for now"
     @bike.productReference= bike_params[:productReference].upcase
     @bike.productName=bike_params[:productName].capitalize
     @bike.productTradeMark=bike_params[:productTradeMark].upcase
@@ -84,7 +83,7 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :measures, :bikeType)
+    params.require(:bike).permit(:productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :measures, :bikeType, :image)
   end
   def generateReports(elements)
     pdf = PDF::Writer.new

@@ -16,7 +16,7 @@
 
  <%= javascript_include_tag "application" %>
 
-<body>
+ <body>
   <div class="fixed sticky">
     <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
       <ul class="title-area">
@@ -159,7 +159,7 @@
       <section class="top-bar-section">
 
         <ul class="right">
-
+          <li><a><%="#{current_user.username} #{current_user.userLastName}"%></a></li>
           <li class="has-dropdown">
             <a href="#">Ventas</a>
             <ul class="dropdown">

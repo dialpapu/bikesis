@@ -53,12 +53,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :saleId %><br>
-    <%= f.number_field :saleId %>
+    <%= f.hidden_field :sale_id, :value => @sale.saleId %>
   </div>
   <div class="field">
-    <%= f.label :productId %><br>
-    <%= f.number_field :productId %>
+    <br>Producto</br>
+    <%= f.collection_select :productId, @sellers, :personId, :dataSellers, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :itemAmount %><br>

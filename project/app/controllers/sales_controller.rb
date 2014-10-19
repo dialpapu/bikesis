@@ -13,6 +13,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @item=Item.new
     @sellers=Seller.all
     @clients=Client.all
     

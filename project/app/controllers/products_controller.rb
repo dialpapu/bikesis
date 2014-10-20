@@ -28,6 +28,10 @@ class ProductsController < ApplicationController
       @product.productId = Product.all.count+1
     end
     @product.productStatus=true
+    @product.productReference= product_params[:productReference].upcase
+    @product.productName=product_params[:productName].capitalize
+    @product.productTradeMark=product_params[:productTradeMark].upcase
+    @product.bikeType=product_params[:bikeType].capitalize
     @product.save
     respond_to do |format|
       if @product.typeProduct == 'EQUIPMENT'

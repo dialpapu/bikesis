@@ -26,28 +26,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-  	@product = Product.new(product_params)
-  	if Product.all.nil?
-  		@product.productId=1
-  	else
-  		@product.productId = product.all.count+1
-  	end
-  	@product.productStatus=true
-  	@product.productReference=product_params[:productReference].upcase
-  	@product.productName=product_params[:productName].capitalize
-  	@product.productTradeMark=product_params[:productTradeMark].upcase
-  	@product.size=product_params[:size].upcase
-  	@product.gender=product_params[:gender].upcase
-  	@product.save
-  	respond_to do |format|
-  		if @product.save
-  			format.html { redirect_to @product, notice: 'Equipacion creada correctamente.' }
-  			format.json { render :show, status: :created, location: @product }
-  		else
-  			format.html { render :new }
-  			format.json { render json: @product.errors, status: :unprocessable_entity }
-  		end
-  	end
+
   end
 
   def update

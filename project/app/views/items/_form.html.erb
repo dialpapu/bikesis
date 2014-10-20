@@ -14,14 +14,16 @@
   <div class="field">
     <%= f.label :saleId %><br>
     <%= f.number_field :saleId %>
+
   </div>
   <div class="field">
-    <%= f.label :productId %><br>
+    Producto<br>
     <%= f.number_field :productId %>
+    <%= f.collection_select :productId, @products, :productId, :productName, include_blank: true, :required =>true %>
   </div>
   <div class="field">
-    <%= f.label :itemAmount %><br>
-    <%= f.number_field :itemAmount %>
+    Cantidades<br>
+    <%= f.number_field :itemAmount, :required =>true %>
   </div>
   <div class="actions">
     <%= f.submit %>

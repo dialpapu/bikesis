@@ -13,25 +13,25 @@
 
 <div class="field">
   <br>Vendedor</br>
-  <%= f.collection_select :sellerId, @sellers, :personId, :dataSellers, include_blank: true %>
+  <%= f.collection_select :sellerId, @sellers, :personId, :dataSellers, include_blank: true, :required =>true %>
 </div>
 
 <div class="field">
   <br>Cliente</br>
   
-  <%= f.collection_select :clientId, @clients, :personId, :dataClients, include_blank: true %>
+  <%= f.collection_select :clientId, @clients, :personId, :dataClients, include_blank: true, :required =>true %>
 </div>
 
 <a href="#" data-reveal-id="elegirProductos" class="radius button center">Elegir productos </a>
 
 <div class="field">
   <%= f.label :saleDate %><br>
-  <%= f.date_select :saleDate %>
+  <%= f.date_select :saleDate, :required =>true%>
 </div>
 
 <div class="field">
   <%= f.label :note %><br>
-  <%= f.text_field :note %>
+  <%= f.text_field :note, :required=>true, :maxlength =>300 %>
 </div>
 <div class="actions">
   <%= f.submit class: "radius button center"%>

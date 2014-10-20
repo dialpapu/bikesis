@@ -75,7 +75,6 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-
   end
 
   def destroy

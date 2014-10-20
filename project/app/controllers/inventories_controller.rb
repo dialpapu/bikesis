@@ -13,6 +13,7 @@ class InventoriesController < ApplicationController
 
   def new
     @inventory = Inventory.new
+    @bikes=Bike.all
     
   end
 
@@ -21,9 +22,10 @@ class InventoriesController < ApplicationController
 
   def create
     @inventory = Inventory.new(inventory_params)
+    @inventory.agregationDate=Time.now
     respond_to do |format|
       if @inventory.save
-        format.html { redirect_to @inventory, notice: 'Inventario fue creado correctamente.' }
+        format.html { redirect_to @inventory, notice: 'Se han agregado correctamente las cantidads al inventario.' }
         format.json { render :show, status: :created, location: @inventory }
       else
         format.html { render :new }
@@ -58,6 +60,6 @@ class InventoriesController < ApplicationController
     end
 
     def inventory_params
-      params.require(:inventory).permit(:productAmount, :productId)
+      params.require(:inventory).permit(:productAmount, :productId, :agregationDate)
     end
 end

@@ -37,8 +37,4 @@ Rails.application.routes.draw do
 
   resources :accesory_parts
 
-  
-
-
-
 end

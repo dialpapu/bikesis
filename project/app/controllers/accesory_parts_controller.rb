@@ -1,10 +1,11 @@
 class AccesoryPartsController < ApplicationController
-before_action :set_accesory_part, only: [:show, :edit, :update, :destroy]
+before_action :set_product, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
 
 before_filter :authenticate_user!
+  
   def index
-  	@product = Product.all
+  	@products = Product.all
   	respond_to do |format|
   		format.html
   		format.pdf do
@@ -73,11 +74,12 @@ before_filter :authenticate_user!
   end
 
   private
-  def set_accesory_part
-    @accesory_part = AccesoryPart.find(params[:id])
+  
+  def set_product
+    @product = Product.find(params[:id])
   end
 
-  def accesory_part_params
+  def product_params
     params.require(:accesory_part).permit(:productId, :productReference, :productName, :productTradeMark, :image, :productPrice, :productStatus, :productDescription, :typeElement)
   end
   def generateReport(elements)

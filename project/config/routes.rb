@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :products
+
   resources :sellers
 
   resources :sellers
@@ -12,11 +14,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'catalog/index'
   
-  resources :bikes
-
-  resources :equipment
-
-  resources :accesory_parts
+  resources :products
 
   resources :inventories
 

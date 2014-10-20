@@ -1,1 +1,0 @@
-json.extract! @equipment, :id, :productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :size, :gender, :created_at, :updated_at

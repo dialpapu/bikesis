@@ -11,23 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019184434) do
-
-  create_table "accesory_parts", force: true do |t|
-    t.integer  "productId",                      null: false
-    t.string   "productReference",   limit: 10,  null: false
-    t.string   "productName",        limit: 50,  null: false
-    t.string   "productTradeMark",   limit: 50,  null: false
-    t.string   "productImage",       limit: 100, null: false
-    t.integer  "productPrice",                   null: false
-    t.boolean  "productStatus",                  null: false
-    t.string   "productDescription", limit: 300, null: false
-    t.string   "typeElement",        limit: 10,  null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141020184336) do
 
   create_table "articles", force: true do |t|
     t.integer "articleId",                  null: false
@@ -36,23 +20,6 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.date    "publicationDate",            null: false
     t.text    "body",                       null: false
     t.text    "summary",                    null: false
-  end
-
-  create_table "bikes", force: true do |t|
-    t.integer  "productId",                      null: false
-    t.string   "productReference",   limit: 10,  null: false
-    t.string   "productName",        limit: 50,  null: false
-    t.string   "productTradeMark",   limit: 50,  null: false
-    t.string   "productImage",       limit: 100, null: false
-    t.integer  "productPrice",                   null: false
-    t.boolean  "productStatus",                  null: false
-    t.string   "productDescription", limit: 300, null: false
-    t.string   "measures",           limit: 50,  null: false
-    t.string   "bikeType",           limit: 50,  null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "clients", force: true do |t|
@@ -73,23 +40,6 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.date    "finalContractDate"
   end
 
-  create_table "equipment", force: true do |t|
-    t.integer  "productId",                      null: false
-    t.string   "productReference",   limit: 10,  null: false
-    t.string   "productName",        limit: 50,  null: false
-    t.string   "productTradeMark",   limit: 50,  null: false
-    t.string   "productImage",       limit: 100, null: false
-    t.integer  "productPrice",                   null: false
-    t.boolean  "productStatus",                  null: false
-    t.string   "productDescription", limit: 300, null: false
-    t.string   "size",               limit: 2,   null: false
-    t.string   "gender",             limit: 1,   null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
   create_table "inventories", force: true do |t|
     t.integer "productAmount",  null: false
     t.integer "productId",      null: false
@@ -100,6 +50,25 @@ ActiveRecord::Schema.define(version: 20141019184434) do
     t.integer "saleId",     null: false
     t.integer "productId",  null: false
     t.integer "itemAmount", null: false
+  end
+
+  create_table "products", force: true do |t|
+    t.integer  "productId",                      null: false
+    t.string   "productReference",   limit: 10,  null: false
+    t.string   "productName",        limit: 50,  null: false
+    t.string   "productTradeMark",   limit: 50,  null: false
+    t.integer  "productPrice",                   null: false
+    t.boolean  "productStatus",                  null: false
+    t.string   "productDescription", limit: 300, null: false
+    t.string   "typeProduct",        limit: 10,  null: false
+    t.string   "measures",           limit: 50
+    t.string   "bikeType",           limit: 50
+    t.string   "size",               limit: 2,   null: false
+    t.string   "gender",             limit: 1,   null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "sales", force: true do |t|

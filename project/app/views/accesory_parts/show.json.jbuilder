@@ -1,1 +1,0 @@
-json.extract! @accesory_part, :id, :productId, :productReference, :productName, :productTradeMark, :productImage, :productPrice, :productStatus, :productDescription, :typeElement, :created_at, :updated_at

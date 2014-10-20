@@ -3,7 +3,7 @@ class InventoriesController < ApplicationController
   respond_to :html, :xml, :json
   before_filter :authenticate_user!
   def index
-    @inventories = Inventory.all
+    @inventories = Product.all
     
   end
 

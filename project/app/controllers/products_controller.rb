@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    @product = Product.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        generateReports(@product)
+      end
+    end
 
   end
 
@@ -116,4 +122,8 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:productId, :productReference, :productName, :productTradeMark, :productPrice, :productStatus, :productDescription, :typeProduct, :measures, :bikeType, :size, :gender, :image)
   end
+
+  def generateReports(elements)
+
+  end 
 end

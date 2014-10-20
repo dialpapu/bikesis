@@ -21,7 +21,7 @@
         <label for="right-label" class="right inline">Documento</label>
       </div>
       <div class="small-9 columns">
-        <%= f.number_field :document, autofocus: true, :required =>true %>
+        <%= f.number_field :document, autofocus: true, :required =>true, :input_html => {:minlength => 10 , maxlength: 25} %>
       </div>
     </div>
   </div>

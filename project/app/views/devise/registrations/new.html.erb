@@ -23,7 +23,7 @@
               <label for="right-label" class="right inline">Nombres</label>
             </div>
             <div class="small-9 columns">
-              <%= f.text_field :username , autofocus: true %>
+              <%= f.text_field :username , autofocus: true, :required =>true,:maxlength =>50 %>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
               <label for="right-label" class="right inline">Apellidos</label>
             </div>
             <div class="small-9 columns">
-              <%= f.text_field :userLastName%>
+              <%= f.text_field :userLastName, :required =>true, :maxlength =>50%>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
               <label for="right-label" class="right inline">Documento de Identificacion</label>
             </div>
             <div class="small-9 columns">
-              <%= f.text_field :document %>
+              <%= f.text_field :document, :minlength =>8, :maxlength =>12 %>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
               <label for="right-label" class="right inline">Numero telefonico</label>
             </div>
             <div class="small-9 columns">
-              <%= f.text_field :telephone%>
+              <%= f.text_field :telephone, :required =>true, :maxlength =>20%>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
               <label for="right-label" class="right inline">Correo electrónico</label>
             </div>
             <div class="small-9 columns">
-              <%= f.email_field :email%>
+              <%= f.email_field :email, :maxlength =>50, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%>
             </div>
           </div>
         </div>

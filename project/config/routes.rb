@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :products
 
   resources :sellers
@@ -27,6 +26,8 @@ Rails.application.routes.draw do
   resources :contract_histories
 
   resources :articles
+
+  resources :equipment
 
   
 

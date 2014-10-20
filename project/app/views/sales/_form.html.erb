@@ -57,7 +57,7 @@
   </div>
   <div class="field">
     <br>Producto</br>
-    <%= f.collection_select :productId, @sellers, :personId, :dataSellers, include_blank: true %>
+    <%= f.collection_select :productId, @bikes, :productId, :productName, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :itemAmount %><br>

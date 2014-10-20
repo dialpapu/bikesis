@@ -13,8 +13,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :measures, :limit=>50
       t.string :bikeType, :limit=>50
       #elementos de equipaciones
-      t.string :size, null: false, :limit=>2
-      t.string :gender, null: false, :limit=>1
+      t.string :size, :limit=>2
+      t.string :gender, :limit=>1
     end
   end
 end

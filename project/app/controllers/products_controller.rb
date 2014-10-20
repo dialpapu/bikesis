@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     @product.productReference= product_params[:productReference].upcase
     @product.productName=product_params[:productName].capitalize
     @product.productTradeMark=product_params[:productTradeMark].upcase
-    @product.bikeType=product_params[:bikeType].capitalize
+    #@product.bikeType=product_params[:bikeType].capitalize
     @product.save
     respond_to do |format|
       if @product.typeProduct == 'EQUIPMENT'
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
       if @product.typeProduct == 'BIKE'
         if @product.save
-          format.html { redirect_to bike_index_path, notice: 'Bicicleta creada correctamente.' }
+          format.html { redirect_to bike_path(@product), notice: 'Bicicleta creada correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :new }
@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
 
       if @product.typeProduct == 'ACCESORY' || @product.typeProduct == 'SPARE'
         if @product.save
-          format.html { redirect_to accesory_part_index_path, notice: 'Accesorio - Repuesto creado correctamente.' }
+          format.html { redirect_to accesory_part_path(@product), notice: 'Accesorio - Repuesto creado correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :new }

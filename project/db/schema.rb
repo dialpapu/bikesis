@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20141020184336) do
     t.string   "typeProduct",        limit: 10,  null: false
     t.string   "measures",           limit: 50
     t.string   "bikeType",           limit: 50
-    t.string   "size",               limit: 2,   null: false
-    t.string   "gender",             limit: 1,   null: false
+    t.string   "size",               limit: 2
+    t.string   "gender",             limit: 1
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

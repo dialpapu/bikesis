@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'accesory_part/index'
-
-  get 'bike/index'
-
-  resources :products
+    resources :products
 
   resources :sellers
 

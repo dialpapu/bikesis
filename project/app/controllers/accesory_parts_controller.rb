@@ -9,7 +9,7 @@ before_filter :authenticate_user!
   	respond_to do |format|
   		format.html
   		format.pdf do
-  			generateReports(@product)
+  			generateReport(@products)
   		end
   	end
   end

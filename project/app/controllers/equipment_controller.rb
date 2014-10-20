@@ -1,5 +1,5 @@
 class EquipmentController < ApplicationController
-before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
 
   before_filter :authenticate_user!

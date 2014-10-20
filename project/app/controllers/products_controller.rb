@@ -5,11 +5,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-  
+
   end
 
   def show
-  
+
   end
 
   def new
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.typeProduct == 'EQUIPMENT'
         if @product.save
-          format.html { redirect_to equipment_path(@product), notice: 'Equipacion creada correctamente.' }
+          format.html { redirect_to equipment_path(@product.productId), notice: 'Equipacion creada correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :template => 'equipment/new' }
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
       if @product.typeProduct == 'BIKE'
         if @product.save
-          format.html { redirect_to bike_path(@product), notice: 'Bicicleta creada correctamente.' }
+          format.html { redirect_to bikes_path(@product.productId), notice: 'Bicicleta creada correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :new }
@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
 
       if @product.typeProduct == 'ACCESORY' || @product.typeProduct == 'SPARE'
         if @product.save
-          format.html { redirect_to accesory_part_path(@product), notice: 'Accesorio - Repuesto creado correctamente.' }
+          format.html { redirect_to accesory_part_path(@product.productId), notice: 'Accesorio - Repuesto creado correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :new }
@@ -73,7 +73,39 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    respond_to do |format|
+      if @product.typeProduct == 'EQUIPMENT'
+        if @product.productStatus==true
+          format.html { redirect_to equipment_index_url, notice: 'Equipacion deshabilitada.' }
+          @product.productStatus=false
+        else
+          format.html { redirect_to equipment_index_url, notice: 'La equipacion ha sido habilitada.' }
+          @product.productStatus=true
+        end
+      end
+
+      if @product.typeProduct == 'BIKE'
+        if @product.productStatus==true
+          format.html { redirect_to bikes_path, notice: 'Equipacion deshabilitada.' }
+          @product.productStatus=false
+        else
+          format.html { redirect_to bikes_path, notice: 'La equipacion ha sido habilitada.' }
+          @product.productStatus=true
+        end
+      end
+
+      if @product.typeProduct == 'ACCESORY'
+        if @product.productStatus==true
+          format.html { redirect_to accesory_parts_path, notice: 'Equipacion deshabilitada.' }
+          @product.productStatus=false
+        else
+          format.html { redirect_to accesory_parts_path, notice: 'La equipacion ha sido habilitada.' }
+          @product.productStatus=true
+        end
+      end
+      format.json { head :no_content }
+    end
+    @product.save
   end
 
   private

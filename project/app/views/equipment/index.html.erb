@@ -30,6 +30,7 @@
 
         <tbody>
           <% @product.each do |product| %>
+          <% if product.typeProduct == 'EQUIPMENT'%>
           <tr>
             <td><%= product.productId %></td>
             <td><%= product.productReference %></td>
@@ -44,14 +45,15 @@
             <td>Femenino</td>
             <%end%>
             <td><%= link_to 'Ver',equipment_path(product), class: "small button success"%>
-            <%= link_to 'Editar', edit_equipment_path(product), class: "small button success" %>
-            <% if product.productStatus == true %>
-            <%= link_to 'Deshabilitar', product, method: :delete, class: "small button alert", data: { confirm: '¿Estas seguro de deshabilitar esta equipacion?' }%>
-            <% else %>
-            <%=link_to "Habilitar", product, method: :delete, class: "small button success"%>
-            <% end %>
-          </td>
+              <%= link_to 'Editar', edit_equipment_path(product), class: "small button success" %>
+              <% if product.productStatus == true %>
+              <%= link_to 'Deshabilitar', product, method: :delete, class: "small button alert", data: { confirm: '¿Estas seguro de deshabilitar esta equipacion?' }%>
+              <% else %>
+              <%=link_to "Habilitar", product, method: :delete, class: "small button success"%>
+              <% end %>
+            </td>
           </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
@@ -60,7 +62,7 @@
 
       <%= link_to 'Nueva equipacion', new_equipment_path , class: "radius button center" %>  
       <%if user_signed_in? && current_user.userType == "Manager"%>
-      <%= link_to 'Generar reporte', equipment_index_path(:pdf),class: "radius button center" %>
+      <%= link_to 'Generar reporte/ARREGLAR', equipment_index_path(:pdf),class: "radius button center" %>
       <% end %>
 
       <br>

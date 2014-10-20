@@ -15,7 +15,11 @@
       <h4 class="hide-for-small"><%= @product.productTradeMark %> - <%= @product.productName %> <hr/></h4>
       <h5 class="subheader"><%= @product.productDescription %></h5>
       <h5 class="subheader"><strong>Talla: </strong><%= @product.size %></h5>
-      <h5 class="subheader"><strong>Genero: </strong><%= @product.gender %></h5>
+      <%if @product.gender=='M'%>
+      <h5 class="subheader"><strong>Genero: </strong>Masculino</h5>
+      <%else%>
+      <h5 class="subheader"><strong>Genero: </strong>Femenino</h5>
+      <%end%>
       <h5 class="subheader"><strong>Precio:</strong><%= @product.productPrice %> COP$</h5>
     </div>
 
@@ -34,7 +38,7 @@
           <h5>Id - Estado</h5>
           <h6 class="subheader">
             <%= @product.productId %>
-             -
+            -
 
             <%if @product.productStatus == true %>
             Habilitado

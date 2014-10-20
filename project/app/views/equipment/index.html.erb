@@ -38,7 +38,11 @@
             <td><%= product.productPrice %></td>
             <td><%= product.productDescription %></td>
             <td><%= product.size %></td>
-            <td><%= product.gender %></td>
+            <%if product.gender=='M'%>
+            <td>Masculino</td>
+            <%else%>
+            <td>Femenino</td>
+            <%end%>
             <td><%= link_to 'Ver',equipment_path(product), class: "small button success"%>
             <%= link_to 'Editar', edit_equipment_path(product), class: "small button success" %>
             <% if product.productStatus == true %>

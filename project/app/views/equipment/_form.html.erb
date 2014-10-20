@@ -25,7 +25,7 @@
         <label for="right-label" class="right inline">Referencia</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productReference , autofocus: true, :required => true, :maxlength => 4 %>
+        <%= f.text_field :productReference , autofocus: true, :required => true, :maxlength => 10 %>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
         <label for="right-label" class="right inline">Nombre de equipación</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productName %>
+        <%= f.text_field :productName, :required =>true, :limit =>50 %>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
         <label for="right-label" class="right inline">Marca</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productTradeMark %>
+        <%= f.text_field :productTradeMark, :required=>true, :limit =>50 %>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
         <label for="right-label" class="right inline">Precio</label>
       </div>
       <div class="small-9 columns">
-        <%= f.number_field :productPrice %>
+        <%= f.number_field :productPrice, :required =>true %>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
         <label for="right-label" class="right inline">Descripción</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productDescription %>
+        <%= f.text_field :productDescription, :required =>true, :limit =>300 %>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
         <label for="right-label" class="right inline">Imagen</label>
       </div>
       <div class="small-9 columns">
-        <%= f.file_field :image %>
+        <%= f.file_field :image, :required =>true %>
       </div>
     </div>
   </div>

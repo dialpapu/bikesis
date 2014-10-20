@@ -18,21 +18,21 @@
   <div class="large-6 columns">
     <h4>TITULO </h4>
     <em><tt>Definir titulo del articulo</tt></em>
-    <%= f.text_field :articleTitle %>
+    <%= f.text_field :articleTitle, :required =>true, :maxlength =>50 %>
   </div>
 </div>
 <div class="row">
   <div class="large-9 columns">
     <h4>RESUMEN</h4>
     <em></em><tt>Escribir un breve resumen de la noticia</tt><em>
-    <%= f.text_area :summary %>
+    <%= f.text_area :summary, :required=>true, :maxlength =>5000%>
   </div>
 </div> 
 <div class="row">
   <div class="large-9 columns">
     <h4>CONTENIDO</h4>
     <em></em><tt>Escribir el cuerpo de la noticia</tt><em>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :required=>true, :maxlength =>10000 %>
   </div>
 </div> 
 <p>            </p>

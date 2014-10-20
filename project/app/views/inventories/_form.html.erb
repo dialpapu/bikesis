@@ -1,26 +1,51 @@
 <%= form_for(@inventory) do |f| %>
-  <% if @inventory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
-
+<% if @inventory.errors.any? %>
+<div class="row">
+  <div class="small-8 large-centered columns">
+    <div data-alert class="alert-box alert radius">
+      <%= pluralize(@inventory.errors.count, "error") %> no permite guardar la información del inventario
       <ul>
-      <% @inventory.errors.full_messages.each do |message| %>
+        <% @inventory.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
+      <a href="#" class="close">&times;</a>
     </div>
-  <% end %>
+  </div>
+</div>
+<% end %>
 
-  
-  <div class="field">
-    <a> Product</a>
-    <%= f.collection_select :productId, @bikes, :productId, :productName, include_blank: true %>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Referencia</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.collection_select :productId, @bikes, :productId, :productName, include_blank: true %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    Cantidad<br>
-    <%= f.number_field :productAmount %>
+</div>
+<br>
+
+<div class="row">
+  <div class="small-8">
+    <div class="row">
+      <div class="small-3 columns">
+        <label for="right-label" class="right inline">Cantidad</label>
+      </div>
+      <div class="small-9 columns">
+        <%= f.number_field :productAmount %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<br>
+
+<div class="row">
+  <div class="small-4 large-centered columns"><%= f.submit "Guardar", class: "button success radius" %>
   </div>
+</div>
 <% end %>

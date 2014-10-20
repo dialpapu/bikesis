@@ -23,7 +23,7 @@
         <label for="right-label" class="right inline">Referencia</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productReference , autofocus: true %>
+        <%= f.text_field :productReference , autofocus: true, :required =>true, :input_html => {:minlength => 8 , maxlength: 10 %>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
         <label for="right-label" class="right inline">Nombre de bicicleta</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productName %>
+        <%= f.text_field :productName , :required =>true, :limit => 50%>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
         <label for="right-label" class="right inline">Marca</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productTradeMark %>
+        <%= f.text_field :productTradeMark , :required=>true, :limit =>50%>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
         <label for="right-label" class="right inline">Precio</label>
       </div>
       <div class="small-9 columns">
-        <%= f.number_field :productPrice %>
+        <%= f.number_field :productPrice , :required =>true , :limit =>50%>
       </div>
     </div>
   </div>
@@ -79,7 +79,7 @@
         <label for="right-label" class="right inline">Descripcion</label>
       </div>
       <div class="small-9 columns">
-        <%= f.text_field :productDescription %>
+        <%= f.text_field :productDescription, :required =>true, :limit =>300 %>
       </div>
     </div>
   </div>

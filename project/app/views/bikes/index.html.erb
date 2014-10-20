@@ -3,7 +3,12 @@
   <p>            </p>
   <div class="row">
     <div class="small-8 large-centered columns">
-      <h1 align="center">Aun no se ha registrado ninguna bicicleta</h1>
+      <h1 align="center">Aun no se ha registrado ninguna bicicletax</h1>
+    </div>
+    <div class="small-2 large-centered columns">
+      <%if user_signed_in? && current_user.userType == "Seller"%>
+      <%= link_to 'Nueva Bicicleta', new_bike_path , class: "radius button center"%> 
+      <% end %>
     </div>
   </div>
   <%else%>
@@ -56,7 +61,10 @@
       <br>
     </div>
     <br>
+    <%if user_signed_in? && current_user.userType == "Seller"%>
     <%= link_to 'Nueva Bicicleta', new_bike_path , class: "radius button center"%> 
+    <% end %>
+
     <%if user_signed_in? && current_user.userType == "Manager"%>
     <%= link_to 'Generar Reporte', bikes_path(:pdf) , class: "radius button center"%>
     <% end %>

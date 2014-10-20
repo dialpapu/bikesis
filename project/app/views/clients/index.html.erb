@@ -4,6 +4,13 @@
     <div class="small-8 large-centered columns">
       <h1 align="center">Aun no se ha registrado ningun cliente</h1>
     </div>
+
+    <div class="small-2 large-centered columns">
+      <% if current_user.userType=='Seller' %> 
+      <%= link_to 'Nuevo Cliente',new_client_path , class: "radius button center" %> 
+      <% end %>
+    </div>
+
     <%else%>
     <div class="row">
       <div class="small-12 large-centered columns">

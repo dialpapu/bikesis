@@ -8,12 +8,12 @@ class InventoriesController < ApplicationController
   end
 
   def show
-    @bike=Bike.find(params[:id])
+    @bike=Product.find(params[:id])
   end
 
   def new
     @inventory = Inventory.new
-    @bikes=Bike.all
+    @bikes=Product.all
     
   end
 
@@ -37,7 +37,7 @@ class InventoriesController < ApplicationController
   def update
     respond_to do |format|
       if @inventory.update(inventory_params)
-        format.html { redirect_to @inventory, notice: 'Inventario modificado satisfactoriamente.' }
+        format.html { redirect_to @inventory, notice: 'El inventario modificado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @inventory }
       else
         format.html { render :edit }
@@ -49,7 +49,7 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory.destroy
     respond_to do |format|
-      format.html { redirect_to inventory_url, notice: 'El registro se ha deshabilitado.' }
+      format.html { redirect_to inventory_url, notice: 'El registro del inventario se ha deshabilitado.' }
       format.json { head :no_content }
     end
   end

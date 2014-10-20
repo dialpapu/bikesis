@@ -1,5 +1,5 @@
 <div class="panel">
-  <%if @product.empty?  %>
+  <%if @products.empty?  %>
   <p>            </p>
   <div class="row">
     <div class="small-8 large-centered columns">
@@ -33,7 +33,7 @@
         </thead>
 
         <tbody>
-          <% @product.each do |product| %>
+          <% @products.each do |product| %>
           <tr>
             <% if product.typeProduct == 'BIKE'%>
             <td><%= product.productId %></td>

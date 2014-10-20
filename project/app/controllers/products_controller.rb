@@ -4,11 +4,11 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @product = Product.all
+    @products = Product.all
     respond_to do |format|
       format.html
       format.pdf do
-        generateReports(@product)
+        generateReports(@products)
       end
     end
 

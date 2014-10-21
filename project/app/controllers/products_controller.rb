@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
       if @product.typeProduct == 'BIKE'
         if @product.save
-          format.html { redirect_to bikes_path(@product.productId), notice: 'Bicicleta creada correctamente.' }
+          format.html { redirect_to bike_path(@product.productId), notice: 'Bicicleta creada correctamente.' }
           format.json { render :show, status: :created, location: @product }
         else
           format.html { render :new }

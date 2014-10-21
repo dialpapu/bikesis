@@ -8,12 +8,12 @@ class InventoriesController < ApplicationController
   end
 
   def show
-    @product=Product.find(params[:id])
+    @bike=Product.find(params[:id])
   end
 
   def new
     @inventory = Inventory.new
-    @products=Product.all
+    @bikes=Product.all
     
   end
 
@@ -53,7 +53,6 @@ class InventoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
     def set_inventory
